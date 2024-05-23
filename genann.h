@@ -39,6 +39,15 @@ extern "C" {
 #define GENANN_RANDOM() (((double)rand())/RAND_MAX)
 #endif
 
+//added times for data printing
+struct times_data {
+    long timestamp;
+    double train_time;
+    double run_time;
+};
+
+extern struct times_data times;
+
 struct genann;
 
 typedef double (*genann_actfun)(const struct genann *ann, double a);
@@ -105,4 +114,4 @@ double genann_act_linear(const genann *ann, double a);
 }
 #endif
 
-#endif /*GENANN_H*/
+#endif /* GENANN_H */

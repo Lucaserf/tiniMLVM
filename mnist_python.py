@@ -23,7 +23,7 @@ model = tf.keras.models.Sequential([
     tf.keras.layers.Input(shape=(28 * 28,)),
     tf.keras.layers.Dense(64, activation='sigmoid'),
     tf.keras.layers.Dense(64, activation='sigmoid'),
-    tf.keras.layers.Dense(10, activation='sigmoid')
+    tf.keras.layers.Dense(10, activation='softmax')
 ])
 
 model.compile(optimizer='adam',
@@ -36,13 +36,13 @@ model.evaluate(x_test, y_test, verbose=2)
 
 
 image = x_test[0]
-plt.imshow(image, cmap='gray')
+plt.imshow(image.reshape(28,28), cmap='gray')
 plt.savefig('mnist.png')
 
 print(model.predict(x_test[:1]))
 
 image = x_test[1]
-plt.imshow(image, cmap='gray')
+plt.imshow(image.reshape(28,28), cmap='gray')
 plt.savefig('mnist_1.png')
 
 print(model.predict(x_test[1:2]))
