@@ -32,6 +32,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#define CPU_FREQUENCY 2.645e9
 
 #ifndef genann_act
 #define genann_act_hidden genann_act_hidden_indirect
@@ -42,6 +43,11 @@
 #endif
 
 #define LOOKUP_SIZE 4096
+
+uint64_t clock_diff2ns(uint64_t start, uint64_t end)
+{
+    return (end - start) * (1e9 / CPU_FREQUENCY);
+}
 
 double genann_act_hidden_indirect(const struct genann *ann, double a)
 {
@@ -311,12 +317,12 @@ void genann_train(genann const *ann, double const *inputs, double const *desired
 {
     /* To begin with, we must run the network forward. */
     // print time to run
-    times.timestamp = time(NULL);
-    clock_t start = clock();
+    uint64_t start, end;
+    start = read_tsc();
     genann_run(ann, inputs);
-    times.run_time = ((double)(clock() - start)) / CLOCKS_PER_SEC;
+    times.run_time = clock_diff2ns(start, read_tsc());
 
-    start = clock();
+    start = read_tsc();
 
     int h, j, k;
 
@@ -437,7 +443,7 @@ void genann_train(genann const *ann, double const *inputs, double const *desired
             ++d;
         }
     }
-    times.train_time = ((double)(clock() - start)) / CLOCKS_PER_SEC;
+    times.train_time = clock_diff2ns(start, read_tsc());
 }
 
 void genann_write(genann const *ann, FILE *out)

@@ -3,6 +3,7 @@
     "files.associations": {
         "genann.h": "c",
         "complex": "c",
-        "valarray": "c"
+        "valarray": "c",
+        "stdio.h": "c"
     }
 }

@@ -1,47 +1,89 @@
+#define _GNU_SOURCE
 #include "genann.h"
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <unistd.h>
 
-#define EPOCHS 100
-#define TRAINING_BATCH 1000
-#define TESTING_BATCH 100
+#include <sys/time.h>
+
 #define INPUT_SIZE 10
-#define TEST_SIZE_PRINT 5
-
-double synthetic_function(double *x)
-{
-    for (int k = 0; k < INPUT_SIZE; k++)
-    {
-        x[k] = (double)rand() / RAND_MAX;
-    }
-
-    return pow(x[0], 2) + 4 * pow(x[1], 2) + pow(x[2], 2) + pow(x[3], 6) + pow(x[4], 2) + pow(x[5], 3) + pow(x[6], 2) + pow(x[7], 3) + 6 * pow(x[8], 2) + pow(x[9], 2);
-}
 
 struct times_data times;
 
+struct metadata
+{
+    double train_feature[INPUT_SIZE];
+    double label[1];
+};
+
+// training from streaming data coming from dataset data.csv
+int get_data(FILE *file, struct metadata *data)
+{
+    char line[1024];
+    char *check = fgets(line, 1024, file);
+    if (check == NULL)
+        return -1;
+
+    char *token = strtok(line, ",");
+    for (int i = 0; i < INPUT_SIZE; i++)
+    {
+        data->train_feature[i] = atof(token);
+        token = strtok(NULL, ",");
+    }
+
+    data->label[0] = atof(token);
+
+    return 0;
+}
+
+#define NSEC_PER_SEC 1000000000LL
+
+long long
+ts2timestamp(struct timespec *tv)
+{
+    return tv->tv_sec * NSEC_PER_SEC + tv->tv_nsec;
+}
+
 int main()
 {
-    times.timestamp = time(NULL);
+    uint64_t start, end;
+
+    struct timespec ts;
+    clock_gettime(CLOCK_MONOTONIC, &ts);
+
+    times.timestamp = ts2timestamp(&ts);
     times.train_time = 0;
     times.run_time = 0;
 
     printf("timestamp,train_time,train_inference_time\n");
-    printf("%ld,%lf,%lf\n", times.timestamp, times.train_time, times.run_time);
+    // printf("%lld,%lf,%lf\n", times.timestamp, times.train_time, times.run_time);
     genann *ann = genann_init(INPUT_SIZE, 2, 64, 1);
     float learning_rate = 0.001;
-    double train_feature[INPUT_SIZE];
-    double train_label[1];
-    for (int i = 0; i < EPOCHS; i++)
+
+    struct metadata data;
+    FILE *file = fopen("data.csv", "r");
+    // skip header
+    char line[1024];
+    char *check = fgets(line, 1024, file);
+
+    for (;;)
     {
-        train_label[0] = synthetic_function(train_feature);
-        times.timestamp = time(NULL);
-        genann_train(ann, train_feature, train_label, learning_rate);
-        printf("%ld,%lf,%lf\n", times.timestamp, times.train_time,
+        clock_gettime(CLOCK_MONOTONIC, &ts);
+        times.timestamp = ts2timestamp(&ts);
+        if (get_data(file, &data) == -1)
+            break;
+        genann_train(ann, data.train_feature, data.label, learning_rate);
+        printf("%lld,%lf,%lf\n", times.timestamp, times.train_time,
                times.run_time);
+        // sleeping for 1ms minus the time taken to train the model
+        clock_gettime(CLOCK_MONOTONIC, &ts);
+        int time_elapsed_us = (int)(ts2timestamp(&ts) - times.timestamp) / 1000;
+        // fprintf(stderr, "time elapsed: %d\n", time_elapsed_us);
+
+        usleep(2000000 - time_elapsed_us);
     }
 
     genann_free(ann);

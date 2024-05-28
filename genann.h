@@ -23,92 +23,101 @@
  *
  */
 
-
 #ifndef GENANN_H
 #define GENANN_H
 
 #include <stdio.h>
+#include <stdint.h>
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #ifndef GENANN_RANDOM
 /* We use the following for uniform random numbers between 0 and 1.
  * If you have a better function, redefine this macro. */
-#define GENANN_RANDOM() (((double)rand())/RAND_MAX)
+#define GENANN_RANDOM() (((double)rand()) / RAND_MAX)
 #endif
 
-//added times for data printing
-struct times_data {
-    long timestamp;
-    double train_time;
-    double run_time;
-};
+    static inline uint64_t read_tsc()
+    {
+        unsigned int lo, hi;
+        __asm__ __volatile__("rdtsc" : "=a"(lo), "=d"(hi));
+        return ((uint64_t)hi << 32) | lo;
+    }
 
-extern struct times_data times;
+    // added times for data printing
+    struct times_data
+    {
+        long long timestamp;
+        double train_time;
+        double run_time;
+    };
 
-struct genann;
+    extern struct times_data times;
 
-typedef double (*genann_actfun)(const struct genann *ann, double a);
+    struct genann;
 
-typedef struct genann {
-    /* How many inputs, outputs, and hidden neurons. */
-    int inputs, hidden_layers, hidden, outputs;
+    typedef double (*genann_actfun)(const struct genann *ann, double a);
 
-    /* Which activation function to use for hidden neurons. Default: gennann_act_sigmoid_cached*/
-    genann_actfun activation_hidden;
+    typedef struct genann
+    {
+        /* How many inputs, outputs, and hidden neurons. */
+        int inputs, hidden_layers, hidden, outputs;
 
-    /* Which activation function to use for output. Default: gennann_act_sigmoid_cached*/
-    genann_actfun activation_output;
+        /* Which activation function to use for hidden neurons. Default: gennann_act_sigmoid_cached*/
+        genann_actfun activation_hidden;
 
-    /* Total number of weights, and size of weights buffer. */
-    int total_weights;
+        /* Which activation function to use for output. Default: gennann_act_sigmoid_cached*/
+        genann_actfun activation_output;
 
-    /* Total number of neurons + inputs and size of output buffer. */
-    int total_neurons;
+        /* Total number of weights, and size of weights buffer. */
+        int total_weights;
 
-    /* All weights (total_weights long). */
-    double *weight;
+        /* Total number of neurons + inputs and size of output buffer. */
+        int total_neurons;
 
-    /* Stores input array and output of each neuron (total_neurons long). */
-    double *output;
+        /* All weights (total_weights long). */
+        double *weight;
 
-    /* Stores delta of each hidden and output neuron (total_neurons - inputs long). */
-    double *delta;
+        /* Stores input array and output of each neuron (total_neurons long). */
+        double *output;
 
-} genann;
+        /* Stores delta of each hidden and output neuron (total_neurons - inputs long). */
+        double *delta;
 
-/* Creates and returns a new ann. */
-genann *genann_init(int inputs, int hidden_layers, int hidden, int outputs);
+    } genann;
 
-/* Creates ANN from file saved with genann_write. */
-genann *genann_read(FILE *in);
+    /* Creates and returns a new ann. */
+    genann *genann_init(int inputs, int hidden_layers, int hidden, int outputs);
 
-/* Sets weights randomly. Called by init. */
-void genann_randomize(genann *ann);
+    /* Creates ANN from file saved with genann_write. */
+    genann *genann_read(FILE *in);
 
-/* Returns a new copy of ann. */
-genann *genann_copy(genann const *ann);
+    /* Sets weights randomly. Called by init. */
+    void genann_randomize(genann *ann);
 
-/* Frees the memory used by an ann. */
-void genann_free(genann *ann);
+    /* Returns a new copy of ann. */
+    genann *genann_copy(genann const *ann);
 
-/* Runs the feedforward algorithm to calculate the ann's output. */
-double const *genann_run(genann const *ann, double const *inputs);
+    /* Frees the memory used by an ann. */
+    void genann_free(genann *ann);
 
-/* Does a single backprop update. */
-void genann_train(genann const *ann, double const *inputs, double const *desired_outputs, double learning_rate);
+    /* Runs the feedforward algorithm to calculate the ann's output. */
+    double const *genann_run(genann const *ann, double const *inputs);
 
-/* Saves the ann. */
-void genann_write(genann const *ann, FILE *out);
+    /* Does a single backprop update. */
+    void genann_train(genann const *ann, double const *inputs, double const *desired_outputs, double learning_rate);
 
-void genann_init_sigmoid_lookup(const genann *ann);
-double genann_act_sigmoid(const genann *ann, double a);
-double genann_act_sigmoid_cached(const genann *ann, double a);
-double genann_act_threshold(const genann *ann, double a);
-double genann_act_linear(const genann *ann, double a);
+    /* Saves the ann. */
+    void genann_write(genann const *ann, FILE *out);
 
+    void genann_init_sigmoid_lookup(const genann *ann);
+    double genann_act_sigmoid(const genann *ann, double a);
+    double genann_act_sigmoid_cached(const genann *ann, double a);
+    double genann_act_threshold(const genann *ann, double a);
+    double genann_act_linear(const genann *ann, double a);
 
 #ifdef __cplusplus
 }

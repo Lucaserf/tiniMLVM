@@ -2,15 +2,8 @@ import numpy as np
 import tensorflow as tf
 import time
 
-epochs = 10  # Number of epochs
 
-
-def synthetic_function():
-    # return non linear formula with 10 features
-    x = np.random.rand(10)
-    a = [1, 4, 1, 1, 1, 1, 6, 1, 1, 1]
-    e = [2, 2, 2, 6, 2, 3, 2, 3, 2, 2]
-    return x, sum([a[i] * x[i] ** e[i] for i in range(10)])
+input_size = 10
 
 
 # defining model class
@@ -18,28 +11,26 @@ class RegressionModel:
     def __init__(self):
         self.model = tf.keras.models.Sequential(
             [
-                tf.keras.layers.Input(shape=(10,)),
+                tf.keras.layers.Input(shape=(input_size,)),
                 tf.keras.layers.Dense(64, activation="sigmoid"),
                 tf.keras.layers.Dense(64, activation="sigmoid"),
                 tf.keras.layers.Dense(1, activation="linear"),
             ]
         )
         self.optimizer = tf.keras.optimizers.Adam()
-        self.time_inference = 0
-        self.time_train = 0
 
     def train_step(self, data, label):
         with tf.GradientTape() as tape:
-            t_start = int(time.time())
+            t_start = time.time_ns()
             data = np.expand_dims(data, axis=0)
             prediction = self.model(data, training=True)
-            self.time_inference = time.time() - t_start
-            t = time.time()
+            time_inference = time.time_ns() - t_start
+            t = time.time_ns()
             loss = tf.reduce_mean(tf.square(label - prediction))
             grads = tape.gradient(loss, self.model.trainable_variables)
             self.optimizer.apply_gradients(zip(grads, self.model.trainable_variables))
-            self.time_train = time.time() - t
-            print("{},{},{}".format(t_start, self.time_train, self.time_inference))
+            time_train = time.time_ns() - t
+            print("{},{},{}".format(t_start, time_train, time_inference))
 
     def predict(self, data):
         t = time.time()
@@ -52,7 +43,7 @@ class RegressionModel:
 # print("initializing the model")
 
 print("timestamp,train_time,train_inference_time")
-print("{},{},{}".format(int(time.time()), 0.0, 0.0))
+# print("{},{},{}".format(int(time.time()), 0.0, 0.0))
 
 model = RegressionModel()
 
@@ -69,8 +60,14 @@ model = RegressionModel()
 # training on samples
 # print("training the model with synthetic data samples")
 
-for epoch in range(epochs):
-    sample, label = synthetic_function()
-    model.train_step(sample, label)
-
-model.predict(np.random.rand(10))
+with open("data.csv", "r") as f:
+    data = f.readline()
+    data = f.readline()
+    while data:
+        t = time.time()
+        data = data.split(",")
+        sample = np.array([float(x) for x in data[:-1]])
+        label = float(data[-1])
+        model.train_step(sample, label)
+        data = f.readline()
+        time.sleep(2 - time.time() + t)
