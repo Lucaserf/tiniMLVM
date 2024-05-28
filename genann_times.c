@@ -58,7 +58,7 @@ int main()
     times.train_time = 0;
     times.run_time = 0;
 
-    printf("timestamp,train_time,train_inference_time\n");
+    printf("timestamp[ns],train_time[ns],train_inference_time[ns]\n");
     // printf("%lld,%lf,%lf\n", times.timestamp, times.train_time, times.run_time);
     genann *ann = genann_init(INPUT_SIZE, 2, 64, 1);
     float learning_rate = 0.001;

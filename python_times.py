@@ -42,7 +42,7 @@ class RegressionModel:
 
 # print("initializing the model")
 
-print("timestamp,train_time,train_inference_time")
+print("timestamp[ns],train_time[ns],train_inference_time[ns]")
 # print("{},{},{}".format(int(time.time()), 0.0, 0.0))
 
 model = RegressionModel()
