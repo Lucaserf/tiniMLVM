@@ -71,3 +71,6 @@ with open("data.csv", "r") as f:
         model.train_step(sample, label)
         data = f.readline()
         time.sleep(2 - time.time() + t)
+
+# save model
+tf.saved_model.save(model.model, "model_tensorflow")

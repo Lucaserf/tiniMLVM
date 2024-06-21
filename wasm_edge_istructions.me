@@ -1,0 +1,20 @@
+# Install WasmEdge-tensorflow
+```shell
+curl -sSf https://raw.githubusercontent.com/WasmEdge/WasmEdge/master/utils/install.sh | bash -s -- --plugins wasi_nn-tensorflowlite
+```
+#install rust
+```shell
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
+restart the system, then run the following command
+```shell
+source $HOME/.cargo/env
+rustup target add wasm32-wasi
+```
+
+#target wasm32-wasi
+```shell
+rustup target add wasm32-wasi
+```
+
