@@ -18,3 +18,11 @@ rustup target add wasm32-wasi
 rustup target add wasm32-wasi
 ```
 
+
+
+#build the project 
+
+cargo build --target wasm32-wasi --release
+
+#run the project
+wasmedge --dir .:. wasmedge-wasinn-example-tflite-bird-image.wasm lite-model_aiy_vision_classifier_birds_V1_3.tflite bird.jpg

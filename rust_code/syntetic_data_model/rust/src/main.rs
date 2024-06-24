@@ -1,9 +1,7 @@
+use std::{env, error::Error, fs};
+use wasi_nn::{ExecutionTarget, GraphBuilder, GraphEncoding, TensorType};
 
-use std::{env,fs,io,error::Error}
-use wasi_nn::{GraphBuilder, GraphEncoding, ExecutionTarget, TensorType};
-
-
-pub fn main() -> Result<(), Box<dyn Error>>{
+pub fn main() -> Result<(), Box<dyn Error>> {
     let args: Vec<String> = env::args().collect();
     let model_bin_name: &str = &args[1];
     let data_point_name: &str = &args[2];
@@ -11,24 +9,33 @@ pub fn main() -> Result<(), Box<dyn Error>>{
     let weights = fs::read(model_bin_name)?;
     println!("Read graph weights, size in bytes: {}", weights.len());
 
-    let graph = GraphBuilder::new(GraphEncoding::TensorflowLite, ExecutionTarget::CPU).build_from_bytes(&[&weights])?;
+    let graph = GraphBuilder::new(GraphEncoding::TensorflowLite, ExecutionTarget::CPU)
+        .build_from_bytes(&[&weights])?;
     let mut ctx = graph.init_execution_context()?;
     println!("Loaded graph into wasi-nn with ID: {}", graph);
 
-    // Load a tensor that precisely matches the graph input tensor from a csv file
-    let mut rdr = csv::Reader::from_reader(io::stdin());
-    for result in rdr.records(){
+    //read data points from csv file
+    println!("Reading data points from csv file: {:?}", data_point_name);
+    let mut rdr = csv::Reader::from_path(data_point_name)?;
+    let mut tensor_data = vec![];
+    for result in rdr.records() {
         let record = result?;
-        let tensor_data = record.iter().map(|x| x.parse::<u8>().unwrap()).collect::<Vec<u8>>();
-        println!("Read input tensor, size in bytes: {}", tensor_data.len());
-        //print tensor_data
-        println!("{:?}", tensor_data);
-        // Pass tensor data into the TFLite runtime
-        ctx.set_input(&tensor_data)?;
-
-        ctx.compute()?;
-
-        let mut output_buffer = vec![0u8; 1];
-        _ = ctx.get_output(&mut output_buffer)?;
+        println!("record: {:?}", record);
+        for value in record.iter() {
+            tensor_data.push(value.parse::<f32>()?);
+        }
     }
+    //print data points
+    println!("tensor data: {:?}", tensor_data);
+    println!("Read input tensor, size in bytes: {}", tensor_data.len());
+    ctx.set_input(0, TensorType::F32, &[1, 10], &tensor_data)?;
+
+    ctx.compute()?;
+
+    let mut output_buffer = vec![0f32; 1];
+    _ = ctx.get_output(0, &mut output_buffer)?;
+
+    println!("Output tensor: {:?}", output_buffer);
+
+    Ok(())
 }
