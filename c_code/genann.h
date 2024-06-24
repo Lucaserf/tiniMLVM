@@ -51,8 +51,8 @@ extern "C"
     struct times_data
     {
         long long timestamp;
-        double train_time;
-        double run_time;
+        int train_time;
+        int run_time;
     };
 
     extern struct times_data times;

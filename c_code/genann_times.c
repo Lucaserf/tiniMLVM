@@ -75,7 +75,7 @@ int main()
         if (get_data(file, &data) == -1)
             break;
         genann_train(ann, data.train_feature, data.label, learning_rate);
-        printf("%lld,%lf,%lf\n", times.timestamp, times.train_time,
+        printf("%lld,%d,%d\n", times.timestamp, times.train_time,
                times.run_time);
         // sleeping for 1ms minus the time taken to train the model
         clock_gettime(CLOCK_MONOTONIC, &ts);
