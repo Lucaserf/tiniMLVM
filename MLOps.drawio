@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-06-26T14:39:50.022Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0" etag="adF-f5PlF6Z3b_arwANe" version="24.6.3" type="github">
+<mxfile host="app.diagrams.net" modified="2024-06-26T14:44:22.979Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0" etag="rvvsc_Bv_6mpegd_XVu3" version="24.6.3" type="github">
   <diagram name="Pagina-1" id="XoBFGh6OX1IV-2UFjDrJ">
     <mxGraphModel dx="956" dy="518" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -8,10 +8,10 @@
           <mxGeometry x="40" y="30" width="320" height="270" as="geometry" />
         </mxCell>
         <mxCell id="06Wwgs4prVSjVDr-wI6p-2" value="data scientist" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1" parent="1">
-          <mxGeometry x="600" y="40" width="170" height="100" as="geometry" />
+          <mxGeometry x="440" y="30" width="170" height="100" as="geometry" />
         </mxCell>
         <mxCell id="06Wwgs4prVSjVDr-wI6p-3" value="&lt;div&gt;manifest file:&lt;/div&gt;- initial data repo&lt;div&gt;- model repo&lt;/div&gt;&lt;div&gt;- training script repo&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="615" y="70" width="145" height="70" as="geometry" />
+          <mxGeometry x="455" y="60" width="145" height="70" as="geometry" />
         </mxCell>
         <mxCell id="06Wwgs4prVSjVDr-wI6p-9" value="wasi_nn versioning provider" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="50" y="60" width="120" height="60" as="geometry" />
