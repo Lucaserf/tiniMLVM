@@ -1,11 +1,104 @@
-<mxfile host="app.diagrams.net" modified="2024-06-26T13:40:28.095Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0" etag="WypFAxUXhDoF53zOaPKH" version="24.6.3" type="github">
+<mxfile host="app.diagrams.net" modified="2024-06-26T14:20:10.253Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0" etag="gyNhrcafnkGs_9LdqkQE" version="24.6.3" type="github">
   <diagram name="Pagina-1" id="XoBFGh6OX1IV-2UFjDrJ">
-    <mxGraphModel dx="1386" dy="751" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="956" dy="518" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="06Wwgs4prVSjVDr-wI6p-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="230" y="90" width="120" height="60" as="geometry" />
+        <mxCell id="06Wwgs4prVSjVDr-wI6p-1" value="Cloud" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="40" y="30" width="320" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="06Wwgs4prVSjVDr-wI6p-2" value="data scientist" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="600" y="40" width="170" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="06Wwgs4prVSjVDr-wI6p-3" value="&lt;div&gt;manifest file:&lt;/div&gt;- initial data repo&lt;div&gt;- model repo&lt;/div&gt;&lt;div&gt;- training script repo&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="615" y="70" width="145" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="06Wwgs4prVSjVDr-wI6p-9" value="wasi_nn versioning provider" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="60" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="06Wwgs4prVSjVDr-wI6p-17" value="wasi_nn versioning provider" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="370" y="540" width="110" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="06Wwgs4prVSjVDr-wI6p-18" value="from a tensorflow model creates an instrumented wasi_nn container and keeps in a persistent volume the versions" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="375" y="570" width="100" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="06Wwgs4prVSjVDr-wI6p-19" value="version deploying provider" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="06Wwgs4prVSjVDr-wI6p-20" value="drift detection and retraining provider" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="60" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="06Wwgs4prVSjVDr-wI6p-21" value="model versions storage" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="230" y="130" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="06Wwgs4prVSjVDr-wI6p-23" value="edge provider" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="220" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="06Wwgs4prVSjVDr-wI6p-25" value="Edge" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="390" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="06Wwgs4prVSjVDr-wI6p-26" value="data&lt;div&gt;storage&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="230" y="220" width="80" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="06Wwgs4prVSjVDr-wI6p-27" value="model versions storage" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="385" y="740" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="06Wwgs4prVSjVDr-wI6p-29" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="06Wwgs4prVSjVDr-wI6p-27" target="06Wwgs4prVSjVDr-wI6p-18">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="420" y="760" as="sourcePoint" />
+            <mxPoint x="470" y="710" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="06Wwgs4prVSjVDr-wI6p-30" value="drift detection and retraining provider" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="500" y="340" width="170" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="06Wwgs4prVSjVDr-wI6p-31" value="version deploying provider" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="560" y="570" width="150" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="06Wwgs4prVSjVDr-wI6p-32" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="06Wwgs4prVSjVDr-wI6p-31" target="06Wwgs4prVSjVDr-wI6p-30">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="710" y="620" as="sourcePoint" />
+            <mxPoint x="760" y="570" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="06Wwgs4prVSjVDr-wI6p-33" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="06Wwgs4prVSjVDr-wI6p-30" target="06Wwgs4prVSjVDr-wI6p-17">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="530" y="610" as="sourcePoint" />
+            <mxPoint x="580" y="560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="06Wwgs4prVSjVDr-wI6p-38" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.022;entryY=0.948;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="06Wwgs4prVSjVDr-wI6p-27" target="06Wwgs4prVSjVDr-wI6p-31">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="490" y="780" as="sourcePoint" />
+            <mxPoint x="570" y="800" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="06Wwgs4prVSjVDr-wI6p-39" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" target="06Wwgs4prVSjVDr-wI6p-31">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="590" y="810" as="sourcePoint" />
+            <mxPoint x="640" y="760" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="06Wwgs4prVSjVDr-wI6p-40" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=0.75;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="06Wwgs4prVSjVDr-wI6p-31">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="670" y="820" as="sourcePoint" />
+            <mxPoint x="710" y="810" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="06Wwgs4prVSjVDr-wI6p-42" value="edge" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="810" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="06Wwgs4prVSjVDr-wI6p-43" value="pod" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="650" y="810" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="06Wwgs4prVSjVDr-wI6p-44" value="1)checks model versions storage and decides how to deploy them based on performance&lt;div&gt;2) exposes instrumented data from wasi_nn containers&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="570" y="590" width="130" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="06Wwgs4prVSjVDr-wI6p-45" value="from data exposed from deployment checks data drift and if needed retrains the model" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="510" y="380" width="150" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="06Wwgs4prVSjVDr-wI6p-46" value="data&lt;div&gt;storage&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="720" y="480" width="80" height="70" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
