@@ -1,17 +1,22 @@
 #define _GNU_SOURCE
-#include "genann.h"
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
 #include <unistd.h>
-
+#include <stdint.h>
 #include <sys/time.h>
+
+// include tensorflow lite
 
 #define INPUT_SIZE 10
 
-struct times_data times;
+struct times_data
+{
+    long long timestamp;
+    int run_time;
+} times;
 
 struct metadata
 {
@@ -55,15 +60,15 @@ int main()
     clock_gettime(CLOCK_MONOTONIC, &ts);
 
     times.timestamp = ts2timestamp(&ts);
-    times.train_time = 0;
     times.run_time = 0;
 
     printf("timestamp[ns],train_time[ns],train_inference_time[ns]\n");
-    genann *ann = genann_init(INPUT_SIZE, 2, 64, 1);
-    float learning_rate = 0.001;
 
+    // load tflite model
+
+    // get input tensor
     struct metadata data;
-    FILE *file = fopen("data.csv", "r");
+    FILE *file = fopen("./../data.csv", "r");
     // skip header
     char line[1024];
     char *check = fgets(line, 1024, file);
@@ -71,20 +76,29 @@ int main()
     for (;;)
     {
         clock_gettime(CLOCK_MONOTONIC, &ts);
-        times.timestamp = ts2timestamp(&ts);
+
         if (get_data(file, &data) == -1)
             break;
-        genann_train(ann, data.train_feature, data.label, learning_rate);
-        printf("%lld,%d,%d\n", times.timestamp, times.train_time,
-               times.run_time);
+        times.timestamp = ts2timestamp(&ts);
+        // set input as data.train_feature
+        for (int i = 0; i < INPUT_SIZE; i++)
+        {
+            interpreter->typed_input_tensor<float>(0)[i] = data.train_feature[i];
+        }
+        // get output
+        interpreter->Invoke();
+
+        float *output = interpreter->typed_output_tensor<float>(0);
+        times.run_time = (int)(ts2timestamp(&ts) - times.timestamp) / 1000;
+
+        printf("%lld,%d\n", times.timestamp, times.run_time);
         // sleeping for 1ms minus the time taken to train the model
         clock_gettime(CLOCK_MONOTONIC, &ts);
-        int time_elapsed_us = (int)(ts2timestamp(&ts) - times.timestamp) / 1000;
+
         // fprintf(stderr, "time elapsed: %d\n", time_elapsed_us);
 
         usleep(2000000 - time_elapsed_us);
     }
 
-    genann_free(ann);
     return 0;
 }
