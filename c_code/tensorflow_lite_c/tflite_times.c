@@ -62,7 +62,7 @@ int main()
     times.timestamp = gettimens();
     times.run_time = 0;
 
-    printf("timestamp[ns],train_inference_time[ns]\n");
+    printf("timestamp[ns],inference_time[ns]\n");
 
     // load tflite model
     TfLiteModel *model = TfLiteModelCreateFromFile("./model.tflite");
@@ -71,6 +71,7 @@ int main()
 
     // create interpreter
     TfLiteInterpreter *interpreter = TfLiteInterpreterCreate(model, options);
+    TfLiteInterpreterAllocateTensors(interpreter);
 
     // get input tensor
     struct metadata data;
@@ -86,7 +87,6 @@ int main()
             break;
         times.timestamp = gettimens();
         // set input as data.train_feature
-        TfLiteInterpreterAllocateTensors(interpreter);
         TfLiteTensor *input_tensor = TfLiteInterpreterGetInputTensor(interpreter, 0);
         TfLiteTensorCopyFromBuffer(input_tensor, data.train_feature, sizeof(data.train_feature));
         // run inference
@@ -106,9 +106,9 @@ int main()
         // usleep(2000000 - time_elapsed_us);
     }
 
-    // TfLiteInterpreterDelete(interpreter);
-    // TfLiteInterpreterOptionsDelete(options);
-    // TfLiteModelDelete(model);
+    TfLiteInterpreterDelete(interpreter);
+    TfLiteInterpreterOptionsDelete(options);
+    TfLiteModelDelete(model);
 
     return 0;
 }
