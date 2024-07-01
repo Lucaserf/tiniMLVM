@@ -15,8 +15,8 @@
 
 struct times_data
 {
-    long long timestamp;
-    int run_time;
+    int64_t timestamp;
+    int64_t run_time;
 } times;
 
 struct metadata
@@ -48,24 +48,29 @@ int get_data(FILE *file, struct metadata *data)
 #define NSEC_PER_SEC 1000000000LL
 
 long long
-ts2timestamp(struct timespec *tv)
+gettimens()
 {
-    return tv->tv_sec * NSEC_PER_SEC + tv->tv_nsec;
+    struct timespec ts;
+    clock_gettime(CLOCK_MONOTONIC, &ts);
+    return ts.tv_sec * NSEC_PER_SEC + ts.tv_nsec;
 }
 
 int main()
 {
     uint64_t start, end;
 
-    struct timespec ts;
-    clock_gettime(CLOCK_MONOTONIC, &ts);
-
-    times.timestamp = ts2timestamp(&ts);
+    times.timestamp = gettimens();
     times.run_time = 0;
 
-    printf("timestamp[ns],train_time[ns],train_inference_time[ns]\n");
+    printf("timestamp[ns],train_inference_time[ns]\n");
 
     // load tflite model
+    TfLiteModel *model = TfLiteModelCreateFromFile("./model.tflite");
+    TfLiteInterpreterOptions *options = TfLiteInterpreterOptionsCreate();
+    // TfLiteInterpreterOptionsSetNumThreads(options, 2);
+
+    // create interpreter
+    TfLiteInterpreter *interpreter = TfLiteInterpreterCreate(model, options);
 
     // get input tensor
     struct metadata data;
@@ -76,23 +81,34 @@ int main()
 
     for (;;)
     {
-        clock_gettime(CLOCK_MONOTONIC, &ts);
 
         if (get_data(file, &data) == -1)
             break;
-        times.timestamp = ts2timestamp(&ts);
+        times.timestamp = gettimens();
         // set input as data.train_feature
+        TfLiteInterpreterAllocateTensors(interpreter);
+        TfLiteTensor *input_tensor = TfLiteInterpreterGetInputTensor(interpreter, 0);
+        TfLiteTensorCopyFromBuffer(input_tensor, data.train_feature, sizeof(data.train_feature));
+        // run inference
+        TfLiteInterpreterInvoke(interpreter);
+        // extract output
+        const TfLiteTensor *output_tensor = TfLiteInterpreterGetOutputTensor(interpreter, 0);
+        TfLiteTensorCopyToBuffer(output_tensor, data.label, sizeof(data.label));
+        // print data.label
 
-        times.run_time = (int)(ts2timestamp(&ts) - times.timestamp) / 1000;
+        times.run_time = gettimens() - times.timestamp;
 
-        printf("%lld,%d\n", times.timestamp, times.run_time);
+        printf("%ld,%ld\n", times.timestamp, times.run_time);
         // sleeping for 1ms minus the time taken to train the model
-        clock_gettime(CLOCK_MONOTONIC, &ts);
 
         // fprintf(stderr, "time elapsed: %d\n", time_elapsed_us);
 
         // usleep(2000000 - time_elapsed_us);
     }
+
+    // TfLiteInterpreterDelete(interpreter);
+    // TfLiteInterpreterOptionsDelete(options);
+    // TfLiteModelDelete(model);
 
     return 0;
 }
