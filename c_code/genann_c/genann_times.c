@@ -42,19 +42,18 @@ int get_data(FILE *file, struct metadata *data)
 #define NSEC_PER_SEC 1000000000LL
 
 long long
-ts2timestamp(struct timespec *tv)
+gettimens()
 {
-    return tv->tv_sec * NSEC_PER_SEC + tv->tv_nsec;
+    struct timespec ts;
+    clock_gettime(CLOCK_MONOTONIC, &ts);
+    return ts.tv_sec * NSEC_PER_SEC + ts.tv_nsec;
 }
 
 int main()
 {
     uint64_t start, end;
 
-    struct timespec ts;
-    clock_gettime(CLOCK_MONOTONIC, &ts);
-
-    times.timestamp = ts2timestamp(&ts);
+    times.timestamp = gettimens();
     times.train_time = 0;
     times.run_time = 0;
 
@@ -70,19 +69,17 @@ int main()
 
     for (;;)
     {
-        clock_gettime(CLOCK_MONOTONIC, &ts);
-        times.timestamp = ts2timestamp(&ts);
         if (get_data(file, &data) == -1)
             break;
+        times.timestamp = gettimens();
         genann_train(ann, data.train_feature, data.label, learning_rate);
-        printf("%lld,%d,%d\n", times.timestamp, times.train_time,
+        printf("%ld,%ld,%ld\n", times.timestamp, times.train_time,
                times.run_time);
         // sleeping for 1ms minus the time taken to train the model
-        clock_gettime(CLOCK_MONOTONIC, &ts);
-        int time_elapsed_us = (int)(ts2timestamp(&ts) - times.timestamp) / 1000;
+        int time_elapsed_us = (int)(gettimens() - times.timestamp);
         // fprintf(stderr, "time elapsed: %d\n", time_elapsed_us);
 
-        usleep(2000000 - time_elapsed_us);
+        // usleep(2000000 - time_elapsed_us);
     }
 
     genann_free(ann);

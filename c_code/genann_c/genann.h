@@ -50,9 +50,9 @@ extern "C"
     // added times for data printing
     struct times_data
     {
-        long long timestamp;
-        int train_time;
-        int run_time;
+        uint64_t timestamp;
+        uint64_t train_time;
+        uint64_t run_time;
     };
 
     extern struct times_data times;
