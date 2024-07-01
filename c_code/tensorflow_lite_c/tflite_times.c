@@ -9,6 +9,7 @@
 #include <sys/time.h>
 
 // include tensorflow lite
+#include "tensorflow/lite/c/c_api.h"
 
 #define INPUT_SIZE 10
 
@@ -81,14 +82,7 @@ int main()
             break;
         times.timestamp = ts2timestamp(&ts);
         // set input as data.train_feature
-        for (int i = 0; i < INPUT_SIZE; i++)
-        {
-            interpreter->typed_input_tensor<float>(0)[i] = data.train_feature[i];
-        }
-        // get output
-        interpreter->Invoke();
 
-        float *output = interpreter->typed_output_tensor<float>(0);
         times.run_time = (int)(ts2timestamp(&ts) - times.timestamp) / 1000;
 
         printf("%lld,%d\n", times.timestamp, times.run_time);
@@ -97,7 +91,7 @@ int main()
 
         // fprintf(stderr, "time elapsed: %d\n", time_elapsed_us);
 
-        usleep(2000000 - time_elapsed_us);
+        // usleep(2000000 - time_elapsed_us);
     }
 
     return 0;

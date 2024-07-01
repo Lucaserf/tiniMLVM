@@ -1,7 +1,9 @@
 cmake_minimum_required(VERSION 3.16)
-project(minimal C CXX)
+project(tflite_times C)
 
-set(TENSORFLOW_SOURCE_DIR "~/tensorflow_src" CACHE PATH
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
+
+set(TENSORFLOW_SOURCE_DIR "" CACHE PATH
   "Directory that contains the TensorFlow project" )
 if(NOT TENSORFLOW_SOURCE_DIR)
   get_filename_component(TENSORFLOW_SOURCE_DIR
@@ -12,5 +14,5 @@ add_subdirectory(
   "${TENSORFLOW_SOURCE_DIR}/tensorflow/lite"
   "${CMAKE_CURRENT_BINARY_DIR}/tensorflow-lite" EXCLUDE_FROM_ALL)
 
-add_executable(minimal minimal.cc)
-target_link_libraries(minimal tensorflow-lite)
+add_executable(tflite_times tflite_times.c)
+target_link_libraries(tflite_times tensorflow-lite)
