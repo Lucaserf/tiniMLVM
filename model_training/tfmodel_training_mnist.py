@@ -2,8 +2,6 @@ import numpy as np
 import tensorflow as tf
 import os
 
-# mnist model training
-
 
 # defining model class
 class MnistModel:
@@ -80,3 +78,6 @@ tf.saved_model.save(mnist_model.model, "mnist_model_tf")
 
 # delete the .keras model
 os.remove(chkpt)
+
+# save test data as csv
+np.savetxt("x_test.csv", x_val.reshape(-1, 28 * 28), delimiter=",")

@@ -16,8 +16,9 @@ with open("./mnist_test/x_test.csv", "r") as f:
     data = f.readline()
     while data:
         # format the data as mnist image
-        sample = np.array(data.split(","), dtype=np.float32).reshape(1, 28, 28, 1)
+
         t = time.time_ns()
+        sample = np.array(data.split(","), dtype=np.float32).reshape(1, 28, 28, 1)
         interpreter.set_tensor(input_details["index"], sample)
         interpreter.invoke()
         output = interpreter.get_tensor(output_details["index"])

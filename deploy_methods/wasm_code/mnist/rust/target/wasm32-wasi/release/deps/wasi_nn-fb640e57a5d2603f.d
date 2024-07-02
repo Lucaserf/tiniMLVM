@@ -1,0 +1,11 @@
+/home/lucaserf/tiniMLVM/deploy_methods/wasm_code/mnist/rust/target/wasm32-wasi/release/deps/libwasi_nn-fb640e57a5d2603f.rmeta: /home/lucaserf/.cargo/registry/src/index.crates.io-6f17d22bba15001f/wasi-nn-0.4.0/src/lib.rs /home/lucaserf/.cargo/registry/src/index.crates.io-6f17d22bba15001f/wasi-nn-0.4.0/src/generated.rs /home/lucaserf/.cargo/registry/src/index.crates.io-6f17d22bba15001f/wasi-nn-0.4.0/src/error.rs /home/lucaserf/.cargo/registry/src/index.crates.io-6f17d22bba15001f/wasi-nn-0.4.0/src/graph.rs /home/lucaserf/.cargo/registry/src/index.crates.io-6f17d22bba15001f/wasi-nn-0.4.0/src/tensor.rs
+
+/home/lucaserf/tiniMLVM/deploy_methods/wasm_code/mnist/rust/target/wasm32-wasi/release/deps/libwasi_nn-fb640e57a5d2603f.rlib: /home/lucaserf/.cargo/registry/src/index.crates.io-6f17d22bba15001f/wasi-nn-0.4.0/src/lib.rs /home/lucaserf/.cargo/registry/src/index.crates.io-6f17d22bba15001f/wasi-nn-0.4.0/src/generated.rs /home/lucaserf/.cargo/registry/src/index.crates.io-6f17d22bba15001f/wasi-nn-0.4.0/src/error.rs /home/lucaserf/.cargo/registry/src/index.crates.io-6f17d22bba15001f/wasi-nn-0.4.0/src/graph.rs /home/lucaserf/.cargo/registry/src/index.crates.io-6f17d22bba15001f/wasi-nn-0.4.0/src/tensor.rs
+
+/home/lucaserf/tiniMLVM/deploy_methods/wasm_code/mnist/rust/target/wasm32-wasi/release/deps/wasi_nn-fb640e57a5d2603f.d: /home/lucaserf/.cargo/registry/src/index.crates.io-6f17d22bba15001f/wasi-nn-0.4.0/src/lib.rs /home/lucaserf/.cargo/registry/src/index.crates.io-6f17d22bba15001f/wasi-nn-0.4.0/src/generated.rs /home/lucaserf/.cargo/registry/src/index.crates.io-6f17d22bba15001f/wasi-nn-0.4.0/src/error.rs /home/lucaserf/.cargo/registry/src/index.crates.io-6f17d22bba15001f/wasi-nn-0.4.0/src/graph.rs /home/lucaserf/.cargo/registry/src/index.crates.io-6f17d22bba15001f/wasi-nn-0.4.0/src/tensor.rs
+
+/home/lucaserf/.cargo/registry/src/index.crates.io-6f17d22bba15001f/wasi-nn-0.4.0/src/lib.rs:
+/home/lucaserf/.cargo/registry/src/index.crates.io-6f17d22bba15001f/wasi-nn-0.4.0/src/generated.rs:
+/home/lucaserf/.cargo/registry/src/index.crates.io-6f17d22bba15001f/wasi-nn-0.4.0/src/error.rs:
+/home/lucaserf/.cargo/registry/src/index.crates.io-6f17d22bba15001f/wasi-nn-0.4.0/src/graph.rs:
+/home/lucaserf/.cargo/registry/src/index.crates.io-6f17d22bba15001f/wasi-nn-0.4.0/src/tensor.rs:
