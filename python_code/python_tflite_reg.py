@@ -5,7 +5,7 @@ import numpy as np
 print("timestamp[ns],inference_time[ns]")
 
 # tf lite model
-interpreter = tf.lite.Interpreter(model_path="model.tflite")
+interpreter = tf.lite.Interpreter(model_path="model_reg.tflite")
 interpreter.allocate_tensors()
 
 input_details = interpreter.get_input_details()[0]

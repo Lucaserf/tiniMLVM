@@ -18,7 +18,7 @@ pub fn main() -> Result<(), Box<dyn Error>> {
     //read data points from csv file
     // println!("Reading data points from csv file: {:?}", data_point_name);
 
-    println!("timestamp[ns], inference_time[ns]");
+    println!("timestamp[ns],inference_time[ns]");
     let mut rdr = csv::Reader::from_path(data_point_name)?;
     for result in rdr.records() {
         let mut tensor_data = Vec::new();
