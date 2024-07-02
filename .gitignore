@@ -2,3 +2,4 @@ WasmEdge-WASINN-examples
 .venv
 .vscode
 build
+mnist_test/x_test.csv
