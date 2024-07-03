@@ -55,27 +55,28 @@ gettimens()
     return ts.tv_sec * NSEC_PER_SEC + ts.tv_nsec;
 }
 
-int main()
+int main(int argc, char *argv[])
 {
     uint64_t start, end;
-
-    times.timestamp = gettimens();
-    times.run_time = 0;
-
     printf("timestamp[ns],inference_time[ns]\n");
 
+    const char *model_path = argv[1];
+
     // load tflite model
-    TfLiteModel *model = TfLiteModelCreateFromFile("./tflite_models/model_mnist.tflite");
+    TfLiteModel *model = TfLiteModelCreateFromFile(model_path);
     TfLiteInterpreterOptions *options = TfLiteInterpreterOptionsCreate();
     // TfLiteInterpreterOptionsSetNumThreads(options, 2);
 
     // create interpreter
     TfLiteInterpreter *interpreter = TfLiteInterpreterCreate(model, options);
     TfLiteInterpreterAllocateTensors(interpreter);
+    TfLiteTensor *input_tensor = TfLiteInterpreterGetInputTensor(interpreter, 0);
 
     // get input tensor
     struct metadata data;
     FILE *file = fopen("./mnist_test/x_test.csv", "r");
+    const int input_size = sizeof(data.train_feature);
+    const int output_size = sizeof(data.label);
 
     for (;;)
     {
@@ -84,13 +85,12 @@ int main()
 
         times.timestamp = gettimens();
         // set input as data.train_feature
-        TfLiteTensor *input_tensor = TfLiteInterpreterGetInputTensor(interpreter, 0);
-        TfLiteTensorCopyFromBuffer(input_tensor, data.train_feature, sizeof(data.train_feature));
+        TfLiteTensorCopyFromBuffer(input_tensor, data.train_feature, input_size);
         // run inference
         TfLiteInterpreterInvoke(interpreter);
         // extract output
         const TfLiteTensor *output_tensor = TfLiteInterpreterGetOutputTensor(interpreter, 0);
-        TfLiteTensorCopyToBuffer(output_tensor, data.label, sizeof(data.label));
+        TfLiteTensorCopyToBuffer(output_tensor, data.label, output_size);
         // print data.label
 
         times.run_time = gettimens() - times.timestamp;

@@ -1,5 +1,6 @@
 import tensorflow as tf
 import argparse
+import os
 
 # get model path from arguments
 parser = argparse.ArgumentParser()
@@ -14,5 +15,6 @@ model_name = args.model_name
 converter = tf.lite.TFLiteConverter.from_saved_model(model_path)
 tflite_model = converter.convert()
 
-with open(model_name + ".tflite", "wb") as f:
+
+with open("./tflite_models/" + model_name + ".tflite", "wb") as f:
     f.write(tflite_model)

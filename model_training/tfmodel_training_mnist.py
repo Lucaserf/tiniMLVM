@@ -1,27 +1,65 @@
 import numpy as np
 import tensorflow as tf
-import os
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--type_model", type=str, default="dense")
+args = parser.parse_args()
+type_model = args.type_model
 
 
 # defining model class
 class MnistModel:
     def __init__(self):
-        self.model = tf.keras.models.Sequential(
-            [
-                tf.keras.layers.Input(shape=(28, 28, 1)),
-                tf.keras.layers.Conv2D(
-                    32,
-                    kernel_size=(3, 3),
-                    activation="relu",
-                ),
-                tf.keras.layers.MaxPooling2D(pool_size=(2, 2)),
-                tf.keras.layers.Conv2D(64, kernel_size=(3, 3), activation="relu"),
-                tf.keras.layers.MaxPooling2D(pool_size=(2, 2)),
-                tf.keras.layers.Flatten(),
-                tf.keras.layers.Dense(128, activation="relu"),
-                tf.keras.layers.Dense(10, activation="softmax"),
-            ]
-        )
+        if type_model == "large":
+            ## 225034 params
+            self.model = tf.keras.models.Sequential(
+                [
+                    tf.keras.layers.Input(shape=(28, 28, 1)),
+                    tf.keras.layers.Conv2D(
+                        32,
+                        kernel_size=(3, 3),
+                        activation="relu",
+                    ),
+                    tf.keras.layers.MaxPooling2D(pool_size=(2, 2)),
+                    tf.keras.layers.Conv2D(64, kernel_size=(3, 3), activation="relu"),
+                    tf.keras.layers.MaxPooling2D(pool_size=(2, 2)),
+                    tf.keras.layers.Flatten(),
+                    tf.keras.layers.Dense(128, activation="relu"),
+                    tf.keras.layers.Dense(10, activation="softmax"),
+                ]
+            )
+
+        if type_model == "small":
+            ## 56714 params
+            self.model = tf.keras.models.Sequential(
+                [
+                    tf.keras.layers.Input(shape=(28, 28, 1)),
+                    tf.keras.layers.Conv2D(
+                        16,
+                        kernel_size=(3, 3),
+                        activation="relu",
+                    ),
+                    tf.keras.layers.MaxPooling2D(pool_size=(2, 2)),
+                    tf.keras.layers.Conv2D(32, kernel_size=(3, 3), activation="relu"),
+                    tf.keras.layers.MaxPooling2D(pool_size=(2, 2)),
+                    tf.keras.layers.Flatten(),
+                    tf.keras.layers.Dense(64, activation="relu"),
+                    tf.keras.layers.Dense(10, activation="softmax"),
+                ]
+            )
+        if type_model == "dense":
+            ## model with Dense layers, params 109386
+            self.model = tf.keras.models.Sequential(
+                [
+                    tf.keras.layers.Input(shape=(28, 28, 1)),
+                    tf.keras.layers.Flatten(),
+                    tf.keras.layers.Dense(128, activation="relu"),
+                    tf.keras.layers.Dense(64, activation="relu"),
+                    tf.keras.layers.Dense(10, activation="softmax"),
+                ]
+            )
+
         self.optimizer = tf.keras.optimizers.Adam()
 
     def train_step(self, data, label):
@@ -49,7 +87,7 @@ x_val = np.expand_dims(x_val, axis=-1)
 mnist_model = MnistModel()
 
 
-chkpt = "mnist_model.h5"
+chkpt = f"tf_models/mnist_model_{type_model}.h5"
 # training the model with callback on validation data
 es_cb = tf.keras.callbacks.EarlyStopping(
     monitor="val_loss", patience=2, verbose=1, mode="auto"
@@ -74,10 +112,7 @@ mnist_model.model.fit(
 mnist_model.model = tf.keras.models.load_model(chkpt)
 
 # save the model
-tf.saved_model.save(mnist_model.model, "mnist_model_tf")
-
-# delete the .keras model
-os.remove(chkpt)
+tf.saved_model.save(mnist_model.model, f"./tf_models/mnist_model_tf_{type_model}")
 
 # save test data as csv
-np.savetxt("x_test.csv", x_val.reshape(-1, 28 * 28), delimiter=",")
+# np.savetxt("x_test.csv", x_val.reshape(-1, 28 * 28), delimiter=",")
