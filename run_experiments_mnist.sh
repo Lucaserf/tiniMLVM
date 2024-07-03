@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Description: This script runs the experiments for the MNIST dataset.
-model_type="large"
+model_type=$1
 
 model_path="tflite_models/model_mnist_$model_type.tflite"
 
