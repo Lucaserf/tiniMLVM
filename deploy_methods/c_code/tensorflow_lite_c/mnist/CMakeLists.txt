@@ -3,8 +3,10 @@ project(tflite_times C CXX)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 
-set(TENSORFLOW_SOURCE_DIR "/home/lucaserf/tensorflow_src" CACHE PATH
-  "Directory that contains the TensorFlow project" )
+set(HOME $ENV{HOME})
+
+set(TENSORFLOW_SOURCE_DIR "${HOME}/tensorflow_src")
+
 if(NOT TENSORFLOW_SOURCE_DIR)
   get_filename_component(TENSORFLOW_SOURCE_DIR
     "${CMAKE_CURRENT_LIST_DIR}/../../../../" ABSOLUTE)

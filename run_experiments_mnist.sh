@@ -10,7 +10,9 @@ python deploy_methods/python_code/python_tflite_mnist.py --model_path $model_pat
 
 # sudo perf record -p $(pgrep -f deploy_methods/python_code/python_tflite_mnist.py) -g -- sleep 30
 
-# #wasm
-# bash deploy_methods/wasm_code/mnist/br_wasm_mnist.sh $model_path $model_type
-# #c++
-# bash deploy_methods/c_code/tensorflow_lite_c/mnist/run_tensorflow_lite.sh $model_path $model_type
+#wasm
+bash deploy_methods/wasm_code/mnist/br_wasm_mnist.sh $model_path $model_type
+#c++
+bash deploy_methods/c_code/tensorflow_lite_c/mnist/run_tensorflow_lite.sh $model_path $model_type
+
+
