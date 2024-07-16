@@ -1,12 +1,16 @@
 #!/bin/bash
 
 # Description: This script runs the experiments for the MNIST dataset.
-model_type=$1
+model_type=$1 #small, large, dense
 
 model_path="tflite_models/model_mnist_$model_type.tflite"
+onnx_model_path="onnx_models/model_mnist_$model_type.onnx"
 
 #python
 python deploy_methods/python_code/python_tflite_mnist.py --model_path $model_path > mnist_test/tflite_python_inftime_mnist_$model_type.csv
+
+#onnx
+python deploy_methods/python_code/python_onnx_mnist.py --model_path $onnx_model_path > mnist_test/onnx_python_inftime_mnist_$model_type.csv
 
 # get performance data from python
 

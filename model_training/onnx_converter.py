@@ -21,6 +21,8 @@ config = model.get_config()
 input_shape = model.layers[0].input_shape
 input_dtype = model.layers[0].input.dtype
 input_name = model.layers[0].input.name
+
+# right now it works only for models with one input
 spec = (tf.TensorSpec(shape=input_shape, dtype=input_dtype, name=input_name),)
 saving_path = "./onnx_models/" + model_name + ".onnx"
 
