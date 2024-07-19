@@ -7,7 +7,15 @@
         "stdio.h": "c",
         "cstdint": "c",
         "stdlib.h": "c",
-        "c_api.h": "c"
+        "c_api.h": "c",
+        "*.inc": "c",
+        "array": "c",
+        "span": "c",
+        "string": "c",
+        "string_view": "c",
+        "vector": "c",
+        "alignedvector3": "c",
+        "ranges": "c"
     },
     "cmake.sourceDirectory": "/home/lucaserf/tiniMLVM/.venv/lib/python3.10/site-packages/tensorflow/include/third_party/gpus/cuda/include/cuda/std/detail/libcxx/include"
 }

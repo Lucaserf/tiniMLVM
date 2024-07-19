@@ -3,16 +3,24 @@
 #include <math.h>
 
 #define INPUT_SIZE 10
-#define DATASET_SIZE 50
+#define DATASET_SIZE 1e5
+#define MAX_VALUE 7
+#define MIN_VALUE 4
 
 double synthetic_function(double *x)
 {
     for (int k = 0; k < INPUT_SIZE; k++)
     {
-        x[k] = (double)rand() / RAND_MAX;
+        x[k] = MIN_VALUE + (MAX_VALUE - MIN_VALUE) * ((double)rand() / RAND_MAX);
     }
-
-    return pow(x[0], 2) + 4 * pow(x[1], 2) + pow(x[2], 2) + pow(x[3], 6) + pow(x[4], 2) + pow(x[5], 3) + pow(x[6], 2) + pow(x[7], 3) + 6 * pow(x[8], 2) + pow(x[9], 2);
+    double exps[INPUT_SIZE] = {1.5, 1.1, 1, 1.9, 1, 3, 2, 1.7, 1.2, 1};
+    double as[INPUT_SIZE] = {5, 3, 1, 1, 0, 0, 5, 4, 7, 2};
+    double result = 0;
+    for (int i = 0; i < INPUT_SIZE; i++)
+    {
+        result += as[i] * pow(x[i], exps[i]);
+    }
+    return result;
 }
 
 int main()

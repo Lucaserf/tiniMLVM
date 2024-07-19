@@ -60,7 +60,7 @@ model = RegressionModel()
 # training on samples
 # print("training the model with synthetic data samples")
 
-with open("data.csv", "r") as f:
+with open("./regression_test/data.csv", "r") as f:
     data = f.readline()
     data = f.readline()
     while data:
@@ -72,4 +72,7 @@ with open("data.csv", "r") as f:
         data = f.readline()
 
 # save model
-tf.saved_model.save(model.model, "model_tensorflow")
+tf.saved_model.save(model.model, "tf_models/regression_model_tf")
+
+# save .keras model
+model.model.save("tf_models/regression_model.keras")
