@@ -17,8 +17,8 @@ spec:
     spec:   
       containers:
       - env:
-        - name: MODEL_TYPE
-            value: large
+        - name: MODEL_NAME
+            value: model_regression.tflite
         image: lucaserf/python_tflite:latest
         imagePullPolicy: Always   
         name: python_tflite  

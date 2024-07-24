@@ -4,8 +4,8 @@
 
 #define INPUT_SIZE 10
 #define DATASET_SIZE 1e5
-#define MAX_VALUE 7
-#define MIN_VALUE 4
+#define MAX_VALUE 8
+#define MIN_VALUE 6
 
 double synthetic_function(double *x)
 {
