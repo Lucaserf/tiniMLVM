@@ -1,26 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: python_tflite_deploy
+  name: python-tflite-deploy
   labels:
-    app: python_tflite
+    app: python-tflite
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: python_tflite
+      app: python-tflite
   template:
     metadata:
-      name: python_tflite   
-      labels:   
-        app: python_tflite   
-    spec:   
+      name: python-tflite
+      labels:
+        app: python-tflite
+    spec:
       containers:
-      - env:
-        - name: MODEL_NAME
-            value: model_regression.tflite
-        image: lucaserf/python_tflite:latest
-        imagePullPolicy: Always   
-        name: python_tflite  
-        
-       
+        - env:
+            - name: MODEL_NAME
+              value: model_regression.tflite
+          image: lucaserf/python_tflite:latest
+          imagePullPolicy: Always
+          name: python-tflite

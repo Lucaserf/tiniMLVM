@@ -6,3 +6,4 @@ mnist_test/x_test.csv
 Debug/
 Release/
 lite_venv/
+drift_venv/

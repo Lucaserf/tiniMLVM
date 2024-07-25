@@ -15,7 +15,11 @@ parameters = {
     "broker_address": "as-sensiblecity1.cloudmmwunibo.it",
     "topic_name": "test",
     "batch_size": 100,
+    "alpha_p_value": 0.001,
+    "length_new_data": 10000,
 }
+
+data_folder = "/var/data"
 
 
 def on_subscribe(client, userdata, mid, reason_code_list, properties):
@@ -75,9 +79,7 @@ def data_preprocessing(data):
 
 
 # get original training data
-df_ref = pd.read_csv("./drift_detection/docker_drift_detection/app/data.csv").drop(
-    columns=["y"]
-)
+df_ref = pd.read_csv("./app/reference.csv").drop(columns=["y"]).values
 
 
 # get input data from MQTT
@@ -88,6 +90,19 @@ while True:
     mqttc.loop_forever()
     t = time.time_ns()
     datax, datay = data_preprocessing(mqttc.user_data_get())
-
+    # calculate Kolmogorov-Smirnov distance
     ks = ks_2samp(df_ref, datax)
-    print(f"{t},{ks}")
+    drift = [ks_p < parameters["alpha_p_value"] for ks_p in ks.pvalue]
+    at_least_one_drift = any(drift)
+    print(f"{t},{ks.pvalue},{at_least_one_drift}")
+
+    # save data to file for retraining
+
+    data_to_save = np.concatenate((datax, datay[:, np.newaxis]), axis=1)
+    # save data with 5 decimal points
+    if at_least_one_drift:
+        with open(f"{data_folder}/drift_data.csv", "a") as f:
+            f.write(
+                "\n".join([",".join([f"{x:.5f}" for x in row]) for row in data_to_save])
+                + "\n"
+            )

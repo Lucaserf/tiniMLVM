@@ -1,13 +1,14 @@
 import tflite_runtime.interpreter as tflite
 import time
 import numpy as np
-import os
+import os, sys
 import logging
 
 import paho.mqtt.client as mqtt
 
 root = logging.getLogger()
 root.setLevel(logging.INFO)
+
 
 parameters = {
     "broker_address": "as-sensiblecity1.cloudmmwunibo.it",
@@ -68,13 +69,12 @@ print("timestamp[ns],inference_time[ns]")
 
 # get environment variables
 model_name = os.environ.get("MODEL_NAME")
-model_path = f"./models/{model_name}"
+model_path = f"./app/models/{model_name}"
 
 
 # tf lite model
 interpreter = tflite.Interpreter(model_path=model_path)
 interpreter.allocate_tensors()
-
 input_details = interpreter.get_input_details()[0]
 output_details = interpreter.get_output_details()[0]
 
@@ -104,3 +104,5 @@ while True:
         interpreter.invoke()
         output = interpreter.get_tensor(output_details["index"])
         print("{},{}".format(time.time_ns(), time.time_ns() - t))
+
+    # save data only if drifting is detected for a parametrized number of times

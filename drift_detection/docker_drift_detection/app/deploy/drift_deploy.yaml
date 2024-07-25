@@ -1,26 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: python_tflite_deploy
+  name: drift-deploy
   labels:
-    app: python_tflite
+    app: drift-detection
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: python_tflite
+      app: drift-detection
   template:
     metadata:
-      name: python_tflite   
-      labels:   
-        app: python_tflite   
-    spec:   
+      name: drift-detection
+      labels:
+        app: drift-detection
+    spec:
       containers:
-      - env:
-        - name: MODEL_NAME
-            value: model_regression.tflite
-        image: lucaserf/python_tflite:latest
-        imagePullPolicy: Always   
-        name: python_tflite  
-        
-       
+        - env:
+          image: lucaserf/drift_detection:latest
+          imagePullPolicy: Always
+          name: drift-detection
+          volumeMounts:
+            - name: data-volume
+              mountPath: /var/data/
+      volumes:
+        - name: data-volume
+          persistentVolumeClaim:
+            claimName: data-pvc
