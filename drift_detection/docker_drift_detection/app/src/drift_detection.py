@@ -16,10 +16,9 @@ parameters = {
     "topic_name": "test",
     "batch_size": 100,
     "alpha_p_value": 0.001,
-    "length_new_data": 10000,
 }
 
-data_folder = "/var/data"
+data_folder = "/var/data/"
 
 
 def on_subscribe(client, userdata, mid, reason_code_list, properties):
@@ -101,7 +100,7 @@ while True:
     data_to_save = np.concatenate((datax, datay[:, np.newaxis]), axis=1)
     # save data with 5 decimal points
     if at_least_one_drift:
-        with open(f"{data_folder}/drift_data.csv", "a") as f:
+        with open(f"{data_folder}drift_data.csv", "a") as f:
             f.write(
                 "\n".join([",".join([f"{x:.5f}" for x in row]) for row in data_to_save])
                 + "\n"

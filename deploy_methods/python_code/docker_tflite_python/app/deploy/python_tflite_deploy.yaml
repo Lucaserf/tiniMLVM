@@ -22,3 +22,10 @@ spec:
           image: lucaserf/python_tflite:latest
           imagePullPolicy: Always
           name: python-tflite
+          volumeMounts:
+            - name: data-volume
+              mountPath: /var/data/
+      volumes:
+        - name: data-volume
+          persistentVolumeClaim:
+            claimName: data-pvc

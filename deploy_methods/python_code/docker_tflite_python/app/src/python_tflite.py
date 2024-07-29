@@ -9,6 +9,8 @@ import paho.mqtt.client as mqtt
 root = logging.getLogger()
 root.setLevel(logging.INFO)
 
+data_folder = "/var/data/"
+
 
 parameters = {
     "broker_address": "as-sensiblecity1.cloudmmwunibo.it",
@@ -69,7 +71,7 @@ print("timestamp[ns],inference_time[ns]")
 
 # get environment variables
 model_name = os.environ.get("MODEL_NAME")
-model_path = f"./app/models/{model_name}"
+model_path = f"{data_folder}{model_name}"
 
 
 # tf lite model
