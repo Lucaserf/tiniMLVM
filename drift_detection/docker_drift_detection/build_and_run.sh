@@ -11,4 +11,5 @@ docker push lucaserf/drift_detection:latest
 #kubectl rollout restart deployment/drift-deploy
 
 kubectl apply -f ./drift_detection/docker_drift_detection/app/deploy/drift_deploy.yaml 
+# kubectl delete -f ./drift_detection/docker_drift_detection/app/deploy/drift_deploy.yaml 
 
