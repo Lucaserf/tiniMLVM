@@ -1,0 +1,14 @@
+# Target labels
+ fp16
+# Source files and their labels
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/FP16-download/CMakeFiles/fp16
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/FP16-download/CMakeFiles/fp16.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/FP16-download/CMakeFiles/fp16-complete.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/FP16-download/fp16-prefix/src/fp16-stamp/fp16-build.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/FP16-download/fp16-prefix/src/fp16-stamp/fp16-configure.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/FP16-download/fp16-prefix/src/fp16-stamp/fp16-download.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/FP16-download/fp16-prefix/src/fp16-stamp/fp16-install.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/FP16-download/fp16-prefix/src/fp16-stamp/fp16-mkdir.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/FP16-download/fp16-prefix/src/fp16-stamp/fp16-patch.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/FP16-download/fp16-prefix/src/fp16-stamp/fp16-test.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/FP16-download/fp16-prefix/src/fp16-stamp/fp16-update.rule

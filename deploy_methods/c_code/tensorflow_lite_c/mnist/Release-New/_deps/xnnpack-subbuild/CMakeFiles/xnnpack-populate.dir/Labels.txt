@@ -1,0 +1,14 @@
+# Target labels
+ xnnpack-populate
+# Source files and their labels
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/_deps/xnnpack-subbuild/CMakeFiles/xnnpack-populate
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/_deps/xnnpack-subbuild/CMakeFiles/xnnpack-populate.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/_deps/xnnpack-subbuild/CMakeFiles/xnnpack-populate-complete.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/src/xnnpack-populate-stamp/xnnpack-populate-build.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/src/xnnpack-populate-stamp/xnnpack-populate-configure.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/src/xnnpack-populate-stamp/xnnpack-populate-download.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/src/xnnpack-populate-stamp/xnnpack-populate-install.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/src/xnnpack-populate-stamp/xnnpack-populate-mkdir.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/src/xnnpack-populate-stamp/xnnpack-populate-patch.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/src/xnnpack-populate-stamp/xnnpack-populate-test.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/src/xnnpack-populate-stamp/xnnpack-populate-update.rule

@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/tensorflow-lite/CMakeFiles/flatbuffers-flatc"
+		},
+		{
+			"file" : "/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/tensorflow-lite/CMakeFiles/flatbuffers-flatc.rule"
+		},
+		{
+			"file" : "/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/tensorflow-lite/CMakeFiles/flatbuffers-flatc-complete.rule"
+		},
+		{
+			"file" : "/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/flatbuffers-flatc/src/flatbuffers-flatc-stamp/flatbuffers-flatc-build.rule"
+		},
+		{
+			"file" : "/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/flatbuffers-flatc/src/flatbuffers-flatc-stamp/flatbuffers-flatc-configure.rule"
+		},
+		{
+			"file" : "/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/flatbuffers-flatc/src/flatbuffers-flatc-stamp/flatbuffers-flatc-download.rule"
+		},
+		{
+			"file" : "/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/flatbuffers-flatc/src/flatbuffers-flatc-stamp/flatbuffers-flatc-install.rule"
+		},
+		{
+			"file" : "/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/flatbuffers-flatc/src/flatbuffers-flatc-stamp/flatbuffers-flatc-mkdir.rule"
+		},
+		{
+			"file" : "/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/flatbuffers-flatc/src/flatbuffers-flatc-stamp/flatbuffers-flatc-patch.rule"
+		},
+		{
+			"file" : "/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/flatbuffers-flatc/src/flatbuffers-flatc-stamp/flatbuffers-flatc-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"flatbuffers-flatc"
+		],
+		"name" : "flatbuffers-flatc"
+	}
+}

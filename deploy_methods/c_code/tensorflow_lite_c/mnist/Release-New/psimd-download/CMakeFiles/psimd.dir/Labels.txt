@@ -1,0 +1,14 @@
+# Target labels
+ psimd
+# Source files and their labels
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/psimd-download/CMakeFiles/psimd
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/psimd-download/CMakeFiles/psimd.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/psimd-download/CMakeFiles/psimd-complete.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/psimd-download/psimd-prefix/src/psimd-stamp/psimd-build.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/psimd-download/psimd-prefix/src/psimd-stamp/psimd-configure.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/psimd-download/psimd-prefix/src/psimd-stamp/psimd-download.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/psimd-download/psimd-prefix/src/psimd-stamp/psimd-install.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/psimd-download/psimd-prefix/src/psimd-stamp/psimd-mkdir.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/psimd-download/psimd-prefix/src/psimd-stamp/psimd-patch.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/psimd-download/psimd-prefix/src/psimd-stamp/psimd-test.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/psimd-download/psimd-prefix/src/psimd-stamp/psimd-update.rule

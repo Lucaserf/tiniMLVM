@@ -10,6 +10,7 @@
 
 // include tensorflow lite
 #include "tensorflow/lite/c/c_api.h"
+#include <tensorflow/lite/delegates/xnnpack/xnnpack_delegate.h>
 
 #define INPUT_SIZE 784
 #define OUTPUT_SIZE 10
@@ -22,8 +23,8 @@ struct times_data
 
 struct metadata
 {
-    double train_feature[INPUT_SIZE];
-    double label[OUTPUT_SIZE];
+    float train_feature[INPUT_SIZE];
+    float label[OUTPUT_SIZE];
 };
 
 // training from streaming data coming from dataset data.csv
@@ -55,6 +56,8 @@ gettimens()
     return ts.tv_sec * NSEC_PER_SEC + ts.tv_nsec;
 }
 
+#define ARRAY_COUNT(arr) (sizeof(arr) / sizeof(arr[0]))
+
 int main(int argc, char *argv[])
 {
     uint64_t start, end;
@@ -65,10 +68,21 @@ int main(int argc, char *argv[])
     // load tflite model
     TfLiteModel *model = TfLiteModelCreateFromFile(model_path);
     TfLiteInterpreterOptions *options = TfLiteInterpreterOptionsCreate();
-    // TfLiteInterpreterOptionsSetNumThreads(options, 2);
+    TfLiteInterpreterOptionsSetNumThreads(options, 1);
+
+    TfLiteXNNPackDelegateOptions xnnpack_options =
+        TfLiteXNNPackDelegateOptionsDefault();
+
+    // create xnnpackdelegate
+    TfLiteDelegate *xnnpack_delegate = TfLiteXNNPackDelegateCreate(&xnnpack_options);
+
+    // // enable XNNPACK
+    TfLiteInterpreterOptionsAddDelegate(options, xnnpack_delegate);
 
     // create interpreter
     TfLiteInterpreter *interpreter = TfLiteInterpreterCreate(model, options);
+
+    // Allocate tensors and populate the input tensor data.
     TfLiteInterpreterAllocateTensors(interpreter);
     TfLiteTensor *input_tensor = TfLiteInterpreterGetInputTensor(interpreter, 0);
 
@@ -83,17 +97,16 @@ int main(int argc, char *argv[])
         if (get_data(file, &data) == -1)
             break;
 
-        times.timestamp = gettimens();
         // set input as data.train_feature
+        times.timestamp = gettimens();
         TfLiteTensorCopyFromBuffer(input_tensor, data.train_feature, input_size);
         // run inference
         TfLiteInterpreterInvoke(interpreter);
         // extract output
         const TfLiteTensor *output_tensor = TfLiteInterpreterGetOutputTensor(interpreter, 0);
         TfLiteTensorCopyToBuffer(output_tensor, data.label, output_size);
-        // print data.label
-
         times.run_time = gettimens() - times.timestamp;
+        // print data.label
 
         printf("%ld,%ld\n", times.timestamp, times.run_time);
         // sleeping for 1ms minus the time taken to train the model
@@ -106,6 +119,7 @@ int main(int argc, char *argv[])
     TfLiteInterpreterDelete(interpreter);
     TfLiteInterpreterOptionsDelete(options);
     TfLiteModelDelete(model);
+    TfLiteXNNPackDelegateDelete(xnnpack_delegate);
 
     return 0;
 }

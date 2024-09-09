@@ -1,0 +1,1037 @@
+The system is: Linux - 5.15.0-1065-kvm - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /usr/bin/cc 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/3.22.1/CompilerIdC/a.out"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /usr/bin/c++ 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is GNU, found in "/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/3.22.1/CompilerIdCXX/a.out"
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_141be/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_141be.dir/build.make CMakeFiles/cmTC_141be.dir/build
+gmake[1]: Entering directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_141be.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc   -v -o CMakeFiles/cmTC_141be.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c
+Using built-in specs.
+COLLECT_GCC=/usr/bin/cc
+OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.4.0-1ubuntu1~22.04' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-XeT9lY/gcc-11-11.4.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-11-XeT9lY/gcc-11-11.4.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 11.4.0 (Ubuntu 11.4.0-1ubuntu1~22.04) 
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_141be.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_141be.dir/'
+ /usr/lib/gcc/x86_64-linux-gnu/11/cc1 -quiet -v -imultiarch x86_64-linux-gnu /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_141be.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccygW9C2.s
+GNU C17 (Ubuntu 11.4.0-1ubuntu1~22.04) version 11.4.0 (x86_64-linux-gnu)
+	compiled by GNU C version 11.4.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/include-fixed"
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/../../../../x86_64-linux-gnu/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/lucaserf/.wasmedge/include
+ /usr/lib/gcc/x86_64-linux-gnu/11/include
+ /usr/local/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+GNU C17 (Ubuntu 11.4.0-1ubuntu1~22.04) version 11.4.0 (x86_64-linux-gnu)
+	compiled by GNU C version 11.4.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: 50eaa2331df977b8016186198deb2d18
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_141be.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_141be.dir/'
+ as -v --64 -o CMakeFiles/cmTC_141be.dir/CMakeCCompilerABI.c.o /tmp/ccygW9C2.s
+GNU assembler version 2.38 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.38
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/home/lucaserf/.wasmedge/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/home/lucaserf/.wasmedge/lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_141be.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_141be.dir/CMakeCCompilerABI.c.'
+Linking C executable cmTC_141be
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_141be.dir/link.txt --verbose=1
+/usr/bin/cc  -v CMakeFiles/cmTC_141be.dir/CMakeCCompilerABI.c.o -o cmTC_141be 
+Using built-in specs.
+COLLECT_GCC=/usr/bin/cc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper
+OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.4.0-1ubuntu1~22.04' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-XeT9lY/gcc-11-11.4.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-11-XeT9lY/gcc-11-11.4.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 11.4.0 (Ubuntu 11.4.0-1ubuntu1~22.04) 
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/home/lucaserf/.wasmedge/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/home/lucaserf/.wasmedge/lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_141be' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_141be.'
+ /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccyLPj6J.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_141be /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/home/lucaserf/.wasmedge/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/home/lucaserf/.wasmedge/lib -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. CMakeFiles/cmTC_141be.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_141be' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_141be.'
+gmake[1]: Leaving directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+
+
+
+Parsed C implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/home/lucaserf/.wasmedge/include]
+    add: [/usr/lib/gcc/x86_64-linux-gnu/11/include]
+    add: [/usr/local/include]
+    add: [/usr/include/x86_64-linux-gnu]
+    add: [/usr/include]
+  end of search list found
+  collapse include dir [/home/lucaserf/.wasmedge/include] ==> [/home/lucaserf/.wasmedge/include]
+  collapse include dir [/usr/lib/gcc/x86_64-linux-gnu/11/include] ==> [/usr/lib/gcc/x86_64-linux-gnu/11/include]
+  collapse include dir [/usr/local/include] ==> [/usr/local/include]
+  collapse include dir [/usr/include/x86_64-linux-gnu] ==> [/usr/include/x86_64-linux-gnu]
+  collapse include dir [/usr/include] ==> [/usr/include]
+  implicit include dirs: [/home/lucaserf/.wasmedge/include;/usr/lib/gcc/x86_64-linux-gnu/11/include;/usr/local/include;/usr/include/x86_64-linux-gnu;/usr/include]
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_141be/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_141be.dir/build.make CMakeFiles/cmTC_141be.dir/build]
+  ignore line: [gmake[1]: Entering directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_141be.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc   -v -o CMakeFiles/cmTC_141be.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/cc]
+  ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa]
+  ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+  ignore line: [Target: x86_64-linux-gnu]
+  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.4.0-1ubuntu1~22.04' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c ada c++ go brig d fortran objc obj-c++ m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-XeT9lY/gcc-11-11.4.0/debian/tmp-nvptx/usr amdgcn-amdhsa=/build/gcc-11-XeT9lY/gcc-11-11.4.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2]
+  ignore line: [Thread model: posix]
+  ignore line: [Supported LTO compression algorithms: zlib zstd]
+  ignore line: [gcc version 11.4.0 (Ubuntu 11.4.0-1ubuntu1~22.04) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_141be.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_141be.dir/']
+  ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/11/cc1 -quiet -v -imultiarch x86_64-linux-gnu /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_141be.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccygW9C2.s]
+  ignore line: [GNU C17 (Ubuntu 11.4.0-1ubuntu1~22.04) version 11.4.0 (x86_64-linux-gnu)]
+  ignore line: [	compiled by GNU C version 11.4.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version isl-0.24-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"]
+  ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/include-fixed"]
+  ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/../../../../x86_64-linux-gnu/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /home/lucaserf/.wasmedge/include]
+  ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/11/include]
+  ignore line: [ /usr/local/include]
+  ignore line: [ /usr/include/x86_64-linux-gnu]
+  ignore line: [ /usr/include]
+  ignore line: [End of search list.]
+  ignore line: [GNU C17 (Ubuntu 11.4.0-1ubuntu1~22.04) version 11.4.0 (x86_64-linux-gnu)]
+  ignore line: [	compiled by GNU C version 11.4.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version isl-0.24-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [Compiler executable checksum: 50eaa2331df977b8016186198deb2d18]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_141be.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_141be.dir/']
+  ignore line: [ as -v --64 -o CMakeFiles/cmTC_141be.dir/CMakeCCompilerABI.c.o /tmp/ccygW9C2.s]
+  ignore line: [GNU assembler version 2.38 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.38]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/home/lucaserf/.wasmedge/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/home/lucaserf/.wasmedge/lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_141be.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_141be.dir/CMakeCCompilerABI.c.']
+  ignore line: [Linking C executable cmTC_141be]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_141be.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc  -v CMakeFiles/cmTC_141be.dir/CMakeCCompilerABI.c.o -o cmTC_141be ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/cc]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper]
+  ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa]
+  ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+  ignore line: [Target: x86_64-linux-gnu]
+  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.4.0-1ubuntu1~22.04' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c ada c++ go brig d fortran objc obj-c++ m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-XeT9lY/gcc-11-11.4.0/debian/tmp-nvptx/usr amdgcn-amdhsa=/build/gcc-11-XeT9lY/gcc-11-11.4.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2]
+  ignore line: [Thread model: posix]
+  ignore line: [Supported LTO compression algorithms: zlib zstd]
+  ignore line: [gcc version 11.4.0 (Ubuntu 11.4.0-1ubuntu1~22.04) ]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/home/lucaserf/.wasmedge/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/home/lucaserf/.wasmedge/lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_141be' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_141be.']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccyLPj6J.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_141be /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/home/lucaserf/.wasmedge/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/home/lucaserf/.wasmedge/lib -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. CMakeFiles/cmTC_141be.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o]
+    arg [/usr/lib/gcc/x86_64-linux-gnu/11/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccyLPj6J.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-pie] ==> ignore
+    arg [-znow] ==> ignore
+    arg [-zrelro] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_141be] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o]
+    arg [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o]
+    arg [/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o]
+    arg [-L/home/lucaserf/.wasmedge/lib/../lib] ==> dir [/home/lucaserf/.wasmedge/lib/../lib]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/11] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/11]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib]
+    arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+    arg [-L/lib/../lib] ==> dir [/lib/../lib]
+    arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+    arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+    arg [-L/home/lucaserf/.wasmedge/lib] ==> dir [/home/lucaserf/.wasmedge/lib]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/11/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../..]
+    arg [CMakeFiles/cmTC_141be.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [--push-state] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--pop-state] ==> ignore
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--push-state] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--pop-state] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o]
+    arg [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o]
+  collapse obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o] ==> [/usr/lib/x86_64-linux-gnu/Scrt1.o]
+  collapse obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o] ==> [/usr/lib/x86_64-linux-gnu/crti.o]
+  collapse obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o] ==> [/usr/lib/x86_64-linux-gnu/crtn.o]
+  collapse library dir [/home/lucaserf/.wasmedge/lib/../lib] ==> [/home/lucaserf/.wasmedge/lib]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/11] ==> [/usr/lib/gcc/x86_64-linux-gnu/11]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib] ==> [/usr/lib]
+  collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+  collapse library dir [/lib/../lib] ==> [/lib]
+  collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+  collapse library dir [/home/lucaserf/.wasmedge/lib] ==> [/home/lucaserf/.wasmedge/lib]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../..] ==> [/usr/lib]
+  implicit libs: [gcc;gcc_s;c;gcc;gcc_s]
+  implicit objs: [/usr/lib/x86_64-linux-gnu/Scrt1.o;/usr/lib/x86_64-linux-gnu/crti.o;/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o;/usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o;/usr/lib/x86_64-linux-gnu/crtn.o]
+  implicit dirs: [/home/lucaserf/.wasmedge/lib;/usr/lib/gcc/x86_64-linux-gnu/11;/usr/lib/x86_64-linux-gnu;/usr/lib;/lib/x86_64-linux-gnu;/lib]
+  implicit fwks: []
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_adfad/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_adfad.dir/build.make CMakeFiles/cmTC_adfad.dir/build
+gmake[1]: Entering directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_adfad.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/c++   -v -o CMakeFiles/cmTC_adfad.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp
+Using built-in specs.
+COLLECT_GCC=/usr/bin/c++
+OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.4.0-1ubuntu1~22.04' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-XeT9lY/gcc-11-11.4.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-11-XeT9lY/gcc-11-11.4.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 11.4.0 (Ubuntu 11.4.0-1ubuntu1~22.04) 
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_adfad.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_adfad.dir/'
+ /usr/lib/gcc/x86_64-linux-gnu/11/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_adfad.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccwHLX0R.s
+GNU C++17 (Ubuntu 11.4.0-1ubuntu1~22.04) version 11.4.0 (x86_64-linux-gnu)
+	compiled by GNU C version 11.4.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring duplicate directory "/usr/include/x86_64-linux-gnu/c++/11"
+ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/include-fixed"
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/../../../../x86_64-linux-gnu/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/lucaserf/.wasmedge/include
+ /usr/include/c++/11
+ /usr/include/x86_64-linux-gnu/c++/11
+ /usr/include/c++/11/backward
+ /usr/lib/gcc/x86_64-linux-gnu/11/include
+ /usr/local/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+GNU C++17 (Ubuntu 11.4.0-1ubuntu1~22.04) version 11.4.0 (x86_64-linux-gnu)
+	compiled by GNU C version 11.4.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: d591828bb4d392ae8b7b160e5bb0b95f
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_adfad.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_adfad.dir/'
+ as -v --64 -o CMakeFiles/cmTC_adfad.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccwHLX0R.s
+GNU assembler version 2.38 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.38
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/home/lucaserf/.wasmedge/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/home/lucaserf/.wasmedge/lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_adfad.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_adfad.dir/CMakeCXXCompilerABI.cpp.'
+Linking CXX executable cmTC_adfad
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_adfad.dir/link.txt --verbose=1
+/usr/bin/c++  -v CMakeFiles/cmTC_adfad.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_adfad 
+Using built-in specs.
+COLLECT_GCC=/usr/bin/c++
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper
+OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.4.0-1ubuntu1~22.04' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-XeT9lY/gcc-11-11.4.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-11-XeT9lY/gcc-11-11.4.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 11.4.0 (Ubuntu 11.4.0-1ubuntu1~22.04) 
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/home/lucaserf/.wasmedge/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/home/lucaserf/.wasmedge/lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_adfad' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_adfad.'
+ /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccvDg82E.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_adfad /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/home/lucaserf/.wasmedge/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/home/lucaserf/.wasmedge/lib -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. CMakeFiles/cmTC_adfad.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_adfad' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_adfad.'
+gmake[1]: Leaving directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+
+
+
+Parsed CXX implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/home/lucaserf/.wasmedge/include]
+    add: [/usr/include/c++/11]
+    add: [/usr/include/x86_64-linux-gnu/c++/11]
+    add: [/usr/include/c++/11/backward]
+    add: [/usr/lib/gcc/x86_64-linux-gnu/11/include]
+    add: [/usr/local/include]
+    add: [/usr/include/x86_64-linux-gnu]
+    add: [/usr/include]
+  end of search list found
+  collapse include dir [/home/lucaserf/.wasmedge/include] ==> [/home/lucaserf/.wasmedge/include]
+  collapse include dir [/usr/include/c++/11] ==> [/usr/include/c++/11]
+  collapse include dir [/usr/include/x86_64-linux-gnu/c++/11] ==> [/usr/include/x86_64-linux-gnu/c++/11]
+  collapse include dir [/usr/include/c++/11/backward] ==> [/usr/include/c++/11/backward]
+  collapse include dir [/usr/lib/gcc/x86_64-linux-gnu/11/include] ==> [/usr/lib/gcc/x86_64-linux-gnu/11/include]
+  collapse include dir [/usr/local/include] ==> [/usr/local/include]
+  collapse include dir [/usr/include/x86_64-linux-gnu] ==> [/usr/include/x86_64-linux-gnu]
+  collapse include dir [/usr/include] ==> [/usr/include]
+  implicit include dirs: [/home/lucaserf/.wasmedge/include;/usr/include/c++/11;/usr/include/x86_64-linux-gnu/c++/11;/usr/include/c++/11/backward;/usr/lib/gcc/x86_64-linux-gnu/11/include;/usr/local/include;/usr/include/x86_64-linux-gnu;/usr/include]
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_adfad/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_adfad.dir/build.make CMakeFiles/cmTC_adfad.dir/build]
+  ignore line: [gmake[1]: Entering directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_adfad.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/c++   -v -o CMakeFiles/cmTC_adfad.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/c++]
+  ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa]
+  ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+  ignore line: [Target: x86_64-linux-gnu]
+  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.4.0-1ubuntu1~22.04' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c ada c++ go brig d fortran objc obj-c++ m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-XeT9lY/gcc-11-11.4.0/debian/tmp-nvptx/usr amdgcn-amdhsa=/build/gcc-11-XeT9lY/gcc-11-11.4.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2]
+  ignore line: [Thread model: posix]
+  ignore line: [Supported LTO compression algorithms: zlib zstd]
+  ignore line: [gcc version 11.4.0 (Ubuntu 11.4.0-1ubuntu1~22.04) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_adfad.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_adfad.dir/']
+  ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/11/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_adfad.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccwHLX0R.s]
+  ignore line: [GNU C++17 (Ubuntu 11.4.0-1ubuntu1~22.04) version 11.4.0 (x86_64-linux-gnu)]
+  ignore line: [	compiled by GNU C version 11.4.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version isl-0.24-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [ignoring duplicate directory "/usr/include/x86_64-linux-gnu/c++/11"]
+  ignore line: [ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"]
+  ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/include-fixed"]
+  ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/../../../../x86_64-linux-gnu/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /home/lucaserf/.wasmedge/include]
+  ignore line: [ /usr/include/c++/11]
+  ignore line: [ /usr/include/x86_64-linux-gnu/c++/11]
+  ignore line: [ /usr/include/c++/11/backward]
+  ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/11/include]
+  ignore line: [ /usr/local/include]
+  ignore line: [ /usr/include/x86_64-linux-gnu]
+  ignore line: [ /usr/include]
+  ignore line: [End of search list.]
+  ignore line: [GNU C++17 (Ubuntu 11.4.0-1ubuntu1~22.04) version 11.4.0 (x86_64-linux-gnu)]
+  ignore line: [	compiled by GNU C version 11.4.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version isl-0.24-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [Compiler executable checksum: d591828bb4d392ae8b7b160e5bb0b95f]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_adfad.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_adfad.dir/']
+  ignore line: [ as -v --64 -o CMakeFiles/cmTC_adfad.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccwHLX0R.s]
+  ignore line: [GNU assembler version 2.38 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.38]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/home/lucaserf/.wasmedge/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/home/lucaserf/.wasmedge/lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_adfad.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_adfad.dir/CMakeCXXCompilerABI.cpp.']
+  ignore line: [Linking CXX executable cmTC_adfad]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_adfad.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/c++  -v CMakeFiles/cmTC_adfad.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_adfad ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/c++]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper]
+  ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa]
+  ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+  ignore line: [Target: x86_64-linux-gnu]
+  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.4.0-1ubuntu1~22.04' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c ada c++ go brig d fortran objc obj-c++ m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-XeT9lY/gcc-11-11.4.0/debian/tmp-nvptx/usr amdgcn-amdhsa=/build/gcc-11-XeT9lY/gcc-11-11.4.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2]
+  ignore line: [Thread model: posix]
+  ignore line: [Supported LTO compression algorithms: zlib zstd]
+  ignore line: [gcc version 11.4.0 (Ubuntu 11.4.0-1ubuntu1~22.04) ]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/home/lucaserf/.wasmedge/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/home/lucaserf/.wasmedge/lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_adfad' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_adfad.']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccvDg82E.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_adfad /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/home/lucaserf/.wasmedge/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/home/lucaserf/.wasmedge/lib -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. CMakeFiles/cmTC_adfad.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o]
+    arg [/usr/lib/gcc/x86_64-linux-gnu/11/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccvDg82E.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-pie] ==> ignore
+    arg [-znow] ==> ignore
+    arg [-zrelro] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_adfad] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o]
+    arg [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o]
+    arg [/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o]
+    arg [-L/home/lucaserf/.wasmedge/lib/../lib] ==> dir [/home/lucaserf/.wasmedge/lib/../lib]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/11] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/11]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib]
+    arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+    arg [-L/lib/../lib] ==> dir [/lib/../lib]
+    arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+    arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+    arg [-L/home/lucaserf/.wasmedge/lib] ==> dir [/home/lucaserf/.wasmedge/lib]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/11/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../..]
+    arg [CMakeFiles/cmTC_adfad.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lm] ==> lib [m]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [/usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o]
+    arg [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o]
+  collapse obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o] ==> [/usr/lib/x86_64-linux-gnu/Scrt1.o]
+  collapse obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o] ==> [/usr/lib/x86_64-linux-gnu/crti.o]
+  collapse obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o] ==> [/usr/lib/x86_64-linux-gnu/crtn.o]
+  collapse library dir [/home/lucaserf/.wasmedge/lib/../lib] ==> [/home/lucaserf/.wasmedge/lib]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/11] ==> [/usr/lib/gcc/x86_64-linux-gnu/11]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib] ==> [/usr/lib]
+  collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+  collapse library dir [/lib/../lib] ==> [/lib]
+  collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+  collapse library dir [/home/lucaserf/.wasmedge/lib] ==> [/home/lucaserf/.wasmedge/lib]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../..] ==> [/usr/lib]
+  implicit libs: [stdc++;m;gcc_s;gcc;c;gcc_s;gcc]
+  implicit objs: [/usr/lib/x86_64-linux-gnu/Scrt1.o;/usr/lib/x86_64-linux-gnu/crti.o;/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o;/usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o;/usr/lib/x86_64-linux-gnu/crtn.o]
+  implicit dirs: [/home/lucaserf/.wasmedge/lib;/usr/lib/gcc/x86_64-linux-gnu/11;/usr/lib/x86_64-linux-gnu;/usr/lib;/lib/x86_64-linux-gnu;/lib]
+  implicit fwks: []
+
+
+Performing C++ SOURCE FILE Test ABSL_INTERNAL_AT_LEAST_CXX17 succeeded with the following output:
+Change Dir: /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_beb11/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_beb11.dir/build.make CMakeFiles/cmTC_beb11.dir/build
+gmake[1]: Entering directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_beb11.dir/src.cxx.o
+/usr/bin/c++ -DABSL_INTERNAL_AT_LEAST_CXX17  -fPIE -std=gnu++17 -o CMakeFiles/cmTC_beb11.dir/src.cxx.o -c /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_beb11
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_beb11.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_beb11.dir/src.cxx.o -o cmTC_beb11 
+gmake[1]: Leaving directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+#ifdef _MSC_VER
+#  if _MSVC_LANG < 201700L
+#    error "The compiler defaults or is configured for C++ < 17"
+#  endif
+#elif __cplusplus < 201700L
+#  error "The compiler defaults or is configured for C++ < 17"
+#endif
+int main() { return 0; }
+
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_65433/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_65433.dir/build.make CMakeFiles/cmTC_65433.dir/build
+gmake[1]: Entering directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_65433.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -fPIE -o CMakeFiles/cmTC_65433.dir/CheckIncludeFile.c.o -c /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_65433
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_65433.dir/link.txt --verbose=1
+/usr/bin/cc CMakeFiles/cmTC_65433.dir/CheckIncludeFile.c.o -o cmTC_65433 
+gmake[1]: Leaving directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD succeeded with the following output:
+Change Dir: /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_9a7c6/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_9a7c6.dir/build.make CMakeFiles/cmTC_9a7c6.dir/build
+gmake[1]: Entering directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9a7c6.dir/src.c.o
+/usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD  -fPIE -o CMakeFiles/cmTC_9a7c6.dir/src.c.o -c /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_9a7c6
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9a7c6.dir/link.txt --verbose=1
+/usr/bin/cc CMakeFiles/cmTC_9a7c6.dir/src.c.o -o cmTC_9a7c6 
+gmake[1]: Leaving directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Performing C++ SOURCE FILE Test standard_math_library_linked_to_automatically succeeded with the following output:
+Change Dir: /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_43603/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_43603.dir/build.make CMakeFiles/cmTC_43603.dir/build
+gmake[1]: Entering directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_43603.dir/src.cxx.o
+/usr/bin/c++ -Dstandard_math_library_linked_to_automatically  -fPIE -std=gnu++17 -o CMakeFiles/cmTC_43603.dir/src.cxx.o -c /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_43603
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_43603.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_43603.dir/src.cxx.o -o cmTC_43603 
+gmake[1]: Leaving directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+#include<cmath>
+int main(int argc, char **){
+  return int(std::sin(double(argc)) + std::log(double(argc)));
+}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_WERROR succeeded with the following output:
+Change Dir: /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_b5664/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_b5664.dir/build.make CMakeFiles/cmTC_b5664.dir/build
+gmake[1]: Entering directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_b5664.dir/src.cxx.o
+/usr/bin/c++ -DCOMPILER_SUPPORT_WERROR  -fPIE   -Werror -std=gnu++17 -o CMakeFiles/cmTC_b5664.dir/src.cxx.o -c /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_b5664
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b5664.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_b5664.dir/src.cxx.o -o cmTC_b5664 
+gmake[1]: Leaving directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_pedantic succeeded with the following output:
+Change Dir: /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_bf121/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_bf121.dir/build.make CMakeFiles/cmTC_bf121.dir/build
+gmake[1]: Entering directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_bf121.dir/src.cxx.o
+/usr/bin/c++ -DCOMPILER_SUPPORT_pedantic  -Werror -fPIE   -pedantic -std=gnu++17 -o CMakeFiles/cmTC_bf121.dir/src.cxx.o -c /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_bf121
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bf121.dir/link.txt --verbose=1
+/usr/bin/c++  -Werror CMakeFiles/cmTC_bf121.dir/src.cxx.o -o cmTC_bf121 
+gmake[1]: Leaving directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wall succeeded with the following output:
+Change Dir: /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_5d72e/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_5d72e.dir/build.make CMakeFiles/cmTC_5d72e.dir/build
+gmake[1]: Entering directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_5d72e.dir/src.cxx.o
+/usr/bin/c++ -DCOMPILER_SUPPORT_Wall  -pedantic -Werror -fPIE   -Wall -std=gnu++17 -o CMakeFiles/cmTC_5d72e.dir/src.cxx.o -c /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_5d72e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5d72e.dir/link.txt --verbose=1
+/usr/bin/c++  -pedantic -Werror CMakeFiles/cmTC_5d72e.dir/src.cxx.o -o cmTC_5d72e 
+gmake[1]: Leaving directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wextra succeeded with the following output:
+Change Dir: /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_54331/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_54331.dir/build.make CMakeFiles/cmTC_54331.dir/build
+gmake[1]: Entering directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_54331.dir/src.cxx.o
+/usr/bin/c++ -DCOMPILER_SUPPORT_Wextra  -pedantic -Wall -Werror -fPIE   -Wextra -std=gnu++17 -o CMakeFiles/cmTC_54331.dir/src.cxx.o -c /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_54331
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_54331.dir/link.txt --verbose=1
+/usr/bin/c++  -pedantic -Wall -Werror CMakeFiles/cmTC_54331.dir/src.cxx.o -o cmTC_54331 
+gmake[1]: Leaving directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wundef succeeded with the following output:
+Change Dir: /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_2681c/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_2681c.dir/build.make CMakeFiles/cmTC_2681c.dir/build
+gmake[1]: Entering directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_2681c.dir/src.cxx.o
+/usr/bin/c++ -DCOMPILER_SUPPORT_Wundef  -pedantic -Wall -Wextra -Werror -fPIE   -Wundef -std=gnu++17 -o CMakeFiles/cmTC_2681c.dir/src.cxx.o -c /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_2681c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2681c.dir/link.txt --verbose=1
+/usr/bin/c++  -pedantic -Wall -Wextra -Werror CMakeFiles/cmTC_2681c.dir/src.cxx.o -o cmTC_2681c 
+gmake[1]: Leaving directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wcastalign succeeded with the following output:
+Change Dir: /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_d823b/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_d823b.dir/build.make CMakeFiles/cmTC_d823b.dir/build
+gmake[1]: Entering directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_d823b.dir/src.cxx.o
+/usr/bin/c++ -DCOMPILER_SUPPORT_Wcastalign  -pedantic -Wall -Wextra -Wundef -Werror -fPIE   -Wcast-align -std=gnu++17 -o CMakeFiles/cmTC_d823b.dir/src.cxx.o -c /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_d823b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d823b.dir/link.txt --verbose=1
+/usr/bin/c++  -pedantic -Wall -Wextra -Wundef -Werror CMakeFiles/cmTC_d823b.dir/src.cxx.o -o cmTC_d823b 
+gmake[1]: Leaving directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wcharsubscripts succeeded with the following output:
+Change Dir: /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_5c3d6/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_5c3d6.dir/build.make CMakeFiles/cmTC_5c3d6.dir/build
+gmake[1]: Entering directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_5c3d6.dir/src.cxx.o
+/usr/bin/c++ -DCOMPILER_SUPPORT_Wcharsubscripts  -pedantic -Wall -Wextra -Wundef -Wcast-align -Werror -fPIE   -Wchar-subscripts -std=gnu++17 -o CMakeFiles/cmTC_5c3d6.dir/src.cxx.o -c /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_5c3d6
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5c3d6.dir/link.txt --verbose=1
+/usr/bin/c++  -pedantic -Wall -Wextra -Wundef -Wcast-align -Werror CMakeFiles/cmTC_5c3d6.dir/src.cxx.o -o cmTC_5c3d6 
+gmake[1]: Leaving directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wnonvirtualdtor succeeded with the following output:
+Change Dir: /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_d3cbc/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_d3cbc.dir/build.make CMakeFiles/cmTC_d3cbc.dir/build
+gmake[1]: Entering directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_d3cbc.dir/src.cxx.o
+/usr/bin/c++ -DCOMPILER_SUPPORT_Wnonvirtualdtor  -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Werror -fPIE   -Wnon-virtual-dtor -std=gnu++17 -o CMakeFiles/cmTC_d3cbc.dir/src.cxx.o -c /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_d3cbc
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d3cbc.dir/link.txt --verbose=1
+/usr/bin/c++  -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Werror CMakeFiles/cmTC_d3cbc.dir/src.cxx.o -o cmTC_d3cbc 
+gmake[1]: Leaving directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wunusedlocaltypedefs succeeded with the following output:
+Change Dir: /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_3081d/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_3081d.dir/build.make CMakeFiles/cmTC_3081d.dir/build
+gmake[1]: Entering directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_3081d.dir/src.cxx.o
+/usr/bin/c++ -DCOMPILER_SUPPORT_Wunusedlocaltypedefs  -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Werror -fPIE   -Wunused-local-typedefs -std=gnu++17 -o CMakeFiles/cmTC_3081d.dir/src.cxx.o -c /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_3081d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3081d.dir/link.txt --verbose=1
+/usr/bin/c++  -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Werror CMakeFiles/cmTC_3081d.dir/src.cxx.o -o cmTC_3081d 
+gmake[1]: Leaving directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wpointerarith succeeded with the following output:
+Change Dir: /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_eb0fa/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_eb0fa.dir/build.make CMakeFiles/cmTC_eb0fa.dir/build
+gmake[1]: Entering directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_eb0fa.dir/src.cxx.o
+/usr/bin/c++ -DCOMPILER_SUPPORT_Wpointerarith  -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Werror -fPIE   -Wpointer-arith -std=gnu++17 -o CMakeFiles/cmTC_eb0fa.dir/src.cxx.o -c /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_eb0fa
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_eb0fa.dir/link.txt --verbose=1
+/usr/bin/c++  -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Werror CMakeFiles/cmTC_eb0fa.dir/src.cxx.o -o cmTC_eb0fa 
+gmake[1]: Leaving directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wwritestrings succeeded with the following output:
+Change Dir: /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_ed5b1/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_ed5b1.dir/build.make CMakeFiles/cmTC_ed5b1.dir/build
+gmake[1]: Entering directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_ed5b1.dir/src.cxx.o
+/usr/bin/c++ -DCOMPILER_SUPPORT_Wwritestrings  -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Werror -fPIE   -Wwrite-strings -std=gnu++17 -o CMakeFiles/cmTC_ed5b1.dir/src.cxx.o -c /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_ed5b1
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ed5b1.dir/link.txt --verbose=1
+/usr/bin/c++  -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Werror CMakeFiles/cmTC_ed5b1.dir/src.cxx.o -o cmTC_ed5b1 
+gmake[1]: Leaving directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wformatsecurity succeeded with the following output:
+Change Dir: /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_c2a5e/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_c2a5e.dir/build.make CMakeFiles/cmTC_c2a5e.dir/build
+gmake[1]: Entering directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_c2a5e.dir/src.cxx.o
+/usr/bin/c++ -DCOMPILER_SUPPORT_Wformatsecurity  -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Werror -fPIE   -Wformat-security -std=gnu++17 -o CMakeFiles/cmTC_c2a5e.dir/src.cxx.o -c /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_c2a5e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c2a5e.dir/link.txt --verbose=1
+/usr/bin/c++  -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Werror CMakeFiles/cmTC_c2a5e.dir/src.cxx.o -o cmTC_c2a5e 
+gmake[1]: Leaving directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wlogicalop succeeded with the following output:
+Change Dir: /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_a7efb/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_a7efb.dir/build.make CMakeFiles/cmTC_a7efb.dir/build
+gmake[1]: Entering directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_a7efb.dir/src.cxx.o
+/usr/bin/c++ -DCOMPILER_SUPPORT_Wlogicalop  -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Werror -fPIE   -Wlogical-op -std=gnu++17 -o CMakeFiles/cmTC_a7efb.dir/src.cxx.o -c /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_a7efb
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a7efb.dir/link.txt --verbose=1
+/usr/bin/c++  -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Werror CMakeFiles/cmTC_a7efb.dir/src.cxx.o -o cmTC_a7efb 
+gmake[1]: Leaving directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wenumconversion succeeded with the following output:
+Change Dir: /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_2efe3/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_2efe3.dir/build.make CMakeFiles/cmTC_2efe3.dir/build
+gmake[1]: Entering directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_2efe3.dir/src.cxx.o
+/usr/bin/c++ -DCOMPILER_SUPPORT_Wenumconversion  -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Werror -fPIE   -Wenum-conversion -std=gnu++17 -o CMakeFiles/cmTC_2efe3.dir/src.cxx.o -c /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_2efe3
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2efe3.dir/link.txt --verbose=1
+/usr/bin/c++  -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Werror CMakeFiles/cmTC_2efe3.dir/src.cxx.o -o cmTC_2efe3 
+gmake[1]: Leaving directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wdoublepromotion succeeded with the following output:
+Change Dir: /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_c78bc/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_c78bc.dir/build.make CMakeFiles/cmTC_c78bc.dir/build
+gmake[1]: Entering directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_c78bc.dir/src.cxx.o
+/usr/bin/c++ -DCOMPILER_SUPPORT_Wdoublepromotion  -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wenum-conversion -Werror -fPIE   -Wdouble-promotion -std=gnu++17 -o CMakeFiles/cmTC_c78bc.dir/src.cxx.o -c /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_c78bc
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c78bc.dir/link.txt --verbose=1
+/usr/bin/c++  -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wenum-conversion -Werror CMakeFiles/cmTC_c78bc.dir/src.cxx.o -o cmTC_c78bc 
+gmake[1]: Leaving directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wshadow succeeded with the following output:
+Change Dir: /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_92471/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_92471.dir/build.make CMakeFiles/cmTC_92471.dir/build
+gmake[1]: Entering directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_92471.dir/src.cxx.o
+/usr/bin/c++ -DCOMPILER_SUPPORT_Wshadow  -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wenum-conversion -Wdouble-promotion -Werror -fPIE   -Wshadow -std=gnu++17 -o CMakeFiles/cmTC_92471.dir/src.cxx.o -c /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_92471
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_92471.dir/link.txt --verbose=1
+/usr/bin/c++  -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wenum-conversion -Wdouble-promotion -Werror CMakeFiles/cmTC_92471.dir/src.cxx.o -o cmTC_92471 
+gmake[1]: Leaving directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wnopsabi succeeded with the following output:
+Change Dir: /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_385be/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_385be.dir/build.make CMakeFiles/cmTC_385be.dir/build
+gmake[1]: Entering directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_385be.dir/src.cxx.o
+/usr/bin/c++ -DCOMPILER_SUPPORT_Wnopsabi  -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wenum-conversion -Wdouble-promotion -Wshadow -Werror -fPIE   -Wno-psabi -std=gnu++17 -o CMakeFiles/cmTC_385be.dir/src.cxx.o -c /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_385be
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_385be.dir/link.txt --verbose=1
+/usr/bin/c++  -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wenum-conversion -Wdouble-promotion -Wshadow -Werror CMakeFiles/cmTC_385be.dir/src.cxx.o -o cmTC_385be 
+gmake[1]: Leaving directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wnovariadicmacros succeeded with the following output:
+Change Dir: /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_a83e3/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_a83e3.dir/build.make CMakeFiles/cmTC_a83e3.dir/build
+gmake[1]: Entering directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_a83e3.dir/src.cxx.o
+/usr/bin/c++ -DCOMPILER_SUPPORT_Wnovariadicmacros  -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wenum-conversion -Wdouble-promotion -Wshadow -Wno-psabi -Werror -fPIE   -Wno-variadic-macros -std=gnu++17 -o CMakeFiles/cmTC_a83e3.dir/src.cxx.o -c /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_a83e3
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a83e3.dir/link.txt --verbose=1
+/usr/bin/c++  -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wenum-conversion -Wdouble-promotion -Wshadow -Wno-psabi -Werror CMakeFiles/cmTC_a83e3.dir/src.cxx.o -o cmTC_a83e3 
+gmake[1]: Leaving directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wnolonglong succeeded with the following output:
+Change Dir: /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_29ba6/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_29ba6.dir/build.make CMakeFiles/cmTC_29ba6.dir/build
+gmake[1]: Entering directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_29ba6.dir/src.cxx.o
+/usr/bin/c++ -DCOMPILER_SUPPORT_Wnolonglong  -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wenum-conversion -Wdouble-promotion -Wshadow -Wno-psabi -Wno-variadic-macros -Werror -fPIE   -Wno-long-long -std=gnu++17 -o CMakeFiles/cmTC_29ba6.dir/src.cxx.o -c /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_29ba6
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_29ba6.dir/link.txt --verbose=1
+/usr/bin/c++  -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wenum-conversion -Wdouble-promotion -Wshadow -Wno-psabi -Wno-variadic-macros -Werror CMakeFiles/cmTC_29ba6.dir/src.cxx.o -o cmTC_29ba6 
+gmake[1]: Leaving directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_fnochecknew succeeded with the following output:
+Change Dir: /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_940c4/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_940c4.dir/build.make CMakeFiles/cmTC_940c4.dir/build
+gmake[1]: Entering directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_940c4.dir/src.cxx.o
+/usr/bin/c++ -DCOMPILER_SUPPORT_fnochecknew  -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wenum-conversion -Wdouble-promotion -Wshadow -Wno-psabi -Wno-variadic-macros -Wno-long-long -Werror -fPIE   -fno-check-new -std=gnu++17 -o CMakeFiles/cmTC_940c4.dir/src.cxx.o -c /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_940c4
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_940c4.dir/link.txt --verbose=1
+/usr/bin/c++  -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wenum-conversion -Wdouble-promotion -Wshadow -Wno-psabi -Wno-variadic-macros -Wno-long-long -Werror CMakeFiles/cmTC_940c4.dir/src.cxx.o -o cmTC_940c4 
+gmake[1]: Leaving directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_fnocommon succeeded with the following output:
+Change Dir: /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_c51b2/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_c51b2.dir/build.make CMakeFiles/cmTC_c51b2.dir/build
+gmake[1]: Entering directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_c51b2.dir/src.cxx.o
+/usr/bin/c++ -DCOMPILER_SUPPORT_fnocommon  -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wenum-conversion -Wdouble-promotion -Wshadow -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -Werror -fPIE   -fno-common -std=gnu++17 -o CMakeFiles/cmTC_c51b2.dir/src.cxx.o -c /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_c51b2
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c51b2.dir/link.txt --verbose=1
+/usr/bin/c++  -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wenum-conversion -Wdouble-promotion -Wshadow -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -Werror CMakeFiles/cmTC_c51b2.dir/src.cxx.o -o cmTC_c51b2 
+gmake[1]: Leaving directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_fstrictaliasing succeeded with the following output:
+Change Dir: /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_08d24/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_08d24.dir/build.make CMakeFiles/cmTC_08d24.dir/build
+gmake[1]: Entering directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_08d24.dir/src.cxx.o
+/usr/bin/c++ -DCOMPILER_SUPPORT_fstrictaliasing  -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wenum-conversion -Wdouble-promotion -Wshadow -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -Werror -fPIE   -fstrict-aliasing -std=gnu++17 -o CMakeFiles/cmTC_08d24.dir/src.cxx.o -c /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_08d24
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_08d24.dir/link.txt --verbose=1
+/usr/bin/c++  -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wenum-conversion -Wdouble-promotion -Wshadow -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -Werror CMakeFiles/cmTC_08d24.dir/src.cxx.o -o cmTC_08d24 
+gmake[1]: Leaving directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_OPENMP succeeded with the following output:
+Change Dir: /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_75b7b/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_75b7b.dir/build.make CMakeFiles/cmTC_75b7b.dir/build
+gmake[1]: Entering directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_75b7b.dir/src.cxx.o
+/usr/bin/c++ -DCOMPILER_SUPPORT_OPENMP  -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wenum-conversion -Wdouble-promotion -Wshadow -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing  -fPIE   -fopenmp -std=gnu++17 -o CMakeFiles/cmTC_75b7b.dir/src.cxx.o -c /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_75b7b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_75b7b.dir/link.txt --verbose=1
+/usr/bin/c++  -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wenum-conversion -Wdouble-promotion -Wshadow -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing  CMakeFiles/cmTC_75b7b.dir/src.cxx.o -o cmTC_75b7b 
+gmake[1]: Leaving directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test FARMHASH_HAS_BUILTIN_EXPECT succeeded with the following output:
+Change Dir: /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_d0a3a/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_d0a3a.dir/build.make CMakeFiles/cmTC_d0a3a.dir/build
+gmake[1]: Entering directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_d0a3a.dir/src.cxx.o
+/usr/bin/c++ -DFARMHASH_HAS_BUILTIN_EXPECT  -fPIE -std=gnu++17 -o CMakeFiles/cmTC_d0a3a.dir/src.cxx.o -c /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_d0a3a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d0a3a.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_d0a3a.dir/src.cxx.o -o cmTC_d0a3a 
+gmake[1]: Leaving directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(int argc, char* argv[]) { return (int)__builtin_expect(0, 0); }
+Determining if the strtof_l exist passed with the following output:
+Change Dir: /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_fe9b3/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_fe9b3.dir/build.make CMakeFiles/cmTC_fe9b3.dir/build
+gmake[1]: Entering directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_fe9b3.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++   -fPIE -std=gnu++17 -o CMakeFiles/cmTC_fe9b3.dir/CheckSymbolExists.cxx.o -c /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+Linking CXX executable cmTC_fe9b3
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fe9b3.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_fe9b3.dir/CheckSymbolExists.cxx.o -o cmTC_fe9b3 
+gmake[1]: Leaving directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+
+
+File /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strtof_l
+  return ((int*)(&strtof_l))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the strtoull_l exist passed with the following output:
+Change Dir: /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_4680c/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_4680c.dir/build.make CMakeFiles/cmTC_4680c.dir/build
+gmake[1]: Entering directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_4680c.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++   -fPIE -std=gnu++17 -o CMakeFiles/cmTC_4680c.dir/CheckSymbolExists.cxx.o -c /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+Linking CXX executable cmTC_4680c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4680c.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_4680c.dir/CheckSymbolExists.cxx.o -o cmTC_4680c 
+gmake[1]: Leaving directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+
+
+File /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strtoull_l
+  return ((int*)(&strtoull_l))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the realpath exist passed with the following output:
+Change Dir: /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_cbd0b/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_cbd0b.dir/build.make CMakeFiles/cmTC_cbd0b.dir/build
+gmake[1]: Entering directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_cbd0b.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -fPIE -o CMakeFiles/cmTC_cbd0b.dir/CheckSymbolExists.c.o -c /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_cbd0b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cbd0b.dir/link.txt --verbose=1
+/usr/bin/cc CMakeFiles/cmTC_cbd0b.dir/CheckSymbolExists.c.o -o cmTC_cbd0b 
+gmake[1]: Leaving directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+
+
+File /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef realpath
+  return ((int*)(&realpath))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Checking whether the ASM compiler is GNU using "--version" matched "(GNU assembler)|(GCC)|(Free Software Foundation)":
+cc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+Performing C++ SOURCE FILE Test protobuf_HAVE_LD_VERSION_SCRIPT succeeded with the following output:
+Change Dir: /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_7e9af/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_7e9af.dir/build.make CMakeFiles/cmTC_7e9af.dir/build
+gmake[1]: Entering directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_7e9af.dir/src.cxx.o
+/usr/bin/c++ -Dprotobuf_HAVE_LD_VERSION_SCRIPT  -fPIE -std=c++11 -o CMakeFiles/cmTC_7e9af.dir/src.cxx.o -c /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_7e9af
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7e9af.dir/link.txt --verbose=1
+/usr/bin/c++ -Wl,--version-script=/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/_deps/protobuf-build/cmaketest.map CMakeFiles/cmTC_7e9af.dir/src.cxx.o -o cmTC_7e9af 
+gmake[1]: Leaving directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test protobuf_HAVE_BUILTIN_ATOMICS succeeded with the following output:
+Change Dir: /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_f9045/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_f9045.dir/build.make CMakeFiles/cmTC_f9045.dir/build
+gmake[1]: Entering directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_f9045.dir/src.cxx.o
+/usr/bin/c++ -Dprotobuf_HAVE_BUILTIN_ATOMICS  -std=c++11 -fPIE -std=c++11 -o CMakeFiles/cmTC_f9045.dir/src.cxx.o -c /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_f9045
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f9045.dir/link.txt --verbose=1
+/usr/bin/c++  -std=c++11 CMakeFiles/cmTC_f9045.dir/src.cxx.o -o cmTC_f9045 
+gmake[1]: Leaving directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+    #include <atomic>
+    int main() {
+      return std::atomic<int64_t>{};
+    }
+  

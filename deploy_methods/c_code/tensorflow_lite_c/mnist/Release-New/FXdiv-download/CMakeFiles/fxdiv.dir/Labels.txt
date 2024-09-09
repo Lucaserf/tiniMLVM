@@ -1,0 +1,14 @@
+# Target labels
+ fxdiv
+# Source files and their labels
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/FXdiv-download/CMakeFiles/fxdiv
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/FXdiv-download/CMakeFiles/fxdiv.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/FXdiv-download/CMakeFiles/fxdiv-complete.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/FXdiv-download/fxdiv-prefix/src/fxdiv-stamp/fxdiv-build.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/FXdiv-download/fxdiv-prefix/src/fxdiv-stamp/fxdiv-configure.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/FXdiv-download/fxdiv-prefix/src/fxdiv-stamp/fxdiv-download.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/FXdiv-download/fxdiv-prefix/src/fxdiv-stamp/fxdiv-install.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/FXdiv-download/fxdiv-prefix/src/fxdiv-stamp/fxdiv-mkdir.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/FXdiv-download/fxdiv-prefix/src/fxdiv-stamp/fxdiv-patch.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/FXdiv-download/fxdiv-prefix/src/fxdiv-stamp/fxdiv-test.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/FXdiv-download/fxdiv-prefix/src/fxdiv-stamp/fxdiv-update.rule

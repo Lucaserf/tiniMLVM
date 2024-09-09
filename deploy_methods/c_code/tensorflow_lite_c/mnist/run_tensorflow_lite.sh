@@ -7,7 +7,7 @@ model_path=$1
 type=$2
 echo "Running the C++ TensorFlow Lite inference for the MNIST dataset with model $model_path and type $type"
 
-cd ${HOME}/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release
+cd ${HOME}/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New
 make -j$(nproc)
 #cmake -DCMAKE_BUILD_TYPE=Debug
 cd ${HOME}/tiniMLVM/

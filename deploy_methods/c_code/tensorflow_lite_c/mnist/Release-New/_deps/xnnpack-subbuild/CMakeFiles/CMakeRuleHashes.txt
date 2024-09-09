@@ -1,0 +1,11 @@
+# Hashes of file build rules.
+cf78cec9cae609326c9ccea6b4260388 /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/src/xnnpack-populate-stamp/xnnpack-populate-build
+02918e92e472075569d8a95cc0d43cae /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/src/xnnpack-populate-stamp/xnnpack-populate-configure
+aeb677b412f91c318a356a5233600fac /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/src/xnnpack-populate-stamp/xnnpack-populate-download
+2c408346f30f3ed960ea83480fc0a7c9 /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/src/xnnpack-populate-stamp/xnnpack-populate-install
+0e673f8662f0ba3663f5fc0187ce9abe /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/src/xnnpack-populate-stamp/xnnpack-populate-mkdir
+533bddd76e2a2f39885aa18b8d0235a7 /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/src/xnnpack-populate-stamp/xnnpack-populate-patch
+15f18e4b3b5dd7ca6d720b4c4fb0ef3f /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/src/xnnpack-populate-stamp/xnnpack-populate-test
+7e5aa084a127d1007f0718eda0ab29a8 /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/src/xnnpack-populate-stamp/xnnpack-populate-update
+4d41263c2ff2fe347e101658f9341422 CMakeFiles/xnnpack-populate
+9b567cc7c0ecbe2b48a94a34241060bc CMakeFiles/xnnpack-populate-complete

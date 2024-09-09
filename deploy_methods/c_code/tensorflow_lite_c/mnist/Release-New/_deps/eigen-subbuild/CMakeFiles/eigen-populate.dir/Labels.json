@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/_deps/eigen-subbuild/CMakeFiles/eigen-populate"
+		},
+		{
+			"file" : "/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/_deps/eigen-subbuild/CMakeFiles/eigen-populate.rule"
+		},
+		{
+			"file" : "/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/_deps/eigen-subbuild/CMakeFiles/eigen-populate-complete.rule"
+		},
+		{
+			"file" : "/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/src/eigen-populate-stamp/eigen-populate-build.rule"
+		},
+		{
+			"file" : "/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/src/eigen-populate-stamp/eigen-populate-configure.rule"
+		},
+		{
+			"file" : "/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/src/eigen-populate-stamp/eigen-populate-download.rule"
+		},
+		{
+			"file" : "/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/src/eigen-populate-stamp/eigen-populate-install.rule"
+		},
+		{
+			"file" : "/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/src/eigen-populate-stamp/eigen-populate-mkdir.rule"
+		},
+		{
+			"file" : "/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/src/eigen-populate-stamp/eigen-populate-patch.rule"
+		},
+		{
+			"file" : "/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/src/eigen-populate-stamp/eigen-populate-test.rule"
+		},
+		{
+			"file" : "/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/src/eigen-populate-stamp/eigen-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"eigen-populate"
+		],
+		"name" : "eigen-populate"
+	}
+}

@@ -1,0 +1,14 @@
+# Target labels
+ protobuf-populate
+# Source files and their labels
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/_deps/protobuf-subbuild/CMakeFiles/protobuf-populate
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/_deps/protobuf-subbuild/CMakeFiles/protobuf-populate.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/_deps/protobuf-subbuild/CMakeFiles/protobuf-populate-complete.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/src/protobuf-populate-stamp/protobuf-populate-build.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/src/protobuf-populate-stamp/protobuf-populate-configure.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/src/protobuf-populate-stamp/protobuf-populate-download.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/src/protobuf-populate-stamp/protobuf-populate-install.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/src/protobuf-populate-stamp/protobuf-populate-mkdir.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/src/protobuf-populate-stamp/protobuf-populate-patch.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/src/protobuf-populate-stamp/protobuf-populate-test.rule
+/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/src/protobuf-populate-stamp/protobuf-populate-update.rule

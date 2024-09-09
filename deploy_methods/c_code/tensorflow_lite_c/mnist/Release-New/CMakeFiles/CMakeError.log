@@ -1,0 +1,132 @@
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wshorten64to32 failed with the following output:
+Change Dir: /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_1d7b9/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_1d7b9.dir/build.make CMakeFiles/cmTC_1d7b9.dir/build
+gmake[1]: Entering directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_1d7b9.dir/src.cxx.o
+/usr/bin/c++ -DCOMPILER_SUPPORT_Wshorten64to32  -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Werror -fPIE   -Wshorten-64-to-32 -std=gnu++17 -o CMakeFiles/cmTC_1d7b9.dir/src.cxx.o -c /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command-line option '-Wshorten-64-to-32'
+gmake[1]: *** [CMakeFiles/cmTC_1d7b9.dir/build.make:78: CMakeFiles/cmTC_1d7b9.dir/src.cxx.o] Error 1
+gmake[1]: Leaving directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_1d7b9/fast] Error 2
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wcpp11extensions failed with the following output:
+Change Dir: /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_6633d/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_6633d.dir/build.make CMakeFiles/cmTC_6633d.dir/build
+gmake[1]: Entering directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_6633d.dir/src.cxx.o
+/usr/bin/c++ -DCOMPILER_SUPPORT_Wcpp11extensions  -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wenum-conversion -Werror -fPIE   -Wc++11-extensions -std=gnu++17 -o CMakeFiles/cmTC_6633d.dir/src.cxx.o -c /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command-line option '-Wc++11-extensions'; did you mean '-fms-extensions'?
+gmake[1]: *** [CMakeFiles/cmTC_6633d.dir/build.make:78: CMakeFiles/cmTC_6633d.dir/src.cxx.o] Error 1
+gmake[1]: Leaving directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_6633d/fast] Error 2
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_wd981 failed with the following output:
+Change Dir: /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_e95f1/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_e95f1.dir/build.make CMakeFiles/cmTC_e95f1.dir/build
+gmake[1]: Entering directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_e95f1.dir/src.cxx.o
+/usr/bin/c++ -DCOMPILER_SUPPORT_wd981  -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wenum-conversion -Wdouble-promotion -Wshadow -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -Werror -fPIE   -wd981 -std=gnu++17 -o CMakeFiles/cmTC_e95f1.dir/src.cxx.o -c /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command-line option '-wd981'
+gmake[1]: *** [CMakeFiles/cmTC_e95f1.dir/build.make:78: CMakeFiles/cmTC_e95f1.dir/src.cxx.o] Error 1
+gmake[1]: Leaving directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_e95f1/fast] Error 2
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_wd2304 failed with the following output:
+Change Dir: /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_23bc8/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_23bc8.dir/build.make CMakeFiles/cmTC_23bc8.dir/build
+gmake[1]: Entering directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_23bc8.dir/src.cxx.o
+/usr/bin/c++ -DCOMPILER_SUPPORT_wd2304  -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wenum-conversion -Wdouble-promotion -Wshadow -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -Werror -fPIE   -wd2304 -std=gnu++17 -o CMakeFiles/cmTC_23bc8.dir/src.cxx.o -c /home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command-line option '-wd2304'
+gmake[1]: *** [CMakeFiles/cmTC_23bc8.dir/build.make:78: CMakeFiles/cmTC_23bc8.dir/src.cxx.o] Error 1
+gmake[1]: Leaving directory '/home/lucaserf/tiniMLVM/deploy_methods/c_code/tensorflow_lite_c/mnist/Release-New/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_23bc8/fast] Error 2
+
+
+Source file was:
+int main() { return 0; }
+Compiling the Fortran compiler identification source file "CMakeFortranCompilerId.F" failed.
+Compiler: CMAKE_Fortran_COMPILER-NOTFOUND 
+Build flags: 
+Id flags: -v 
+
+The output was:
+No such file or directory
+
+
+Compiling the Fortran compiler identification source file "CMakeFortranCompilerId.F" failed.
+Compiler: CMAKE_Fortran_COMPILER-NOTFOUND 
+Build flags: 
+Id flags:  
+
+The output was:
+No such file or directory
+
+
+Compiling the Fortran compiler identification source file "CMakeFortranCompilerId.F" failed.
+Compiler: CMAKE_Fortran_COMPILER-NOTFOUND 
+Build flags: 
+Id flags: -c 
+
+The output was:
+No such file or directory
+
+
+Compiling the Fortran compiler identification source file "CMakeFortranCompilerId.F" failed.
+Compiler: CMAKE_Fortran_COMPILER-NOTFOUND 
+Build flags: 
+Id flags: -fpp 
+
+The output was:
+No such file or directory
+
+
+Compiling the Fortran compiler identification source file "CMakeFortranCompilerId.F" failed.
+Compiler: CMAKE_Fortran_COMPILER-NOTFOUND 
+Build flags: 
+Id flags: -v 
+
+The output was:
+No such file or directory
+
+
+Compiling the Fortran compiler identification source file "CMakeFortranCompilerId.F" failed.
+Compiler: CMAKE_Fortran_COMPILER-NOTFOUND 
+Build flags: 
+Id flags:  
+
+The output was:
+No such file or directory
+
+
+Compiling the Fortran compiler identification source file "CMakeFortranCompilerId.F" failed.
+Compiler: CMAKE_Fortran_COMPILER-NOTFOUND 
+Build flags: 
+Id flags: -c 
+
+The output was:
+No such file or directory
+
+
+Compiling the Fortran compiler identification source file "CMakeFortranCompilerId.F" failed.
+Compiler: CMAKE_Fortran_COMPILER-NOTFOUND 
+Build flags: 
+Id flags: -fpp 
+
+The output was:
+No such file or directory
+
+
