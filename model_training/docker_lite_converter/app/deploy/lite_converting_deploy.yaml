@@ -1,0 +1,24 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: converting-job
+  labels:
+    app: converting-lite
+spec:
+  backoffLimit: 0
+  completions: 1
+  parallelism: 1
+  template:
+    spec:
+      containers:
+        - name: converting-lite
+          image: lucaserf/converting-lite:latest
+          imagePullPolicy: Always
+          volumeMounts:
+            - name: data-volume
+              mountPath: /var/data/
+      restartPolicy: Never
+      volumes:
+        - name: data-volume
+          persistentVolumeClaim:
+            claimName: data-pvc

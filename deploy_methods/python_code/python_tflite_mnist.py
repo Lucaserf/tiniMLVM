@@ -14,6 +14,7 @@ print("timestamp[ns],inference_time[ns]")
 interpreter = tf.lite.Interpreter(
     model_path=args.model_path,
     num_threads=1,
+    # experimental_op_resolver_type=tf.lite.experimental.OpResolverType.BUILTIN_WITHOUT_DEFAULT_DELEGATES,
 )
 interpreter.allocate_tensors()
 
