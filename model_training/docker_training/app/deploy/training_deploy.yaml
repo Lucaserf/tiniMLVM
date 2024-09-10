@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: training-job
+  name: training-job-test
   labels:
     app: training-regression
 spec:
@@ -17,6 +17,15 @@ spec:
           volumeMounts:
             - name: data-volume
               mountPath: /var/data/
+          env:
+            - name: FOLDER_PATH
+              value: "/var/data/"
+            - name: OUTPUT_PATH
+              value: "regression_model_tf_prova"
+            - name: DATA_PATH
+              value: "data.csv"
+            - name: LOGGING
+              value: "INFO"
       restartPolicy: Never
       volumes:
         - name: data-volume

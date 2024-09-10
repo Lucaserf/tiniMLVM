@@ -3,6 +3,7 @@ import tensorflow as tf
 import time
 import argparse
 import logging
+import os
 
 input_size = 10
 
@@ -58,20 +59,17 @@ model = RegressionModel()
 #     model.evaluate(evaluate_batch, np.array([synthetic_function(x) for x in evaluate_batch]), verbose=2)
 
 
-# training on samples
-# print("training the model with synthetic data samples")
-parser = argparse.ArgumentParser()
-parser.add_argument("--folder_path", type=str, default="/var/data/")
-parser.add_argument("--data_path", type=str, default="drift_data.csv")
-parser.add_argument("--output_path", type=str, default="regression_model_tf")
-parser.add_argument("--logging", type=str, default="INFO")
-args = parser.parse_args()
+# get arguments from environment variables
+folder_path = os.environ.get("FOLDER_PATH")
+data_path = os.environ.get("DATA_PATH")
+output_path = os.environ.get("OUTPUT_PATH")
+logging_level = os.environ.get("LOGGING")
 
-logging.basicConfig(level=args.logging, format="%(message)s")
+logging.basicConfig(level=logging_level, format="%(message)s")
 
 
 logging.debug("timestamp[ns],train_time[ns],train_inference_time[ns]")
-with open(args.folder_path+args.data_path, "r") as f:
+with open(folder_path + data_path, "r") as f:
     data = f.readline()
     data = f.readline()
     while data:
@@ -83,7 +81,7 @@ with open(args.folder_path+args.data_path, "r") as f:
         data = f.readline()
 
 # save model
-tf.saved_model.save(model.model, args.folder_path + args.output_path)
+tf.saved_model.save(model.model, folder_path + output_path)
 
 # save .keras model
-model.model.save(args.folder_path + args.output_path + ".keras")
+model.model.save(folder_path + output_path + ".keras")

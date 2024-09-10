@@ -8,4 +8,4 @@ docker push lucaserf/converting-lite:latest
 # docker run lucaserf/python_tflite:latest /bin/bash
 # kubectl rollout restart deployment/python-tflite-deploy
 
-# kubectl apply -f ./model_training/docker_training/app/deploy/training_deploy.yaml 
+# kubectl apply -f ./model_training/docker_lite_converter/app/deploy/lite_converting_deploy.yaml 

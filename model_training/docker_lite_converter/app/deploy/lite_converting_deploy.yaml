@@ -17,6 +17,13 @@ spec:
           volumeMounts:
             - name: data-volume
               mountPath: /var/data/
+          env:
+            - name: FOLDER_PATH
+              value: "/var/data/"
+            - name: MODEL_PATH
+              value: "regression_model_tf"
+            - name: OUTPUT_PATH
+              value: "regression_model_lite"
       restartPolicy: Never
       volumes:
         - name: data-volume
