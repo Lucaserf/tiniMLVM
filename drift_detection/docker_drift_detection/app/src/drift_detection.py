@@ -1,6 +1,7 @@
 import time
 import numpy as np
 import logging
+import os
 
 import paho.mqtt.client as mqtt
 
@@ -11,14 +12,22 @@ import pandas as pd
 root = logging.getLogger()
 root.setLevel(logging.INFO)
 
-parameters = {
-    "broker_address": "as-sensiblecity1.cloudmmwunibo.it",
-    "topic_name": "test",
-    "batch_size": 100,
-    "alpha_p_value": 0.001,
-}
+# get parameters from environment variables
+broker_address = os.getenv("BROKER_ADDRESS")
+topic_name = os.getenv("TOPIC_NAME")
+batch_size = int(os.getenv("BATCH_SIZE"))
+alpha_p_value = float(os.getenv("ALPHA_P_VALUE"))
+data_folder = os.getenv("FOLDER_PATH")
+output_name = os.getenv("OUTPUT_NAME")
 
-data_folder = "/var/data/"
+
+parameters = {
+    "broker_address": broker_address,
+    "topic_name": topic_name,
+    "batch_size": batch_size,
+    "alpha_p_value": alpha_p_value,
+    "output_name": output_name,
+}
 
 
 def on_subscribe(client, userdata, mid, reason_code_list, properties):
@@ -100,7 +109,7 @@ while True:
     data_to_save = np.concatenate((datax, datay[:, np.newaxis]), axis=1)
     # save data with 5 decimal points
     if at_least_one_drift:
-        with open(f"{data_folder}drift_data.csv", "a") as f:
+        with open(f"{data_folder}{parameters["output_name"]}.csv", "a") as f:
             f.write(
                 "\n".join([",".join([f"{x:.5f}" for x in row]) for row in data_to_save])
                 + "\n"

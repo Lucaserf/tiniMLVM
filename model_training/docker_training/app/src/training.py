@@ -63,7 +63,7 @@ model = RegressionModel()
 folder_path = os.environ.get("FOLDER_PATH")
 data_path = os.environ.get("DATA_PATH")
 output_path = os.environ.get("OUTPUT_PATH")
-logging_level = os.environ.get("LOGGING")
+logging_level = os.environ.get("LOGGING_LEVEL")
 
 logging.basicConfig(level=logging_level, format="%(message)s")
 

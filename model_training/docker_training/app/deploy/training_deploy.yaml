@@ -24,7 +24,7 @@ spec:
               value: "regression_model_tf_prova"
             - name: DATA_PATH
               value: "data.csv"
-            - name: LOGGING
+            - name: LOGGING_LEVEL
               value: "INFO"
       restartPolicy: Never
       volumes:

@@ -16,13 +16,25 @@ spec:
         app: drift-detection
     spec:
       containers:
-        - env:
+        - name: drift-detection
           image: lucaserf/drift_detection:latest
           imagePullPolicy: Always
-          name: drift-detection
           volumeMounts:
             - name: data-volume
               mountPath: /var/data/
+          env:
+            - name: FOLDER_PATH
+              value: /var/data/
+            - name: BROKER_ADDRESS
+              value: "as-sensiblecity1.cloudmmwunibo.it"
+            - name: "TOPIC_NAME"
+              value: "drift-detection"
+            - name: "BATCH_SIZE"
+              value: "100"
+            - name: "ALPHA_P_VALUE"
+              value: "0.001"
+            - name: "OUTPUT_NAME"
+              value: "drift_data.csv"
       volumes:
         - name: data-volume
           persistentVolumeClaim:

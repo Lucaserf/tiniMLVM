@@ -21,7 +21,7 @@ spec:
             - name: FOLDER_PATH
               value: "/var/data/"
             - name: MODEL_PATH
-              value: "regression_model_tf"
+              value: "regression_model_tf_prova.keras"
             - name: OUTPUT_PATH
               value: "regression_model_lite"
       restartPolicy: Never
