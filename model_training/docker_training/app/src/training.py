@@ -82,10 +82,12 @@ with open(folder_path + data_path, "r") as f:
         data = f.readline()
 
 # save model
-tf.saved_model.save(model.model, folder_path + output_path)
+# tf.saved_model.save(model.model, folder_path + output_path)
 
 # save .keras model
 model.model.save(folder_path + output_path + ".keras")
+
+# delete reference file
 
 
 # rename the data file
