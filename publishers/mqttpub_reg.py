@@ -40,10 +40,8 @@ def on_publish(client, userdata, mid, reason_code, properties):
 def main():
     # get args from command line
     parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--broker", help="broker address", default="as-sensiblecity1.cloudmmwunibo.it"
-    )
-    parser.add_argument("--topic", help="topic name", default="test")
+    parser.add_argument("--broker", help="broker address", default="broker.hivemq.com")
+    parser.add_argument("--topic", help="topic name", default="drift-detection")
     args = parser.parse_args()
 
     unacked_publish = set()

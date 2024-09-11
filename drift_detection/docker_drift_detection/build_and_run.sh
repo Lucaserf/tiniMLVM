@@ -7,7 +7,6 @@ docker push lucaserf/drift_detection:latest
 
 # docker run lucaserf/python_tflite:latest /bin/bash
 
-
 #kubectl rollout restart deployment/drift-deploy
 
 kubectl apply -f ./drift_detection/docker_drift_detection/app/deploy/drift_deploy.yaml 

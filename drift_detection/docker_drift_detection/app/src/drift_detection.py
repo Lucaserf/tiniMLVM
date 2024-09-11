@@ -21,15 +21,6 @@ data_folder = os.getenv("FOLDER_PATH")
 output_name = os.getenv("OUTPUT_NAME")
 
 
-parameters = {
-    "broker_address": broker_address,
-    "topic_name": topic_name,
-    "batch_size": batch_size,
-    "alpha_p_value": alpha_p_value,
-    "output_name": output_name,
-}
-
-
 def on_subscribe(client, userdata, mid, reason_code_list, properties):
     # Since we subscribed only for a single channel, reason_code_list contains
     # a single entry
@@ -55,8 +46,8 @@ def on_message(client, userdata, message):
     # userdata is the structure we choose to provide, here it's a list()
     userdata.append(message.payload)
     # We only want to process n messages
-    if len(userdata) >= parameters["batch_size"]:
-        client.unsubscribe(parameters["topic_name"])
+    if len(userdata) >= batch_size:
+        client.unsubscribe(topic_name)
 
 
 def on_connect(client, userdata, flags, reason_code, properties):
@@ -67,7 +58,7 @@ def on_connect(client, userdata, flags, reason_code, properties):
     else:
         # we should always subscribe from on_connect callback to be sure
         # our subscribed is persisted across reconnections.
-        client.subscribe(parameters["topic_name"], qos=1)
+        client.subscribe(topic_name, qos=1)
 
 
 mqttc = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
@@ -89,18 +80,21 @@ def data_preprocessing(data):
 # get original training data
 df_ref = pd.read_csv("./app/reference.csv").drop(columns=["y"]).values
 
+print("timestamp,p_value,drift")
+
 
 # get input data from MQTT
 while True:
     mqttc.user_data_set([])
-    mqttc.connect(parameters["broker_address"])
+    # logging.info("Connecting to {}".format(broker_address))
+    mqttc.connect(broker_address)
     # sometimes if doesn't disconnect in time and gets more messages
     mqttc.loop_forever()
     t = time.time_ns()
     datax, datay = data_preprocessing(mqttc.user_data_get())
     # calculate Kolmogorov-Smirnov distance
     ks = ks_2samp(df_ref, datax)
-    drift = [ks_p < parameters["alpha_p_value"] for ks_p in ks.pvalue]
+    drift = [ks_p < alpha_p_value for ks_p in ks.pvalue]
     at_least_one_drift = any(drift)
     print(f"{t},{ks.pvalue},{at_least_one_drift}")
 
@@ -109,7 +103,7 @@ while True:
     data_to_save = np.concatenate((datax, datay[:, np.newaxis]), axis=1)
     # save data with 5 decimal points
     if at_least_one_drift:
-        with open(f"{data_folder}{parameters["output_name"]}.csv", "a") as f:
+        with open(f"{data_folder}{output_name}.csv", "a") as f:
             f.write(
                 "\n".join([",".join([f"{x:.5f}" for x in row]) for row in data_to_save])
                 + "\n"

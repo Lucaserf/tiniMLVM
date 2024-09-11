@@ -64,6 +64,7 @@ folder_path = os.environ.get("FOLDER_PATH")
 data_path = os.environ.get("DATA_PATH")
 output_path = os.environ.get("OUTPUT_PATH")
 logging_level = os.environ.get("LOGGING_LEVEL")
+rename = os.environ.get("RENAME")
 
 logging.basicConfig(level=logging_level, format="%(message)s")
 
@@ -85,3 +86,7 @@ tf.saved_model.save(model.model, folder_path + output_path)
 
 # save .keras model
 model.model.save(folder_path + output_path + ".keras")
+
+
+# rename the data file
+os.rename(folder_path + data_path, folder_path + rename)
