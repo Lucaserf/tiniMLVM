@@ -42,6 +42,10 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--broker", help="broker address", default="broker.hivemq.com")
     parser.add_argument("--topic", help="topic name", default="drift-detection")
+    parser.add_argument(
+        "--data_path", help="path to data file", default="./regression_test/data.csv"
+    )
+    parser.add_argument("--n_messages", help="number of messages to send", default=3300)
     args = parser.parse_args()
 
     unacked_publish = set()
@@ -55,15 +59,31 @@ def main():
     # set client identifier
     mqttc.loop_start()
 
+    n_messages = 0
+
     # Our application produce some messages
-    with open("./regression_test/data.csv", "r") as f:
-        f.readline()
-        line = f.readline()
-        while line != "":
-            msg_info = mqttc.publish(args.topic, line, qos=1)
-            unacked_publish.add(msg_info.mid)
-            time.sleep(0.1)
+
+    if int(args.n_messages) == -1:
+        while True:
+            with open(args.data_path, "r") as f:
+                f.readline()
+                line = f.readline()
+                while line != "":
+                    msg_info = mqttc.publish(args.topic, line, qos=1)
+                    n_messages += 1
+                    unacked_publish.add(msg_info.mid)
+                    time.sleep(0.1)
+                    line = f.readline()
+    else:
+        with open(args.data_path, "r") as f:
+            f.readline()
             line = f.readline()
+            while line != "" and n_messages < int(args.n_messages):
+                msg_info = mqttc.publish(args.topic, line, qos=1)
+                n_messages += 1
+                unacked_publish.add(msg_info.mid)
+                time.sleep(0.1)
+                line = f.readline()
 
     # for i in range(10):
     #     msg_info2 = mqttc.publish("prova_topic", "message2", qos=1)

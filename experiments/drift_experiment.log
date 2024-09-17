@@ -1,0 +1,8 @@
+Starting ctrldrift operator
+1726585205.4290667, Sending reference data
+ctrldrift.mlops.driftprovider.crossplane.io/ctrldrift-1 created
+1726585265.1304414, Stopping reference data
+1726585265.1309266, Sending drift data
+1726585851.4144204, Stopping drift data
+1726585851.5420687, Stopping ctrldrift operator
+ctrldrift.mlops.driftprovider.crossplane.io "ctrldrift-1" deleted

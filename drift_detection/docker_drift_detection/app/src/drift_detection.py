@@ -77,9 +77,20 @@ def data_preprocessing(data):
     return x, y
 
 
-# get original training data
-df_ref = pd.read_csv("./app/reference.csv").drop(columns=["y"]).values
+# delete drift_data file
+if os.path.exists(f"{data_folder}{output_name}.csv"):
+    os.remove(f"{data_folder}{output_name}.csv")
 
+
+colnames = ["x1", "x2", "x3", "x4", "x5", "x6", "x7", "x8", "x9", "x10", "y"]
+# get original training data
+df_ref = (
+    pd.read_csv(data_folder + "reference.csv", names=colnames)
+    .drop(columns=["y"])
+    .values
+)
+
+# save data to file
 print("timestamp,p_value,drift")
 
 
