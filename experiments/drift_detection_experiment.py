@@ -7,7 +7,7 @@ import subprocess
 
 
 def print_t(string):
-    print(f"{time.time()}, {string}")
+    print(f"{time.time_ns()}, {string}")
 
 
 # copy reference data from the regression_test folder
@@ -16,7 +16,7 @@ subprocess.Popen(["cp", "./regression_test/reference.csv", "./data_kind/referenc
 
 # run ctrldrift operator
 subprocess.Popen(["kubectl", "apply", "-f", "./experiments/ctrldrift.yaml"])
-print("Starting ctrldrift operator")
+print_t("Starting ctrldrift operator")
 
 
 ### sending reference data and after some time start sending data with drift
