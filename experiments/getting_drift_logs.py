@@ -1,5 +1,11 @@
 import subprocess
 import time
+import argparse
+
+# get folder path
+parser = argparse.ArgumentParser()
+parser.add_argument("--data_path", type=str, default="./experiments/")
+data_path = parser.parse_args().data_path
 
 while True:
     try:
@@ -32,7 +38,7 @@ while True:
         )
 
         # save logs to a file
-        with open(f"./experiments/{pod_name}.log", "w") as f:
+        with open(f".{data_path}/{pod_name}.log", "w") as f:
             f.write(logs_pod.stdout.decode("utf-8"))
 
         time.sleep(5)

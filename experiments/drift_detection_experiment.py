@@ -1,13 +1,25 @@
 import time
 import subprocess
+import argparse
 
 # set print with timestamp
 
-# run with python experiments/drift_detection_experiment.py > ./experiments/drift_experiment.log
+# run with:
+# python experiments/drift_detection_experiment.py --data_path ./experiments/
+
+# get folder path
+parser = argparse.ArgumentParser()
+parser.add_argument("--data_path", type=str, default="./experiments/")
+
+data_path = parser.parse_args().data_path
+
+# make the folder if it does not exist
+subprocess.Popen(["mkdir", "-p", data_path])
 
 
 def print_t(string):
-    print(f"{time.time_ns()}, {string}")
+    with open(f"{data_path}/experiment_logs.csv", "a") as f:
+        f.write(f"{time.time_ns()}, {string}\n")
 
 
 # copy reference data from the regression_test folder
@@ -33,7 +45,9 @@ send_reference = subprocess.Popen(
 print_t("Sending reference data")
 
 # start saving logs from drift detection pod
-saving_logs = subprocess.Popen(["python", "./experiments/getting_drift_logs.py"])
+saving_logs = subprocess.Popen(
+    ["python", "./experiments/getting_drift_logs.py", "--data_path", data_path]
+)
 
 # wait a command to change the data
 input("")
@@ -99,7 +113,7 @@ logs = subprocess.run(
 
 
 # save logs to a file
-with open("./experiments/drift_detection_logs.log", "w") as f:
+with open(f"{data_path}/drift_detection_logs.log", "w") as f:
     f.write(logs.stdout.decode("utf-8"))
 
 
