@@ -9,13 +9,27 @@ import paho.mqtt.client as mqtt
 root = logging.getLogger()
 root.setLevel(logging.INFO)
 
-data_folder = "/var/data/"
+
+def print_time(string):
+    print(f"{time.time_ns()},{string}")
+
+
+# get parameters from environment variables
+
+broker_address = os.environ.get("BROKER_ADDRESS")
+topic_name = os.environ.get("TOPIC_NAME")
+batch_size = os.environ.get("BATCH_SIZE")
+model_name = os.environ.get("MODEL_NAME")
+data_folder = os.environ.get("DATA_FOLDER")
+
+
+model_path = f"{data_folder}{model_name}"
 
 
 parameters = {
-    "broker_address": "as-sensiblecity1.cloudmmwunibo.it",
-    "topic_name": "test",
-    "batch_size": 10,
+    "broker_address": broker_address,
+    "topic_name": topic_name,
+    "batch_size": batch_size,
 }
 
 
@@ -67,13 +81,6 @@ mqttc.on_subscribe = on_subscribe
 mqttc.on_unsubscribe = on_unsubscribe
 
 
-print("timestamp[ns],inference_time[ns]")
-
-# get environment variables
-model_name = os.environ.get("MODEL_NAME")
-model_path = f"{data_folder}{model_name}"
-
-
 # tf lite model
 interpreter = tflite.Interpreter(model_path=model_path)
 interpreter.allocate_tensors()
@@ -98,6 +105,7 @@ while True:
     mqttc.user_data_set([])
     mqttc.connect(parameters["broker_address"])
     # sometimes if doesn't disconnect in time and gets more messages
+    print_time("starting inference")
     mqttc.loop_forever()
     t = time.time_ns()
     datax, datay = data_preprocessing(mqttc.user_data_get())
@@ -105,6 +113,5 @@ while True:
         interpreter.set_tensor(input_details["index"], x)
         interpreter.invoke()
         output = interpreter.get_tensor(output_details["index"])
-        print("{},{}".format(time.time_ns(), time.time_ns() - t))
 
     # save data only if drifting is detected for a parametrized number of times

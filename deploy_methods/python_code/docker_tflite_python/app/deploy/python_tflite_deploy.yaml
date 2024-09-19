@@ -16,15 +16,23 @@ spec:
         app: python-tflite
     spec:
       containers:
-        - env:
-            - name: MODEL_NAME
-              value: model_regression.tflite
-          image: lucaserf/python_tflite:latest
+        - image: lucaserf/python_tflite:latest
           imagePullPolicy: Always
           name: python-tflite
           volumeMounts:
             - name: data-volume
               mountPath: /var/data/
+          env:
+            - name: MODEL_NAME
+              value: model_regression.tflite
+            - name: MODEL_PATH
+              value: /var/data/
+            - name: BATCH_SIZE
+              value: "10"
+            - name: TOPIC_NAME
+              value: "drift-detection"
+            - name: BROKER_ADDRESS
+              value: "broker.hivemq.com"
       volumes:
         - name: data-volume
           persistentVolumeClaim:
