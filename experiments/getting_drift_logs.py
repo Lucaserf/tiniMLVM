@@ -21,9 +21,8 @@ while True:
             ],
             stdout=subprocess.PIPE,
         )
-
         # get and write logs from every pod
-        for line in pod_names.stdout.decode("utf-8").split("\n"):
+        for line in pod_names.stdout.decode("utf-8").split("\n")[0:-1]:
             pod_name = line.split(" ")[0]
             logs_pod = subprocess.run(
                 [

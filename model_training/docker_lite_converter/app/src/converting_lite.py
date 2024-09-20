@@ -29,3 +29,7 @@ with open(model_name + ".tflite", "wb") as f:
     f.write(tflite_model)
 
 print_t(f"Model {model_name} converted to tflite")
+
+
+# delete drift data
+os.remove(f"{folder_path}/drift_data.csv")

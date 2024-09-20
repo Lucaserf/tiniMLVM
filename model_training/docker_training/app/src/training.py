@@ -82,4 +82,4 @@ model.model.save(folder_path + output_path + ".keras")
 
 
 # rename the data file
-# os.rename(folder_path + data_path, folder_path + rename)
+os.rename(folder_path + data_path, folder_path + rename)
