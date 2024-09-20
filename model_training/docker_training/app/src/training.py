@@ -2,10 +2,13 @@ import numpy as np
 import tensorflow as tf
 import time
 import argparse
-import logging
 import os
 
 input_size = 10
+
+
+def print_t(string):
+    print(f"{time.time_ns()}, {string}")
 
 
 # defining model class
@@ -26,26 +29,15 @@ class RegressionModel:
             t_start = time.time_ns()
             data = np.expand_dims(data, axis=0)
             prediction = self.model(data, training=True)
-            time_inference = time.time_ns() - t_start
-            t = time.time_ns()
             loss = tf.reduce_mean(tf.square(label - prediction))
             grads = tape.gradient(loss, self.model.trainable_variables)
             self.optimizer.apply_gradients(zip(grads, self.model.trainable_variables))
-            time_train = time.time_ns() - t
-            logging.debug("{},{},{}".format(t_start, time_train, time_inference))
 
     def predict(self, data):
-        t = time.time()
         data = np.expand_dims(data, axis=0)
         output = self.model(data)
-        logging.debug("Inference time: ", time.time() - t)
         return output
 
-
-# print("initializing the model")
-
-
-# print("{},{},{}".format(int(time.time()), 0.0, 0.0))
 
 model = RegressionModel()
 
@@ -66,10 +58,8 @@ output_path = os.environ.get("OUTPUT_PATH")
 logging_level = os.environ.get("LOGGING_LEVEL")
 rename = os.environ.get("RENAME")
 
-logging.basicConfig(level=logging_level, format="%(message)s")
+print_t("Training started")
 
-
-logging.debug("timestamp[ns],train_time[ns],train_inference_time[ns]")
 with open(folder_path + data_path, "r") as f:
     data = f.readline()
     data = f.readline()
@@ -81,6 +71,7 @@ with open(folder_path + data_path, "r") as f:
         model.train_step(sample, label)
         data = f.readline()
 
+print_t("Training finished")
 # save model
 # tf.saved_model.save(model.model, folder_path + output_path)
 
@@ -91,4 +82,4 @@ model.model.save(folder_path + output_path + ".keras")
 
 
 # rename the data file
-os.rename(folder_path + data_path, folder_path + rename)
+# os.rename(folder_path + data_path, folder_path + rename)

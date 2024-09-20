@@ -72,7 +72,7 @@ def main():
                     msg_info = mqttc.publish(args.topic, line, qos=1)
                     n_messages += 1
                     unacked_publish.add(msg_info.mid)
-                    time.sleep(0.1)
+                    time.sleep(0.05)
                     line = f.readline()
     else:
         with open(args.data_path, "r") as f:
@@ -82,7 +82,7 @@ def main():
                 msg_info = mqttc.publish(args.topic, line, qos=1)
                 n_messages += 1
                 unacked_publish.add(msg_info.mid)
-                time.sleep(0.1)
+                time.sleep(0.05)
                 line = f.readline()
 
     # for i in range(10):

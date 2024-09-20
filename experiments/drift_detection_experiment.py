@@ -25,6 +25,15 @@ def print_t(string):
 # copy reference data from the regression_test folder
 subprocess.Popen(["cp", "./regression_test/reference.csv", "./data_kind/reference.csv"])
 
+# copy the starting model
+subprocess.Popen(
+    [
+        "cp",
+        "./tflite_models/model_regression.tflite",
+        "./data_kind/model_regression.tflite",
+    ]
+)
+
 
 # run ctrldrift operator
 subprocess.Popen(["kubectl", "apply", "-f", "./experiments/ctrldrift.yaml"])
@@ -40,6 +49,8 @@ send_reference = subprocess.Popen(
         "./publishers/mqttpub_reg.py",
         "--data_path",
         "./regression_test/reference.csv",
+        "--broker",
+        "lserf-tinyml.cloudmmwunibo.it",
     ]
 )
 print_t("Sending reference data")
@@ -50,8 +61,8 @@ saving_logs = subprocess.Popen(
 )
 
 # wait a command to change the data
-input("")
-# time.sleep(2 * 60)
+# input("")
+time.sleep(120)
 
 # stop publishing reference data
 send_reference.kill()
@@ -66,12 +77,15 @@ pub_drift = subprocess.Popen(
         "./regression_test/data.csv",
         "--n_messages",
         "-1",
+        "--broker",
+        "lserf-tinyml.cloudmmwunibo.it",
     ]
 )
 print_t("Sending drift data")
 
 # wait a command to stop the drift with input from user
-input("")
+# input("")
+time.sleep(600)
 
 # stop publishing drift data
 pub_drift.kill()
@@ -116,12 +130,10 @@ logs = subprocess.run(
 with open(f"{data_path}/drift_detection_logs.log", "w") as f:
     f.write(logs.stdout.decode("utf-8"))
 
+# stop saving logs from drift detection pod
+saving_logs.kill()
 
 # # stop ctrldrift operator
 subprocess.Popen(["kubectl", "delete", "-f", "./experiments/ctrldrift.yaml"])
 
 print_t("Stopping ctrldrift operator")
-
-
-# stop saving logs from drift detection pod
-saving_logs.kill()

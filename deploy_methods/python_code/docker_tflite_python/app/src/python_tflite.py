@@ -7,7 +7,7 @@ import logging
 import paho.mqtt.client as mqtt
 
 root = logging.getLogger()
-root.setLevel(logging.INFO)
+root.setLevel(logging.ERROR)
 
 
 def print_time(string):
@@ -18,7 +18,7 @@ def print_time(string):
 
 broker_address = os.environ.get("BROKER_ADDRESS")
 topic_name = os.environ.get("TOPIC_NAME")
-batch_size = os.environ.get("BATCH_SIZE")
+batch_size = int(os.environ.get("BATCH_SIZE"))
 model_name = os.environ.get("MODEL_NAME")
 data_folder = os.environ.get("DATA_FOLDER")
 
@@ -100,15 +100,16 @@ def data_preprocessing(data):
     return x, y
 
 
+print_time("starting inference")
 # get input data from MQTT
 while True:
     mqttc.user_data_set([])
     mqttc.connect(parameters["broker_address"])
     # sometimes if doesn't disconnect in time and gets more messages
-    print_time("starting inference")
     mqttc.loop_forever()
-    t = time.time_ns()
-    datax, datay = data_preprocessing(mqttc.user_data_get())
+    data = mqttc.user_data_get()
+    print_time(f"{len(data)} data points received")
+    datax, datay = data_preprocessing(data)
     for x in datax:
         interpreter.set_tensor(input_details["index"], x)
         interpreter.invoke()
