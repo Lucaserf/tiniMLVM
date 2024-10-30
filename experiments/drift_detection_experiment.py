@@ -137,3 +137,18 @@ saving_logs.kill()
 subprocess.Popen(["kubectl", "delete", "-f", "./experiments/ctrldrift.yaml"])
 
 print_t("Stopping ctrldrift operator")
+
+# get images size from docker
+images_size = subprocess.run(
+    [
+        "docker",
+        "images",
+        "--format",
+        "{{.Repository}},{{.Size}}",
+    ],
+    stdout=subprocess.PIPE,
+)
+
+# save images size to a file
+with open(f"{data_path}/images_size.csv", "w") as f:
+    f.write(images_size.stdout.decode("utf-8"))

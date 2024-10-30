@@ -7,7 +7,7 @@ model_path="tflite_models/model_mnist_$model_type.tflite"
 onnx_model_path="onnx_models/model_mnist_$model_type.onnx"
 
 #python
-python3 deploy_methods/python_code/python_tflite_mnist.py --model_path $model_path > mnist_test/tflite_python_inftime_mnist_$model_type.csv
+# python3 deploy_methods/python_code/python_tflite_mnist.py --model_path $model_path > mnist_test/tflite_python_inftime_mnist_$model_type.csv
 
 #onnx
 python3 deploy_methods/python_code/python_onnx_mnist.py --model_path $onnx_model_path > mnist_test/onnx_python_inftime_mnist_$model_type.csv
@@ -26,7 +26,7 @@ python3 deploy_methods/python_code/python_onnx_mnist.py --model_path $onnx_model
 # cd ${HOME}/tiniMLVM/
 
 #wasm
-bash deploy_methods/wasm_code/mnist/br_wasm_mnist.sh $model_path $model_type
+# bash deploy_methods/wasm_code/mnist/br_wasm_mnist.sh $model_path $model_type
 #get performance data from wasm
 
 # cd perf/wasm_deploy
@@ -44,5 +44,5 @@ bash deploy_methods/wasm_code/mnist/br_wasm_mnist.sh $model_path $model_type
 
 
 #c++
-bash deploy_methods/c_code/tensorflow_lite_c/mnist/run_tensorflow_lite.sh $model_path $model_type
+# bash deploy_methods/c_code/tensorflow_lite_c/mnist/run_tensorflow_lite.sh $model_path $model_type
 
