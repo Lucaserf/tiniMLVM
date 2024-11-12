@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: training-job-test
+  name: training-job-test-limited
   labels:
     app: training-regression
 spec:
@@ -28,6 +28,13 @@ spec:
               value: "INFO"
             - name: RENAME
               value: "data.csv"
+          resources:
+            limits:
+              cpu: "200m"
+              memory: "1Gi"
+            requests:
+              cpu: "100m"
+              memory: "500Mi"
       restartPolicy: Never
       volumes:
         - name: data-volume
