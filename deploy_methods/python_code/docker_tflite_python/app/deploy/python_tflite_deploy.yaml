@@ -25,7 +25,7 @@ spec:
           env:
             - name: MODEL_NAME
               value: model_regression.tflite
-            - name: MODEL_PATH
+            - name: DATA_FOLDER
               value: /var/data/
             - name: BATCH_SIZE
               value: "10"
