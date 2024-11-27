@@ -2,7 +2,6 @@ WasmEdge-WASINN-examples
 .venv
 .vscode
 build
-mnist_test/x_test.csv
 Debug/
 Release/
 New_Release/
@@ -10,3 +9,4 @@ lite_venv/
 drift_venv/
 training_venv/
 experiments_venv/
+x_test.csv

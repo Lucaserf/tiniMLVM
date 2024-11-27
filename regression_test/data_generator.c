@@ -27,7 +27,7 @@ int main()
 {
     double train_feature[INPUT_SIZE];
     double train_label;
-    printf("x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,y\n");
+    // printf("x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,y\n");
     for (int i = 0; i < DATASET_SIZE; i++)
     {
         train_label = synthetic_function(train_feature);
