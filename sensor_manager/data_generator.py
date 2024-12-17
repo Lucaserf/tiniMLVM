@@ -1,7 +1,7 @@
 import time
 import paho.mqtt.client as mqtt
-import numpy as np
 import os
+import argparse
 
 
 def on_publish(client, userdata, mid, reason_code, properties):
@@ -28,7 +28,12 @@ def on_publish(client, userdata, mid, reason_code, properties):
         print("but remember that mid could be re-used !")
 
 
-sensor_id = 1
+parser = argparse.ArgumentParser()
+parser.add_argument("--sensor_id", type=int, required=True)
+
+args = parser.parse_args()
+
+sensor_id = args.sensor_id
 broker_sensor_address = "lserf-tinyml.cloudmmwunibo.it"
 sensor_data_folder = f"sensor_manager/sensor_data/"
 
@@ -39,9 +44,9 @@ for file in os.listdir(sensor_data_folder):
         break
 
 
-topic_name = f"spire/{sensor_id}_{file.split('_')[-1]}"
+topic_name = f"spire/{sensor_id}_{file.split('_')[-1][:-4]}"
 
-number_messages = 500
+number_messages = -1
 frequency = 100
 
 print("generating data for sensor: ", sensor_id)

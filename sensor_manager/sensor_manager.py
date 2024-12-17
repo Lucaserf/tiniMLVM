@@ -39,6 +39,9 @@ topic_name_data = topic_name.split("_")
 
 position = topic_name_data[2]
 
+radius = 10  # km radius
+lat, lon = float(position.split(",")[0][1:]), float(position.split(",")[1][:-1])
+
 topic_drift = f"drift/{position}"
 topic_name = f"spire/{sensor_id}_{position}"
 
@@ -169,6 +172,16 @@ def get_topic_list(broker_sensor_address, APIkey, secret_key):
     return topics
 
 
+def get_distance(lat1, lon1, lat2, lon2):
+    R = 6371  # Radius of the earth in km
+    dlat = lat2 - lat1
+    dlon = lon2 - lon1
+    a = np.sin(dlat / 2) ** 2 + np.cos(lat1) * np.cos(lat2) * np.sin(dlon / 2) ** 2
+    c = 2 * np.arctan2(np.sqrt(a), np.sqrt(1 - a))
+    distance = R * c  # Distance in km
+    return distance
+
+
 # get input data from MQTT
 while True:
     mqttc.user_data_set([])
@@ -200,11 +213,31 @@ while True:
             # signal that drift has been detected to the neighbours with timestamp
             drift_message = f"{time.time_ns()}"
 
-            msg_info = mqttc.publish(topic_drift, drift_message, qos=1)
+            # msg_info = mqttc.publish(topic_drift, drift_message, qos=1)
 
             print("checking neighbours for drift")
 
-            # get mqtt topic list
+            topic_list = get_topic_list(broker_sensor_address, APIkey, secret_key)
+
+            for topic in topic_list:
+                if topic != topic_drift:
+                    position_n = topic.split("/")[-1]
+                    lat_n, lon_n = position_n.split(",")
+                    lat_n = float(lat_n[1:])
+                    lon_n = float(lon_n[:-1])
+
+                    distance = get_distance(lat, lon, lat_n, lon_n)
+
+                    print("check distance between sensors")
+                    print("Sensor 1: ", lat, lon)
+                    print("Sensor 2: ", lat_n, lon_n)
+                    print("Distance between sensors: ", distance)
+
+                    if distance < radius:
+                        print(f"Neighbour {topic} is in range")
+                        # mqttc.publish(topic, drift_message, qos=1)
+                    else:
+                        print(f"Neighbour {topic} is out of range")
 
         else:
             print("No drift detected")
