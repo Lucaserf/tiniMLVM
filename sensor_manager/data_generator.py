@@ -1,6 +1,7 @@
 import time
 import paho.mqtt.client as mqtt
 import numpy as np
+import os
 
 
 def on_publish(client, userdata, mid, reason_code, properties):
@@ -29,10 +30,24 @@ def on_publish(client, userdata, mid, reason_code, properties):
 
 sensor_id = 1
 broker_sensor_address = "lserf-tinyml.cloudmmwunibo.it"
-topic_name = f"sensor_{sensor_id}"
-sensor_data_folder = f"sensor_manager/sensor_data/spire_key_{sensor_id}.csv"
+sensor_data_folder = f"sensor_manager/sensor_data/"
+
+# find csv name with sensor id
+for file in os.listdir(sensor_data_folder):
+    if file.startswith(f"spire_{sensor_id}"):
+        sensor_data_folder = f"{sensor_data_folder}{file}"
+        break
+
+
+topic_name = f"spire/{sensor_id}_{file.split('_')[-1]}"
+
 number_messages = 500
 frequency = 100
+
+print("generating data for sensor: ", sensor_id)
+print("sending data to topic: ", topic_name)
+print("number of messages: ", number_messages)
+print("frequency: ", frequency)
 
 
 def main():

@@ -1,32 +1,49 @@
 # this manager reads data from an assigned sensor, detects drift, cooperates with neighbouring sensors to undestand if the drift is local or systematic, discriminating anomalies from drifts
 # it stores data localy and shares it when needed for model training or calculating correlation between neighbouring sensors
-
-
 import time
 import numpy as np
 import logging
 import os
 import re
+import requests
+import argparse
 
 import paho.mqtt.client as mqtt
 
 from scipy.stats import ks_2samp
 
-import pandas as pd
-
 root = logging.getLogger()
 root.setLevel(logging.INFO)
 
-# get parameters from environment variables
-# broker_address = os.getenv("BROKER_ADDRESS")
-# topic_name = os.getenv("TOPIC_NAME")
-# batch_size = int(os.getenv("BATCH_SIZE"))
-# alpha_p_value = float(os.getenv("ALPHA_P_VALUE"))
-# data_folder = os.getenv("FOLDER_PATH")
-# output_name = os.getenv("OUTPUT_NAME")
-sensor_id = 1
+
+argparser = argparse.ArgumentParser()
+argparser.add_argument("--sensor_id", type=int, help="sensor id", required=True)
+
+args = argparser.parse_args()
+
+# get topic name from sensor id
+sensor_id = args.sensor_id
+
+list_dir = os.listdir("sensor_manager/sensor_data/")
+for file in list_dir:
+    if file.startswith(f"spire_{sensor_id}"):
+        topic_name = f"{file}"[:-4]
+        break
+
+if topic_name is None:
+    logging.error("Sensor not found")
+    exit(1)
+
+
+topic_name_data = topic_name.split("_")
+
+position = topic_name_data[2]
+
+topic_drift = f"drift/{position}"
+topic_name = f"spire/{sensor_id}_{position}"
+
 broker_sensor_address = "lserf-tinyml.cloudmmwunibo.it"
-topic_name = f"sensor_{sensor_id}"
+
 batch_size = 100
 data_folder = f"sensor_manager/{topic_name}/"
 alpha_p_value = 0.05
@@ -92,15 +109,70 @@ def on_connect(client, userdata, flags, reason_code, properties):
         client.subscribe(topic_name, qos=1)
 
 
+def on_publish(client, userdata, mid, reason_code, properties):
+    # reason_code and properties will only be present in MQTTv5. It's always unset in MQTTv3
+    try:
+        userdata.remove(mid)
+    except KeyError:
+        print("on_publish() is called with a mid not present in unacked_publish")
+        print("This is due to an unavoidable race-condition:")
+        print("* publish() return the mid of the message sent.")
+        print("* mid from publish() is added to unacked_publish by the main thread")
+        print("* on_publish() is called by the loop_start thread")
+        print(
+            "While unlikely (because on_publish() will be called after a network round-trip),"
+        )
+        print(" this is a race-condition that COULD happen")
+        print("")
+        print(
+            "The best solution to avoid race-condition is using the msg_info from publish()"
+        )
+        print(
+            "We could also try using a list of acknowledged mid rather than removing from pending list,"
+        )
+        print("but remember that mid could be re-used !")
+
+
 mqttc = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
 mqttc.on_connect = on_connect
 mqttc.on_message = on_message
 mqttc.on_subscribe = on_subscribe
 mqttc.on_unsubscribe = on_unsubscribe
+mqttc.on_publish = on_publish
+
+# get mqtt topics from emqx
+APIkey = "46e50da2274c5b47"
+secret_key = "5pLGNhmLxD9AISali37sxNZR0hbjEqKs8jjIbuoKDTZP"
+
+# create topic
+
+url = f"http://{broker_sensor_address}:18083/api/v5/mqtt/topic_metrics"
+data = {"topic": topic_drift}
+req = requests.post(
+    url,
+    json=data,
+    auth=(APIkey, secret_key),
+    headers={"Content-Type": "application/json"},
+)
+
+
+def get_topic_list(broker_sensor_address, APIkey, secret_key):
+    url = f"http://{broker_sensor_address}:18083/api/v5/mqtt/topic_metrics"
+    topics = []
+    req = requests.get(
+        url, auth=(APIkey, secret_key), headers={"Content-Type": "application/json"}
+    )
+    data = req.json()
+    for topic in data:
+        if topic["topic"].startswith("drift"):
+            topics.append(topic["topic"])
+    return topics
+
 
 # get input data from MQTT
 while True:
     mqttc.user_data_set([])
+    unacked_publish = set()
     # logging.info("Connecting to {}".format(broker_address))
     mqttc.connect(broker_sensor_address)
     # sometimes if doesn't disconnect in time and gets more messages
@@ -112,24 +184,35 @@ while True:
 
     if os.path.exists(f"{data_folder}{reference_df_name}"):
         # load reference data
-        with open(f"{data_folder}{reference_df_name}", "r") as f:
-            df_ref = f.readlines()
+        # with open(f"{data_folder}{reference_df_name}", "r") as f:
+        #     df_ref = f.readlines()
 
-        df_ref = [int(x[:-1]) for x in df_ref]
+        # df_ref = [int(x[:-1]) for x in df_ref]
+        df_ref = np.loadtxt(f"{data_folder}{reference_df_name}", dtype=int)
+
         # calculate Kolmogorov-Smirnov distance
-        ks = ks_2samp(df_ref, data)
+        ks = ks_2samp(df_ref, data_values)
         drift = ks.pvalue < alpha_p_value
 
         # store data
         if drift:
             print("Drift detected")
+            # signal that drift has been detected to the neighbours with timestamp
+            drift_message = f"{time.time_ns()}"
+
+            msg_info = mqttc.publish(topic_drift, drift_message, qos=1)
+
+            print("checking neighbours for drift")
+
+            # get mqtt topic list
+
         else:
             print("No drift detected")
             # rename old reference file
         with open(f"{data_folder}{reference_df_name}", "a") as f:
-            f.write("\n".join([x.decode() for x in data]) + "\n")
+            f.write("\n".join([str(x) for x in data_values]) + "\n")
     else:
         drift = False
         # store data
         with open(f"{data_folder}{reference_df_name}", "w") as f:
-            f.write("\n".join([x.decode() for x in data]) + "\n")
+            f.write("\n".join([str(x) for x in data_values]) + "\n")
