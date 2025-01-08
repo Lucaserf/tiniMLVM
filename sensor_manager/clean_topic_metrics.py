@@ -37,7 +37,6 @@ def delete_topic_metrics(broker_sensor_address, APIkey, secret_key, topic):
 
     url = f"http://{broker_sensor_address}:18083/api/v5/mqtt/topic_metrics/{topic}"
 
-    print(url)
     req = requests.delete(
         url,
         auth=(APIkey, secret_key),
@@ -62,3 +61,6 @@ for topic in topic_list:
 topic_list = get_topic_list(broker_sensor_address, APIkey, secret_key)
 
 print(f"Remaining topics: {topic_list}")
+
+
+# python sensor_manager/clean_topic_metrics.py

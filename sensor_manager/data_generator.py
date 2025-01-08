@@ -111,3 +111,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+# python sensor_manager/data_generator.py --sensor_id 1

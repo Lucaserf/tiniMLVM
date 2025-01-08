@@ -52,7 +52,6 @@ data_folder = f"sensor_manager/{topic_name}/"
 alpha_p_value = 0.05
 
 # create folder if it doesn't exist
-
 if not os.path.exists(data_folder):
     os.makedirs(data_folder)
 
@@ -102,6 +101,7 @@ def on_message(client, userdata, message):
 
 
 def on_connect(client, userdata, flags, reason_code, properties):
+
     if reason_code.is_failure:
         logging.debug(
             f"Failed to connect: {reason_code}. loop_forever() will retry connection"
@@ -110,6 +110,8 @@ def on_connect(client, userdata, flags, reason_code, properties):
         # we should always subscribe from on_connect callback to be sure
         # our subscribed is persisted across reconnections.
         client.subscribe(topic_name, qos=1)
+
+        client.subscribe(topic_drift, qos=1)
 
 
 def on_publish(client, userdata, mid, reason_code, properties):
@@ -173,13 +175,46 @@ def get_topic_list(broker_sensor_address, APIkey, secret_key):
 
 
 def get_distance(lat1, lon1, lat2, lon2):
-    R = 6371  # Radius of the earth in km
+    lat1, lon1, lat2, lon2 = map(np.radians, [lat1, lon1, lat2, lon2])
+    r = 6371  # Radius of the earth in km
     dlat = lat2 - lat1
     dlon = lon2 - lon1
     a = np.sin(dlat / 2) ** 2 + np.cos(lat1) * np.cos(lat2) * np.sin(dlon / 2) ** 2
     c = 2 * np.arctan2(np.sqrt(a), np.sqrt(1 - a))
-    distance = R * c  # Distance in km
+    distance = r * c  # Distance in km
     return distance
+
+
+# wait for all the sensors managers to be up
+time.sleep(10)
+print("Sensor manager is checking for neighbours")
+topic_list = get_topic_list(broker_sensor_address, APIkey, secret_key)
+
+topic_connect_list = []
+
+for topic in topic_list:
+    if topic != topic_drift:
+        position_n = topic.split("/")[-1]
+        lat_n, lon_n = position_n.split(",")
+        lat_n = float(lat_n[1:])
+        lon_n = float(lon_n[:-1])
+
+        distance = get_distance(lat, lon, lat_n, lon_n)
+
+        print("check distance between sensors")
+        print("Sensor 1: ", lat, lon)
+        print("Sensor 2: ", lat_n, lon_n)
+        print("Distance between sensors: ", distance)
+
+        if distance < radius:
+            print(f"Neighbour {topic} is in range")
+            topic_connect_list.append(topic)
+        else:
+            print(f"Neighbour {topic} is out of range")
+
+# print all the neighbours
+
+print("Neighbours: ", topic_connect_list)
 
 
 # get input data from MQTT
@@ -217,27 +252,9 @@ while True:
 
             print("checking neighbours for drift")
 
-            topic_list = get_topic_list(broker_sensor_address, APIkey, secret_key)
-
-            for topic in topic_list:
-                if topic != topic_drift:
-                    position_n = topic.split("/")[-1]
-                    lat_n, lon_n = position_n.split(",")
-                    lat_n = float(lat_n[1:])
-                    lon_n = float(lon_n[:-1])
-
-                    distance = get_distance(lat, lon, lat_n, lon_n)
-
-                    print("check distance between sensors")
-                    print("Sensor 1: ", lat, lon)
-                    print("Sensor 2: ", lat_n, lon_n)
-                    print("Distance between sensors: ", distance)
-
-                    if distance < radius:
-                        print(f"Neighbour {topic} is in range")
-                        # mqttc.publish(topic, drift_message, qos=1)
-                    else:
-                        print(f"Neighbour {topic} is out of range")
+            for topic in topic_connect_list:
+                # wait for messages of drift from neighbours
+                pass
 
         else:
             print("No drift detected")
@@ -249,3 +266,5 @@ while True:
         # store data
         with open(f"{data_folder}{reference_df_name}", "w") as f:
             f.write("\n".join([str(x) for x in data_values]) + "\n")
+
+# python sensor_manager/sensor_manager.py --sensor_id 1
