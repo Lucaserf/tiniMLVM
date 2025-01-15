@@ -35,7 +35,8 @@ args = parser.parse_args()
 
 sensor_id = args.sensor_id
 broker_sensor_address = "lserf-tinyml.cloudmmwunibo.it"
-sensor_data_folder = f"sensor_manager/sensor_data/"
+# sensor_data_folder = f"sensor_manager/sensor_data/"
+sensor_data_folder = f"sensor_manager/sintetic_data/"
 
 # find csv name with sensor id
 for file in os.listdir(sensor_data_folder):
@@ -46,8 +47,8 @@ for file in os.listdir(sensor_data_folder):
 
 topic_name = f"spire/{sensor_id}_{file.split('_')[-1][:-4]}"
 
-number_messages = -1
-frequency = 100
+number_messages = 24 * 60 * 7  # 7 months of data
+frequency = 24 * 5  # 5 days per second
 
 print("generating data for sensor: ", sensor_id)
 print("sending data to topic: ", topic_name)
