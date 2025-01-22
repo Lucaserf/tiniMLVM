@@ -1,10 +1,29 @@
 import time
 import subprocess
 
-spire_list = ["1", "5"]
+# get spire list from folder sensor_data
+import os
 
+spire_list = []
+sensor_data_folder = f"sensor_manager/sensor_data/"
+for file in os.listdir(sensor_data_folder):
+    if file.startswith("spire_"):
+        spire_list.append(file.split("_")[1])
 
-# TODO:set up the managers
+# set up the managers # python sensor_manager/sensor_manager.py --sensor_id 1
+
+# move the output to a file
+
+for spire in spire_list:
+    subprocess.Popen(
+        [
+            "python3",
+            "sensor_manager/sensor_manager.py",
+            "--sensor_id",
+            spire,
+        ],
+        stdout=open(f"sensor_manager/manager_data/output_{spire}.txt", "a"),
+    )
 
 
 # create data generators
@@ -25,6 +44,13 @@ input("Press Enter to stop the data generation \n")
 for spire in spire_list:
     subprocess.Popen(
         ["pkill", "-f", f"python3 sensor_manager/data_generator.py --sensor_id {spire}"]
+    )
+
+# stop the managers
+
+for spire in spire_list:
+    subprocess.Popen(
+        ["pkill", "-f", f"python3 sensor_manager/sensor_manager.py --sensor_id {spire}"]
     )
 
 # clean topic metrics

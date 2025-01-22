@@ -38,7 +38,7 @@ topic_name_data = topic_name.split("_")
 
 position = topic_name_data[2]
 
-radius = 10  # km radius
+radius = 0.3  # km radius
 lat, lon = float(position.split(",")[0][1:]), float(position.split(",")[1][:-1])
 
 topic_drift = f"drift/{position}"
@@ -46,7 +46,7 @@ topic_name = f"spire/{sensor_id}_{position}"
 
 broker_sensor_address = "lserf-tinyml.cloudmmwunibo.it"
 
-batch_size = 24 * 30 * 3  # 2 months of data
+batch_size = 24 * 30 * 3  # 3 months of data
 data_folder = f"sensor_manager/{topic_name}/"
 alpha_p_value = 0.05
 
@@ -364,6 +364,5 @@ while True:
 
         # clear data from buffer
         mqttc.user_data_set([])
-
 
 # python sensor_manager/sensor_manager.py --sensor_id 1

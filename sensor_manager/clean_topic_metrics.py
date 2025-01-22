@@ -63,4 +63,22 @@ topic_list = get_topic_list(broker_sensor_address, APIkey, secret_key)
 print(f"Remaining topics: {topic_list}")
 
 
+# clean spire reference data and outputs
+
+import os
+
+sensor_data_folder = "sensor_manager/manager_data/"
+spire_folder = "sensor_manager/spire/"
+
+for file in os.listdir(sensor_data_folder):
+    os.remove(sensor_data_folder + file)
+
+for file in os.listdir(spire_folder):
+    # convert file to literal string
+    file = repr(file)
+
+    # remove folder and his files
+    os.system(f"rm -r {spire_folder + file}")
+
+
 # python sensor_manager/clean_topic_metrics.py
