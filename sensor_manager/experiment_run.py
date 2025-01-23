@@ -14,6 +14,8 @@ for file in os.listdir(sensor_data_folder):
 
 # move the output to a file
 
+print(f"spire_list: {spire_list}")
+
 for spire in spire_list:
     subprocess.Popen(
         [
@@ -22,10 +24,10 @@ for spire in spire_list:
             "--sensor_id",
             spire,
         ],
-        stdout=open(f"sensor_manager/manager_data/output_{spire}.txt", "a"),
     )
 
-
+# wait for managers to create neighbors
+time.sleep(20)
 # create data generators
 
 for spire in spire_list:

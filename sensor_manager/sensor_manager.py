@@ -25,7 +25,7 @@ sensor_id = args.sensor_id
 
 list_dir = os.listdir("sensor_manager/sensor_data/")
 for file in list_dir:
-    if file.startswith(f"spire_{sensor_id}"):
+    if file.startswith(f"spire_{sensor_id}_"):
         topic_name = f"{file}"[:-4]
         break
 
@@ -34,22 +34,27 @@ if topic_name is None:
     exit(1)
 
 
+def print_log(log):
+    with open(f"sensor_manager/manager_data/output_{sensor_id}.txt", "a") as f:
+        f.write(log + "\n")
+
+
 topic_name_data = topic_name.split("_")
 
 position = topic_name_data[2]
 
-radius = 0.3  # km radius
+radius = 150e-3  # km radius
 lat, lon = float(position.split(",")[0][1:]), float(position.split(",")[1][:-1])
 
-topic_drift = f"drift/{position}"
+topic_drift = f"drift/{sensor_id}_{position}"
 topic_name = f"spire/{sensor_id}_{position}"
 
 broker_sensor_address = "lserf-tinyml.cloudmmwunibo.it"
 
-batch_size = 24 * 30 * 3  # 3 months of data
+batch_size = int(24 * 30 * 3.8)  # 3 months of data
 data_folder = f"sensor_manager/{topic_name}/"
-alpha_p_value = 0.05
-
+alpha_p_value = 1e-4
+threshold_local = 0.4
 drift_time = None
 drift_checked = 0
 
@@ -71,7 +76,7 @@ else:
     reference_df_version = max([int(re.findall(r"\d+", x)[0]) for x in list_dir])
     reference_df_name = f"reference_{reference_df_version}.csv"
 
-logging.info(f"Using reference data: {reference_df_name}")
+# print_log(f"Using reference data: {reference_df_name}")
 
 
 # get mqtt topics from emqx
@@ -115,7 +120,7 @@ def get_distance(lat1, lon1, lat2, lon2):
 
 
 def check_neighbours_drift(
-    time_detection, neighbours_drifts, time_window, threshold=0.5
+    time_detection, neighbours_drifts, time_window, threshold=threshold_local
 ):
     # check if drift is local or systematic
     num_neighbours = len(neighbours_drifts)
@@ -132,9 +137,9 @@ def check_neighbours_drift(
             for drift in drifts:
                 if abs(time_detection - drift) < time_window:
                     num_drifts += 1
-                    print(
-                        f"the distance between the local drift and neighbour is {(time_detection - drift)/1e9} seconds"
-                    )
+                    # print_log(
+                    #     f"the distance between the local drift and neighbour is {(time_detection - drift)/1e9} seconds"
+                    # )
                     break
     if num_drifts / num_neighbours > threshold:
         return True
@@ -144,34 +149,36 @@ def check_neighbours_drift(
 
 # wait for all the sensors managers to be up
 time.sleep(10)
-print("Sensor manager is checking for neighbours")
+# print_log("Sensor manager is checking for neighbours")
 topic_list = get_topic_list(broker_sensor_address, APIkey, secret_key)
 
 topic_connect_list = []
 
 for topic in topic_list:
     if topic != topic_drift:
-        position_n = topic.split("/")[-1]
+        id_n = topic.split("_")[0].split("/")[-1]
+        position_n = topic.split("_")[1].split("/")[-1]
         lat_n, lon_n = position_n.split(",")
         lat_n = float(lat_n[1:])
         lon_n = float(lon_n[:-1])
 
         distance = get_distance(lat, lon, lat_n, lon_n)
 
-        print("check distance between sensors")
-        print("Sensor 1: ", lat, lon)
-        print("Sensor 2: ", lat_n, lon_n)
-        print("Distance between sensors: ", distance)
+        # print_log("check distance between sensors")
+        # print_log(f"Sensor 1 {lat} , {lon}")
+        # print_log(f"Sensor {id_n} {lat_n} , {lon_n}")
+        # print_log(f"Distance between sensors: {distance}")
 
         if distance < radius:
-            print(f"Neighbour {topic} is in range")
+            # print_log(f"Neighbour {topic} is in range")
             topic_connect_list.append(topic)
         else:
-            print(f"Neighbour {topic} is out of range")
+            pass
+            # print_log(f"Neighbour {topic} is out of range")
 
-# print all the neighbours
+# print_log all the neighbours
 
-print("Neighbours: ", topic_connect_list)
+print_log(f"Neighbours: {topic_connect_list}")
 
 
 # creation of data structure for storing neighbours drifts
@@ -203,21 +210,6 @@ def on_unsubscribe(client, userdata, mid, reason_code_list, properties):
 
 
 def on_message(client, userdata, message):
-    # check previous drift if enough time is passed
-    # global drift_time
-
-    # if drift_time is not None:
-    #     if time.time_ns() - int(drift_time) > 2000:
-    #         drift_time = None
-
-    #         systematic_drift = check_neighbours_drift(
-    #             drift_time, neighbours_drifts, time_window=2000, threshold=0.5
-    #         )
-
-    #         if systematic_drift:
-    #             print(f"Systematic drift detected at time {drift_time}")
-    #         else:
-    #             print(f"Local drift detected at time {drift_time}")
 
     if message.topic == topic_name:
         userdata.append(message.payload)
@@ -228,7 +220,9 @@ def on_message(client, userdata, message):
 
         payload = message.payload.decode()
 
-        print(f"Drift detected from neighbour, {message.topic}, timestamp: {payload}")
+        # print_log(
+        #     f"Drift detected from neighbour, {message.topic}, timestamp: {payload}"
+        # )
         neighbours_drifts[message.topic].append(int(payload))
 
 
@@ -253,23 +247,23 @@ def on_publish(client, userdata, mid, reason_code, properties):
     # try:
     #     userdata.remove(mid)
     # except KeyError:
-    #     print("on_publish() is called with a mid not present in unacked_publish")
-    #     print("This is due to an unavoidable race-condition:")
-    #     print("* publish() return the mid of the message sent.")
-    #     print("* mid from publish() is added to unacked_publish by the main thread")
-    #     print("* on_publish() is called by the loop_start thread")
-    #     print(
+    #     print_log("on_publish() is called with a mid not present in unacked_publish")
+    #     print_log("This is due to an unavoidable race-condition:")
+    #     print_log("* publish() return the mid of the message sent.")
+    #     print_log("* mid from publish() is added to unacked_publish by the main thread")
+    #     print_log("* on_publish() is called by the loop_start thread")
+    #     print_log(
     #         "While unlikely (because on_publish() will be called after a network round-trip),"
     #     )
-    #     print(" this is a race-condition that COULD happen")
-    #     print("")
-    #     print(
+    #     print_log(" this is a race-condition that COULD happen")
+    #     print_log("")
+    #     print_log(
     #         "The best solution to avoid race-condition is using the msg_info from publish()"
     #     )
-    #     print(
+    #     print_log(
     #         "We could also try using a list of acknowledged mid rather than removing from pending list,"
     #     )
-    #     print("but remember that mid could be re-used !")
+    #     print_log("but remember that mid could be re-used !")
     pass
 
 
@@ -284,7 +278,7 @@ mqttc.on_publish = on_publish
 while True:
     mqttc.user_data_set([])
     unacked_publish = set()
-    # logging.info("Connecting to {}".format(broker_address))
+    # print_log("Connecting to {}".format(broker_address))
     mqttc.connect(broker_sensor_address)
     # sometimes if doesn't disconnect in time and gets more messages
     # mqttc.loop_forever()
@@ -308,8 +302,8 @@ while True:
                     )
 
                     if systematic_drift:
-                        print(
-                            f"Systematic drift detected with reference file {reference_df_name}, check number {drift_checked}"
+                        print_log(
+                            f"Systematic drift detected with reference file {reference_df_name}, check number {drift_checked}, p_value = {ks.pvalue}"
                         )
                         # create the next reference file
                         reference_df_version += 1
@@ -319,8 +313,8 @@ while True:
 
                         # if systematic drift is detected, we should start saving to a new reference file
                     else:
-                        print(
-                            f"Local drift detected with reference file {reference_df_name}, check number {drift_checked}"
+                        print_log(
+                            f"Local drift detected with reference file {reference_df_name}, check number {drift_checked}, p_value = {ks.pvalue}"
                         )
                     drift_time = None
             time.sleep(1e-3)
@@ -342,13 +336,13 @@ while True:
 
             # store data
             if drift:
-                print("Drift detected")
+                # print_log(f"Drift detected, p_value = {ks.pvalue}")
                 # signal that drift has been detected to the neighbours with timestamp
                 drift_time = f"{time.time_ns()}"
                 msg_info = mqttc.publish(topic_drift, drift_time, qos=1)
                 # unacked_publish.add(msg_info.mid)
             else:
-                print(f"No drift detected, check number {drift_checked}")
+                print_log(f"No drift detected, check number {drift_checked}")
                 reference_df_version += 1
                 reference_df_name = f"reference_{reference_df_version}.csv"
                 with open(f"{data_folder}{reference_df_name}", "w") as f:
