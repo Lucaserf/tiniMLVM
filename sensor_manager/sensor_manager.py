@@ -298,7 +298,7 @@ while True:
                         drift_time,
                         neighbours_drifts,
                         time_window=time_window,
-                        threshold=0.5,
+                        threshold=threshold_local,
                     )
 
                     if systematic_drift:
@@ -309,6 +309,10 @@ while True:
                         reference_df_version += 1
                         reference_df_name = f"reference_{reference_df_version}.csv"
                         with open(f"{data_folder}{reference_df_name}", "w") as f:
+                            f.write("\n".join([str(x) for x in data_values]) + "\n")
+                        with open(
+                            f"{data_folder}systematicdrift_{reference_df_name}", "w"
+                        ) as f:
                             f.write("\n".join([str(x) for x in data_values]) + "\n")
 
                         # if systematic drift is detected, we should start saving to a new reference file

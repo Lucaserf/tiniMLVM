@@ -27,7 +27,7 @@ for spire in spire_list:
     )
 
 # wait for managers to create neighbors
-time.sleep(20)
+time.sleep(25)
 # create data generators
 
 for spire in spire_list:

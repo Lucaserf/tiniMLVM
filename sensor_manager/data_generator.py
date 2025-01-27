@@ -48,7 +48,7 @@ for file in os.listdir(sensor_data_folder):
 topic_name = f"spire/{sensor_id}_{file.split('_')[-1][:-4]}"
 
 number_messages = 24 * 60 * 12  # months of data
-frequency = 24 * 30  # days per second
+frequency = 24 * 20  # days per second
 
 print("generating data for sensor: ", sensor_id)
 print("sending data to topic: ", topic_name)
