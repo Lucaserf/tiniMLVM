@@ -53,7 +53,7 @@ broker_sensor_address = "lserf-tinyml.cloudmmwunibo.it"
 
 batch_size = int(24 * 30 * 4)  # 3 months of data
 data_folder = f"sensor_manager/{topic_name}/"
-alpha_p_value = 1e-4
+alpha_p_value = 1e-10
 threshold_local = 0.4
 drift_time = None
 drift_checked = 0
@@ -316,6 +316,10 @@ while True:
                         print_log(
                             f"Local drift detected with reference file {reference_df_name}, check number {drift_checked}, p_value = {ks.pvalue}"
                         )
+                        with open(
+                            f"{data_folder}localdrift_{reference_df_name}", "w"
+                        ) as f:
+                            f.write("\n".join([str(x) for x in data_values]) + "\n")
                     drift_time = None
             time.sleep(1e-3)
             continue
