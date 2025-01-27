@@ -40,7 +40,7 @@ sensor_data_folder = f"sensor_manager/sensor_data/"
 
 # find csv name with sensor id
 for file in os.listdir(sensor_data_folder):
-    if file.startswith(f"spire_{sensor_id}"):
+    if file.startswith(f"spire_{sensor_id}_"):
         sensor_data_folder = f"{sensor_data_folder}{file}"
         break
 

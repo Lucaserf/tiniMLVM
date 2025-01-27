@@ -51,7 +51,7 @@ topic_name = f"spire/{sensor_id}_{position}"
 
 broker_sensor_address = "lserf-tinyml.cloudmmwunibo.it"
 
-batch_size = int(24 * 30 * 3.8)  # 3 months of data
+batch_size = int(24 * 30 * 4)  # 3 months of data
 data_folder = f"sensor_manager/{topic_name}/"
 alpha_p_value = 1e-4
 threshold_local = 0.4
