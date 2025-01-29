@@ -141,10 +141,11 @@ def check_neighbours_drift(
                     #     f"the distance between the local drift and neighbour is {(time_detection - drift)/1e9} seconds"
                     # )
                     break
-    if num_drifts / num_neighbours > threshold:
-        return True
+    value = num_drifts / num_neighbours
+    if value > threshold:
+        return True, value
     else:
-        return False
+        return False, value
 
 
 # wait for all the sensors managers to be up
@@ -284,7 +285,7 @@ while True:
     # mqttc.loop_forever()
     mqttc.loop_start()
 
-    time_window = 2 * 1e9
+    time_window = 5 * 1e9
 
     while True:
 
@@ -294,7 +295,7 @@ while True:
             if drift_time is not None:
                 drift_time = int(drift_time)
                 if time.time_ns() - drift_time > time_window:
-                    systematic_drift = check_neighbours_drift(
+                    systematic_drift, value_neigh = check_neighbours_drift(
                         drift_time,
                         neighbours_drifts,
                         time_window=time_window,
@@ -303,7 +304,7 @@ while True:
 
                     if systematic_drift:
                         print_log(
-                            f"Systematic drift detected with reference file {reference_df_name}, check number {drift_checked}, p_value = {ks.pvalue}"
+                            f"Systematic drift detected with reference file {reference_df_name}, period = {drift_checked}, p_value = {ks.pvalue}, ks_statistics = {ks.statistic} , threshold = {value_neigh}, direction = {direction}"
                         )
                         # create the next reference file
                         reference_df_version += 1
@@ -318,7 +319,7 @@ while True:
                         # if systematic drift is detected, we should start saving to a new reference file
                     else:
                         print_log(
-                            f"Local drift detected with reference file {reference_df_name}, check number {drift_checked}, p_value = {ks.pvalue}"
+                            f"Local drift detected with reference file {reference_df_name}, period = {drift_checked}, p_value = {ks.pvalue}, ks_statistics = {ks.statistic}, threshold = {value_neigh}, direction = {direction}"
                         )
                         with open(
                             f"{data_folder}localdrift_{reference_df_name}", "w"
@@ -348,9 +349,16 @@ while True:
                 # signal that drift has been detected to the neighbours with timestamp
                 drift_time = f"{time.time_ns()}"
                 msg_info = mqttc.publish(topic_drift, drift_time, qos=1)
+
+                direction = np.mean(data_values) - np.mean(df_ref)
+
+                direction = 1 if direction > 0 else 0
+
                 # unacked_publish.add(msg_info.mid)
             else:
-                print_log(f"No drift detected, check number {drift_checked}")
+                print_log(
+                    f"No drift detected, period = {drift_checked}, p_value = {ks.pvalue}, ks_statistics = {ks.statistic}"
+                )
                 reference_df_version += 1
                 reference_df_name = f"reference_{reference_df_version}.csv"
                 with open(f"{data_folder}{reference_df_name}", "w") as f:
