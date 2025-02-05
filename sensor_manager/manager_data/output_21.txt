@@ -1,3 +1,0 @@
-Neighbours: ['drift/20_[44.4904584072207, 11.34979980231]', 'drift/392_[44.4901106688309, 11.3502248323425]']
-No drift detected, period = 0, p_value = 0.33169333249207794, ks_statistics = 0.024789328551043235
-No drift detected, period = 1, p_value = 2.4730665784454804e-09, ks_statistics = 0.08415785061856862

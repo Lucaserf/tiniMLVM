@@ -6,7 +6,7 @@ broker_sensor_address = "lserf-tinyml.cloudmmwunibo.it"
 
 # get mqtt topics from emqx
 APIkey = "46e50da2274c5b47"
-secret_key = "5pLGNhmLxD9AISali37sxNZR0hbjEqKs8jjIbuoKDTZP"
+secret_key = "VI6xYrugRcC2ZBOVPyYFMmreKM7EXV9BVAH2xm4YErEN"
 
 
 def get_topic_list(broker_sensor_address, APIkey, secret_key):

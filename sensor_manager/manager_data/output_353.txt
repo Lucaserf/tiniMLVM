@@ -1,3 +1,0 @@
-Neighbours: []
-No drift detected, period = 0, p_value = 1.0, ks_statistics = 0.0003471017007983339
-No drift detected, period = 1, p_value = 1.0, ks_statistics = 0.0

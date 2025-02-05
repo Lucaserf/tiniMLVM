@@ -51,7 +51,7 @@ topic_name = f"spire/{sensor_id}_{position}"
 
 broker_sensor_address = "lserf-tinyml.cloudmmwunibo.it"
 
-batch_size = int(24 * 30 * 4)  # 3 months of data
+batch_size = int(24 * 30 * 4)  # x months of data
 data_folder = f"sensor_manager/{topic_name}/"
 alpha_p_value = 1e-10
 threshold_local = 0.4
@@ -81,7 +81,7 @@ else:
 
 # get mqtt topics from emqx
 APIkey = "46e50da2274c5b47"
-secret_key = "5pLGNhmLxD9AISali37sxNZR0hbjEqKs8jjIbuoKDTZP"
+secret_key = "VI6xYrugRcC2ZBOVPyYFMmreKM7EXV9BVAH2xm4YErEN"
 
 # create topic
 
@@ -126,7 +126,7 @@ def check_neighbours_drift(
     num_neighbours = len(neighbours_drifts)
     # if no neighbours the drift is systematic (we cannot detect locality)
     if num_neighbours == 0:
-        return True
+        return True, 1
     num_drifts = 0
     # check if drift is local
     for neighbour in neighbours_drifts:
@@ -285,7 +285,13 @@ while True:
     # mqttc.loop_forever()
     mqttc.loop_start()
 
-    time_window = 5 * 1e9
+    # with 20 days at second frequency we have 24*20 messages in a second
+
+    # the time window has to be between the period of messages on drift checks
+
+    # batch_size / (frequency * 2) * 1e9
+
+    time_window = 6 * 1e9
 
     while True:
 
@@ -343,6 +349,8 @@ while True:
             ks = ks_2samp(df_ref, data_values)
             drift = ks.pvalue < alpha_p_value
 
+            drift_checked += 1
+
             # store data
             if drift:
                 # print_log(f"Drift detected, p_value = {ks.pvalue}")
@@ -363,8 +371,6 @@ while True:
                 reference_df_name = f"reference_{reference_df_version}.csv"
                 with open(f"{data_folder}{reference_df_name}", "w") as f:
                     f.write("\n".join([str(x) for x in data_values]) + "\n")
-
-            drift_checked += 1
 
         else:
             drift = False

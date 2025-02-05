@@ -35,8 +35,8 @@ args = parser.parse_args()
 
 sensor_id = args.sensor_id
 broker_sensor_address = "lserf-tinyml.cloudmmwunibo.it"
-sensor_data_folder = f"sensor_manager/sensor_data/"
-# sensor_data_folder = f"sensor_manager/sintetic_data/"
+# sensor_data_folder = f"sensor_manager/sensor_data/"
+sensor_data_folder = f"sensor_manager/sintetic_data/"
 
 # find csv name with sensor id
 for file in os.listdir(sensor_data_folder):
@@ -48,7 +48,11 @@ for file in os.listdir(sensor_data_folder):
 topic_name = f"spire/{sensor_id}_{file.split('_')[-1][:-4]}"
 
 number_messages = 24 * 60 * 12  # months of data
-frequency = 24 * 20  # days per second
+frequency = 24 * 10  # days per second
+
+# pause after 24*60*4 messages
+# periodicity_pause = 24 * 60 * 4
+
 
 print("generating data for sensor: ", sensor_id)
 print("sending data to topic: ", topic_name)
@@ -76,6 +80,10 @@ def main():
 
     if int(number_messages) == -1:
         while True:
+
+            # if n_messages % periodicity_pause == 0:
+            #     time.sleep(5)
+
             with open(sensor_data_folder, "r") as f:
                 line = f.readline()[:-1]
                 while line != "":
@@ -88,6 +96,10 @@ def main():
         with open(sensor_data_folder, "r") as f:
             line = f.readline()[:-1]
             while line != "" and n_messages < int(number_messages):
+
+                # if n_messages % periodicity_pause == 0:
+                #     time.sleep(5)
+
                 msg_info = mqttc.publish(topic_name, line, qos=1)
                 n_messages += 1
                 unacked_publish.add(msg_info.mid)
