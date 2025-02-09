@@ -1,0 +1,3 @@
+Neighbours: ['drift/355_[44.4900102626705, 11.3411645442514]', 'drift/5_[44.4901162203284, 11.3398356513878]']
+Systematic drift detected with reference file reference_0.csv, period = 1, p_value = 9.87527905759323e-26, ks_statistics = 0.14201388888888888 , threshold = 0.5, direction = 0
+Systematic drift detected with reference file reference_1.csv, period = 2, p_value = 1.0913884084646112e-279, ks_statistics = 0.4635416666666667 , threshold = 0.5, direction = 0

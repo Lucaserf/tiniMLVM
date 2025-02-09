@@ -291,7 +291,7 @@ while True:
 
     # batch_size / (frequency * 2) * 1e9
 
-    time_window = 6 * 1e9
+    time_window = 10 * 1e9
 
     while True:
 
