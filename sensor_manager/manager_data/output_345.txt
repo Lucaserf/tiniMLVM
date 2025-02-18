@@ -1,3 +1,11 @@
 Neighbours: []
 Systematic drift detected with reference file reference_0.csv, period = 1, p_value = 1.292862262459643e-38, ks_statistics = 0.17430555555555555 , threshold = 1, direction = 0
 Systematic drift detected with reference file reference_1.csv, period = 2, p_value = 0.0, ks_statistics = 0.6253472222222223 , threshold = 1, direction = 0
+Neighbours: []
+Systematic drift detected with reference file reference_2.csv, period = 1, p_value = 0.0, ks_statistics = 0.7659722222222223 , threshold = 1, direction = 1
+Systematic drift detected with reference file reference_3.csv, period = 2, p_value = 1.8379403832024012e-38, ks_statistics = 0.17395833333333333 , threshold = 1, direction = 0
+Systematic drift detected with reference file reference_4.csv, period = 3, p_value = 0.0, ks_statistics = 0.6256944444444444 , threshold = 1, direction = 0
+Neighbours: []
+Systematic drift detected with reference file reference_5.csv, period = 1, p_value = 0.0, ks_statistics = 0.7659722222222223 , threshold = 1, direction = 1
+Systematic drift detected with reference file reference_6.csv, period = 2, p_value = 9.087870115663703e-39, ks_statistics = 0.17465277777777777 , threshold = 1, direction = 0
+Systematic drift detected with reference file reference_7.csv, period = 3, p_value = 0.0, ks_statistics = 0.625 , threshold = 1, direction = 0

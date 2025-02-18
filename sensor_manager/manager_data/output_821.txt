@@ -1,3 +1,11 @@
 Neighbours: ['drift/279_[44.4889905210763, 11.3336294462509]']
 No drift detected, period = 1, p_value = 7.149252197682664e-06, ks_statistics = 0.06597222222222222
 No drift detected, period = 2, p_value = 3.301178823678281e-07, ks_statistics = 0.07361111111111111
+Neighbours: ['drift/279_[44.4889905210763, 11.3336294462509]']
+No drift detected, period = 1, p_value = 0.2828864052134588, ks_statistics = 0.026041666666666668
+No drift detected, period = 2, p_value = 7.149252197682664e-06, ks_statistics = 0.06597222222222222
+No drift detected, period = 3, p_value = 3.301178823678281e-07, ks_statistics = 0.07361111111111111
+Neighbours: ['drift/279_[44.4889905210763, 11.3336294462509]']
+No drift detected, period = 1, p_value = 0.2828864052134588, ks_statistics = 0.026041666666666668
+No drift detected, period = 2, p_value = 7.149252197682664e-06, ks_statistics = 0.06597222222222222
+No drift detected, period = 3, p_value = 3.301178823678281e-07, ks_statistics = 0.07361111111111111

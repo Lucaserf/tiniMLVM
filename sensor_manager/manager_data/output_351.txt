@@ -1,3 +1,11 @@
 Neighbours: ['drift/380_[44.495704939559, 11.3372547926228]', 'drift/2_[44.4952505129043, 11.338970003537]']
 Systematic drift detected with reference file reference_0.csv, period = 1, p_value = 2.242663088820683e-22, ks_statistics = 0.13229166666666667 , threshold = 0.5, direction = 0
 Systematic drift detected with reference file reference_1.csv, period = 2, p_value = 0.0, ks_statistics = 0.7006944444444444 , threshold = 1.0, direction = 0
+Neighbours: ['drift/380_[44.495704939559, 11.3372547926228]', 'drift/2_[44.4952505129043, 11.338970003537]']
+Systematic drift detected with reference file reference_2.csv, period = 1, p_value = 0.0, ks_statistics = 0.8326388888888889 , threshold = 1.0, direction = 1
+Systematic drift detected with reference file reference_3.csv, period = 2, p_value = 2.242663088820683e-22, ks_statistics = 0.13229166666666667 , threshold = 0.5, direction = 0
+Systematic drift detected with reference file reference_4.csv, period = 3, p_value = 0.0, ks_statistics = 0.6996527777777778 , threshold = 1.0, direction = 0
+Neighbours: ['drift/380_[44.495704939559, 11.3372547926228]', 'drift/2_[44.4952505129043, 11.338970003537]']
+Systematic drift detected with reference file reference_5.csv, period = 1, p_value = 0.0, ks_statistics = 0.8315972222222222 , threshold = 1.0, direction = 1
+Systematic drift detected with reference file reference_6.csv, period = 2, p_value = 2.242663088820683e-22, ks_statistics = 0.13229166666666667 , threshold = 0.5, direction = 0
+Systematic drift detected with reference file reference_7.csv, period = 3, p_value = 0.0, ks_statistics = 0.7 , threshold = 1.0, direction = 0

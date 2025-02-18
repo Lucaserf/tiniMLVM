@@ -1,3 +1,11 @@
 Neighbours: ['drift/388_[44.4940929520574, 11.3466950886085]', 'drift/390_[44.4943363479201, 11.3461499695622]']
 No drift detected, period = 1, p_value = 1.0, ks_statistics = 0.0
 No drift detected, period = 2, p_value = 1.0, ks_statistics = 0.0
+Neighbours: ['drift/388_[44.4940929520574, 11.3466950886085]', 'drift/390_[44.4943363479201, 11.3461499695622]']
+No drift detected, period = 1, p_value = 1.0, ks_statistics = 0.0
+No drift detected, period = 2, p_value = 1.0, ks_statistics = 0.0
+No drift detected, period = 3, p_value = 1.0, ks_statistics = 0.0
+Neighbours: ['drift/388_[44.4940929520574, 11.3466950886085]', 'drift/390_[44.4943363479201, 11.3461499695622]']
+No drift detected, period = 1, p_value = 1.0, ks_statistics = 0.0
+No drift detected, period = 2, p_value = 1.0, ks_statistics = 0.0
+No drift detected, period = 3, p_value = 1.0, ks_statistics = 0.0

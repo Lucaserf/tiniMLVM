@@ -1,3 +1,11 @@
 Neighbours: ['drift/375_[44.5014009848541, 11.3445247412256]', 'drift/373_[44.5013160433798, 11.3441847244287]', 'drift/16_[44.5016875497437, 11.3435953508993]', 'drift/17_[44.5011734938257, 11.3434083495971]', 'drift/385_[44.5009852775668, 11.3443929160912]', 'drift/372_[44.501127242279, 11.344580200454]']
 No drift detected, period = 1, p_value = 0.027728429722855153, ks_statistics = 0.03854166666666667
 Systematic drift detected with reference file reference_1.csv, period = 2, p_value = 5.545131897305333e-96, ks_statistics = 0.2746527777777778 , threshold = 0.8333333333333334, direction = 1
+Neighbours: ['drift/375_[44.5014009848541, 11.3445247412256]', 'drift/373_[44.5013160433798, 11.3441847244287]', 'drift/16_[44.5016875497437, 11.3435953508993]', 'drift/17_[44.5011734938257, 11.3434083495971]', 'drift/385_[44.5009852775668, 11.3443929160912]', 'drift/372_[44.501127242279, 11.344580200454]']
+Systematic drift detected with reference file reference_2.csv, period = 1, p_value = 6.118218287307564e-123, ks_statistics = 0.3104166666666667 , threshold = 0.5, direction = 0
+No drift detected, period = 2, p_value = 0.027728429722855153, ks_statistics = 0.03854166666666667
+Systematic drift detected with reference file reference_4.csv, period = 3, p_value = 5.545131897305333e-96, ks_statistics = 0.2746527777777778 , threshold = 0.8333333333333334, direction = 1
+Neighbours: ['drift/375_[44.5014009848541, 11.3445247412256]', 'drift/373_[44.5013160433798, 11.3441847244287]', 'drift/16_[44.5016875497437, 11.3435953508993]', 'drift/17_[44.5011734938257, 11.3434083495971]', 'drift/385_[44.5009852775668, 11.3443929160912]', 'drift/372_[44.501127242279, 11.344580200454]']
+Systematic drift detected with reference file reference_5.csv, period = 1, p_value = 6.118218287307564e-123, ks_statistics = 0.3104166666666667 , threshold = 0.5, direction = 0
+No drift detected, period = 2, p_value = 0.027728429722855153, ks_statistics = 0.03854166666666667
+Systematic drift detected with reference file reference_7.csv, period = 3, p_value = 5.545131897305333e-96, ks_statistics = 0.2746527777777778 , threshold = 0.8333333333333334, direction = 1

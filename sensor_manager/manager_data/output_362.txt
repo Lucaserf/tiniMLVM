@@ -1,3 +1,11 @@
 Neighbours: ['drift/14_[44.5003601607765, 11.3492210523335]', 'drift/363_[44.4997826599602, 11.3503575936824]', 'drift/366_[44.500196171144, 11.3491670622651]', 'drift/589_[44.499881148648, 11.3506269985056]', 'drift/365_[44.5001454592337, 11.3488837772446]', 'drift/364_[44.4999688279646, 11.3492242898421]']
 No drift detected, period = 1, p_value = 0.043492292350338906, ks_statistics = 0.036458333333333336
 Systematic drift detected with reference file reference_1.csv, period = 2, p_value = 5.0938406198712066e-14, ks_statistics = 0.10416666666666667 , threshold = 0.6666666666666666, direction = 1
+Neighbours: ['drift/14_[44.5003601607765, 11.3492210523335]', 'drift/363_[44.4997826599602, 11.3503575936824]', 'drift/366_[44.500196171144, 11.3491670622651]', 'drift/589_[44.499881148648, 11.3506269985056]', 'drift/365_[44.5001454592337, 11.3488837772446]', 'drift/364_[44.4999688279646, 11.3492242898421]']
+Systematic drift detected with reference file reference_2.csv, period = 1, p_value = 8.876910563046148e-13, ks_statistics = 0.09930555555555555 , threshold = 0.5, direction = 0
+No drift detected, period = 2, p_value = 0.043492292350338906, ks_statistics = 0.036458333333333336
+Systematic drift detected with reference file reference_4.csv, period = 3, p_value = 5.0938406198712066e-14, ks_statistics = 0.10416666666666667 , threshold = 0.6666666666666666, direction = 1
+Neighbours: ['drift/14_[44.5003601607765, 11.3492210523335]', 'drift/363_[44.4997826599602, 11.3503575936824]', 'drift/366_[44.500196171144, 11.3491670622651]', 'drift/589_[44.499881148648, 11.3506269985056]', 'drift/365_[44.5001454592337, 11.3488837772446]', 'drift/364_[44.4999688279646, 11.3492242898421]']
+Systematic drift detected with reference file reference_5.csv, period = 1, p_value = 8.876910563046148e-13, ks_statistics = 0.09930555555555555 , threshold = 0.5, direction = 0
+No drift detected, period = 2, p_value = 0.043492292350338906, ks_statistics = 0.036458333333333336
+Systematic drift detected with reference file reference_7.csv, period = 3, p_value = 5.0938406198712066e-14, ks_statistics = 0.10416666666666667 , threshold = 0.6666666666666666, direction = 1

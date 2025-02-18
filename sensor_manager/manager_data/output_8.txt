@@ -1,3 +1,11 @@
 Neighbours: ['drift/9_[44.4943294432991, 11.3520841867509]', 'drift/356_[44.4940776815813, 11.3518989012041]']
 No drift detected, period = 1, p_value = 2.1143513327655914e-07, ks_statistics = 0.07465277777777778
 No drift detected, period = 2, p_value = 8.511492275679387e-08, ks_statistics = 0.07673611111111112
+Neighbours: ['drift/9_[44.4943294432991, 11.3520841867509]', 'drift/356_[44.4940776815813, 11.3518989012041]']
+Local drift detected with reference file reference_2.csv, period = 1, p_value = 5.87632560820683e-23, ks_statistics = 0.13402777777777777, threshold = 0.0, direction = 0
+No drift detected, period = 2, p_value = 8.511492275679387e-08, ks_statistics = 0.07673611111111112
+No drift detected, period = 3, p_value = 8.511492275679387e-08, ks_statistics = 0.07673611111111112
+Neighbours: ['drift/9_[44.4943294432991, 11.3520841867509]', 'drift/356_[44.4940776815813, 11.3518989012041]']
+Local drift detected with reference file reference_4.csv, period = 1, p_value = 5.87632560820683e-23, ks_statistics = 0.13402777777777777, threshold = 0.0, direction = 0
+No drift detected, period = 2, p_value = 8.511492275679387e-08, ks_statistics = 0.07673611111111112
+No drift detected, period = 3, p_value = 8.511492275679387e-08, ks_statistics = 0.07673611111111112

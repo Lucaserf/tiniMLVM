@@ -1,3 +1,11 @@
 Neighbours: ['drift/379_[44.4956026276631, 11.3368384334514]', 'drift/351_[44.4955401496078, 11.3387350245924]', 'drift/381_[44.4965862496247, 11.3374391221777]', 'drift/2_[44.4952505129043, 11.338970003537]', 'drift/378_[44.4966507384083, 11.3369661513812]']
 Systematic drift detected with reference file reference_0.csv, period = 1, p_value = 3.978524211161029e-13, ks_statistics = 0.10069444444444445 , threshold = 0.6, direction = 0
 Systematic drift detected with reference file reference_1.csv, period = 2, p_value = 0.0, ks_statistics = 0.5152777777777777 , threshold = 1.0, direction = 0
+Neighbours: ['drift/379_[44.4956026276631, 11.3368384334514]', 'drift/351_[44.4955401496078, 11.3387350245924]', 'drift/381_[44.4965862496247, 11.3374391221777]', 'drift/2_[44.4952505129043, 11.338970003537]', 'drift/378_[44.4966507384083, 11.3369661513812]']
+Systematic drift detected with reference file reference_2.csv, period = 1, p_value = 0.0, ks_statistics = 0.6072916666666667 , threshold = 1.0, direction = 1
+Local drift detected with reference file reference_3.csv, period = 2, p_value = 3.978524211161029e-13, ks_statistics = 0.10069444444444445, threshold = 0.4, direction = 0
+Systematic drift detected with reference file reference_3.csv, period = 3, p_value = 0.0, ks_statistics = 0.6072916666666667 , threshold = 1.0, direction = 0
+Neighbours: ['drift/379_[44.4956026276631, 11.3368384334514]', 'drift/351_[44.4955401496078, 11.3387350245924]', 'drift/381_[44.4965862496247, 11.3374391221777]', 'drift/2_[44.4952505129043, 11.338970003537]', 'drift/378_[44.4966507384083, 11.3369661513812]']
+Systematic drift detected with reference file reference_4.csv, period = 1, p_value = 0.0, ks_statistics = 0.6072916666666667 , threshold = 1.0, direction = 1
+Systematic drift detected with reference file reference_5.csv, period = 2, p_value = 3.978524211161029e-13, ks_statistics = 0.10069444444444445 , threshold = 0.6, direction = 0
+Systematic drift detected with reference file reference_6.csv, period = 3, p_value = 0.0, ks_statistics = 0.515625 , threshold = 1.0, direction = 0

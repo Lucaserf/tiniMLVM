@@ -1,3 +1,11 @@
 Neighbours: ['drift/375_[44.5014009848541, 11.3445247412256]', 'drift/373_[44.5013160433798, 11.3441847244287]', 'drift/16_[44.5016875497437, 11.3435953508993]', 'drift/17_[44.5011734938257, 11.3434083495971]', 'drift/372_[44.501127242279, 11.344580200454]', 'drift/18_[44.501419288531, 11.3431701717514]', 'drift/371_[44.5008471200629, 11.3460261260327]']
 No drift detected, period = 1, p_value = 4.794787628557673e-06, ks_statistics = 0.06701388888888889
 Systematic drift detected with reference file reference_1.csv, period = 2, p_value = 0.0, ks_statistics = 0.6364583333333333 , threshold = 0.8571428571428571, direction = 0
+Neighbours: ['drift/375_[44.5014009848541, 11.3445247412256]', 'drift/373_[44.5013160433798, 11.3441847244287]', 'drift/16_[44.5016875497437, 11.3435953508993]', 'drift/17_[44.5011734938257, 11.3434083495971]', 'drift/372_[44.501127242279, 11.344580200454]', 'drift/18_[44.501419288531, 11.3431701717514]', 'drift/371_[44.5008471200629, 11.3460261260327]']
+Systematic drift detected with reference file reference_2.csv, period = 1, p_value = 0.0, ks_statistics = 0.6979166666666666 , threshold = 0.5714285714285714, direction = 1
+No drift detected, period = 2, p_value = 5.481541064939631e-06, ks_statistics = 0.06666666666666667
+Systematic drift detected with reference file reference_4.csv, period = 3, p_value = 0.0, ks_statistics = 0.6368055555555555 , threshold = 0.8571428571428571, direction = 0
+Neighbours: ['drift/375_[44.5014009848541, 11.3445247412256]', 'drift/373_[44.5013160433798, 11.3441847244287]', 'drift/16_[44.5016875497437, 11.3435953508993]', 'drift/17_[44.5011734938257, 11.3434083495971]', 'drift/372_[44.501127242279, 11.344580200454]', 'drift/18_[44.501419288531, 11.3431701717514]', 'drift/371_[44.5008471200629, 11.3460261260327]']
+Systematic drift detected with reference file reference_5.csv, period = 1, p_value = 0.0, ks_statistics = 0.6979166666666666 , threshold = 0.5714285714285714, direction = 1
+No drift detected, period = 2, p_value = 4.794787628557673e-06, ks_statistics = 0.06701388888888889
+Systematic drift detected with reference file reference_7.csv, period = 3, p_value = 0.0, ks_statistics = 0.6364583333333333 , threshold = 0.8571428571428571, direction = 0
