@@ -1,3 +1,3 @@
 Neighbours: ['drift/15_[44.5008152038968, 11.3474244254298]', 'drift/365_[44.5001454592337, 11.3488837772446]', 'drift/370_[44.5006745125564, 11.3464045268346]', 'drift/368_[44.500438454732, 11.3473933293812]', 'drift/371_[44.5008471200629, 11.3460261260327]']
 No drift detected, period = 1, p_value = 0.0024370318908447817, ks_statistics = 0.04826388888888889
-No drift detected, period = 2, p_value = 0.4360659174922456, ks_statistics = 0.022916666666666665
+Systematic drift detected with reference file reference_1.csv, period = 2, p_value = 0.0, ks_statistics = 0.5447916666666667 , threshold = 1.0, direction = 1

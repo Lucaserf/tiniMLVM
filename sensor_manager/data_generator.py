@@ -35,8 +35,8 @@ args = parser.parse_args()
 
 sensor_id = args.sensor_id
 broker_sensor_address = "lserf-tinyml.cloudmmwunibo.it"
-sensor_data_folder = f"sensor_manager/sensor_data/"
-# sensor_data_folder = f"sensor_manager/sintetic_data/"
+# sensor_data_folder = f"sensor_manager/sensor_data/"
+sensor_data_folder = f"sensor_manager/sintetic_data/"
 
 # find csv name with sensor id
 for file in os.listdir(sensor_data_folder):
