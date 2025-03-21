@@ -1,3 +1,0 @@
-Neighbours: ['drift/6_[44.4895074220971, 11.3433581064329]']
-No drift detected, period = 1, p_value = 9.298376520283123e-06, ks_statistics = 0.06527777777777778
-Local drift detected with reference file reference_1.csv, period = 2, p_value = 1.1152474111600573e-11, ks_statistics = 0.09479166666666666, threshold = 0.0, direction = 1
