@@ -80,8 +80,8 @@ else:
 
 
 # get mqtt topics from emqx
-APIkey = "46e50da2274c5b47"
-secret_key = "VI6xYrugRcC2ZBOVPyYFMmreKM7EXV9BVAH2xm4YErEN"
+APIkey = "ab5cb9200eff8dc1"
+secret_key = "7o7oToPD8tHAYGWtbWVOUPWPEAv9Adk11PyWaC9ByzHZK"
 
 # create topic
 
