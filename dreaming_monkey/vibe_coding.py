@@ -34,7 +34,7 @@ REGULARIZATION_COEF = 1 # lambda_reg
 SAMPLING_SIGMA = 0.01# Fixed stddev for sampling policy N(mu, sigma)
 
 # Training loop HPs
-EPOCHS = 100
+EPOCHS = 300
 TRAJECTORY_BATCH_SIZE = 16 # Number of initial sequences to generate trajectories from in one go
 NUM_STEPS_TO_GENERATE = 24 # Length of each generated trajectory/sequence (1 week)
 PPO_UPDATE_EPOCHS = 4 # Number of PPO update epochs per trajectory
@@ -209,7 +209,7 @@ def calculate_final_reward(generated_sequence_sampled, pretrained_sequence):
     mae_loss = tf.reduce_mean(tf.abs(generated_sequence_sampled - pretrained_sequence))
 
 
-    return reward - mae_loss * REGULARIZATION_COEF # Return the final reward
+    return reward - mae_loss * REGULARIZATION_COEF, reward, mae_loss # Return the final reward
 
 
 # --- GAE Calculation - Corrected for Batch Size > 1 ---
@@ -245,6 +245,8 @@ def collect_trajectories_sparse(initial_states_batch, actor, critic, num_steps, 
     all_rewards = []
     all_values = []
     all_dones = []
+    all_external_rewards = []
+    all_internal_rewards = []
     all_full_sampled_sequences = []
     all_seq_pretrained = []
     final_rewards = []
@@ -278,7 +280,7 @@ def collect_trajectories_sparse(initial_states_batch, actor, critic, num_steps, 
             current_sequence = tf.concat([current_sequence[:, 1:, :], next_step_reshaped], axis=1)
 
         full_sampled_seq = tf.concat(current_generated, axis=0)
-        final_reward = calculate_final_reward(full_sampled_seq, seq_pre)
+        final_reward, external_reward, internal_reward = calculate_final_reward(full_sampled_seq, seq_pre)
         rewards[-1] = final_reward.numpy()
         final_rewards.append(rewards[-1])
 
@@ -292,6 +294,8 @@ def collect_trajectories_sparse(initial_states_batch, actor, critic, num_steps, 
         all_rewards.extend(rewards)
         all_values.extend(values)
         all_dones.extend(dones)
+        all_external_rewards.append(external_reward)
+        all_internal_rewards.append(internal_reward)
         all_full_sampled_sequences.append(full_sampled_seq)
 
     batch_states = tf.convert_to_tensor(np.array(all_states), dtype=tf.float32)
@@ -313,9 +317,11 @@ def collect_trajectories_sparse(initial_states_batch, actor, critic, num_steps, 
         tf.reshape(batch_dones, (TRAJECTORY_BATCH_SIZE, NUM_STEPS_TO_GENERATE)),
     )
     average_final_rewards = tf.reduce_mean(final_rewards)
+    average_external_rewards = tf.reduce_mean(all_external_rewards)
+    average_internal_rewards = tf.reduce_mean(all_internal_rewards)
 
     return (batch_states, batch_actions, batch_log_probs, batch_advantages, batch_returns,
-            batch_full_sampled_sequences, batch_seq_pretrained, average_final_rewards)
+            batch_full_sampled_sequences, batch_seq_pretrained, average_final_rewards, average_external_rewards, average_internal_rewards)
 
 
 # --- MAE Sequence Regularization - Unchanged ---
@@ -388,6 +394,8 @@ actor_loss_history = []
 critic_loss_history = []
 regularization_loss_history = []
 entropy_history = []
+external_reward_history = []
+internal_reward_history = []
 reward_history = []
 
 
@@ -417,7 +425,7 @@ for epoch in range(EPOCHS):
         continue # Skip to next epoch
 
     (states, actions, old_log_probs, advantages, returns,
-     full_sequences_sampled,seq_pretrained_collected,average_final_rewards) = trajectory_data
+     full_sequences_sampled,seq_pretrained_collected,average_final_rewards, average_external_rewards, average_internal_rewards) = trajectory_data
 
     print(f"  Collected {states.shape[0]} total steps.")
 
@@ -486,6 +494,8 @@ for epoch in range(EPOCHS):
         critic_loss_history.append(critic_loss_epoch / n_updates)
         regularization_loss_history.append(reg_loss_epoch / n_updates)
         entropy_history.append(entropy_epoch / n_updates)
+        external_reward_history.append(average_external_rewards.numpy())
+        internal_reward_history.append(average_internal_rewards.numpy())
         reward_history.append(average_final_rewards.numpy())
     else:
         print("  No PPO updates performed in this epoch.")
@@ -558,6 +568,8 @@ history_df = pd.DataFrame({
     'Critic_Loss': critic_loss_history,
     'Regularization_Loss': regularization_loss_history,
     'Reward': reward_history,
+    'External_Reward': external_reward_history,
+    'Internal_Reward': internal_reward_history,
     'Entropy': entropy_history
 })
 history_df.to_csv(f"{data_folder}/training_history.csv", index=False)
