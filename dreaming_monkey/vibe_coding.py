@@ -30,11 +30,11 @@ LAMBDA_GAE = 1.0
 CLIP_EPSILON = 0.2
 CRITIC_LOSS_COEF = 1.0
 ENTROPY_COEF = 0.0
-REGULARIZATION_COEF = 1 # lambda_reg
+REGULARIZATION_COEF = 1.5 # lambda_reg
 SAMPLING_SIGMA = 0.01# Fixed stddev for sampling policy N(mu, sigma)
 
 # Training loop HPs
-EPOCHS = 300
+EPOCHS = 100
 TRAJECTORY_BATCH_SIZE = 16 # Number of initial sequences to generate trajectories from in one go
 NUM_STEPS_TO_GENERATE = 24 # Length of each generated trajectory/sequence (1 week)
 PPO_UPDATE_EPOCHS = 4 # Number of PPO update epochs per trajectory
@@ -202,14 +202,11 @@ def generate_sequence_sampling(model, initial_sequence, num_steps_to_generate, s
 @tf.function
 def calculate_final_reward(generated_sequence_sampled, pretrained_sequence):
 
-
     reward = - tf.reduce_mean(generated_sequence_sampled)
-
     #add regularization term
     mae_loss = tf.reduce_mean(tf.abs(generated_sequence_sampled - pretrained_sequence))
 
-
-    return reward - mae_loss * REGULARIZATION_COEF, reward, mae_loss # Return the final reward
+    return reward - mae_loss * REGULARIZATION_COEF, reward, -mae_loss # Return the final reward
 
 
 # --- GAE Calculation - Corrected for Batch Size > 1 ---
