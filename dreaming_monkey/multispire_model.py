@@ -20,6 +20,7 @@ import argparse
 import math
 import time
 import os # For saving models
+import pandas as pd
 
 # --- 1. Graph Construction ---
 def create_graph_data(locations, threshold=None, k=None):
@@ -227,42 +228,82 @@ class STGNN(nn.Module):
            predictions = predictions.squeeze(-1) # -> (batch_size, num_nodes, pred_len)
 
         return predictions
+    
+def calculate_distance(lat1, lon1, lat2, lon2):
+        # Haversine formula to calculate the distance between two points on the Earth
+        R = 6371e3  # Radius of the Earth in meters
+        phi1 = np.radians(lat1)
+        phi2 = np.radians(lat2)
+        delta_phi = np.radians(lat2 - lat1)
+        delta_lambda = np.radians(lon2 - lon1)
+
+        a = np.sin(delta_phi / 2) ** 2 + np.cos(phi1) * np.cos(phi2) * np.sin(delta_lambda / 2) ** 2
+        c = 2 * np.arctan2(np.sqrt(a), np.sqrt(1 - a))
+
+        return R * c
 
 
 # --- 4. Training Setup ---
 def run_training(args, device):
     """Main training loop."""
 
+    #select spires to train on
+
+    rsu = [44.4901162203284, 11.3398356513878]
+
+    radius = 1000 #m
+
+    folder_path_spires = "./sensor_data/"
+    spires_list = []
+
+    #load all spires in the radius
+    for file in os.listdir(folder_path_spires):
+        if file.endswith(".csv"):
+            #get the coordinates from the filename
+            coordinates = file.split("_")[2].split("[")[1].split("]")[0].split(",")
+            lat = float(coordinates[0])
+            lon = float(coordinates[1])
+            #calculate the distance
+            distance = calculate_distance(rsu[0], rsu[1], lat, lon)
+            print(f"Distance from RSU to {file}: {distance} m")
+            if distance <= radius:
+                spires_list.append(file)
+
     # --- Dummy Data & Graph ---
     # Replace with your actual data loading
     print("Loading data...")
-    num_spires = 60
-    total_timesteps = 1000 # Example
+    num_spires = len(spires_list)
     num_features = 1      # Just car counts
 
-    # Create synthetic data (replace with real data!)
-    # Shape: (num_spires, total_timesteps, num_features)
-    raw_data = np.random.rand(num_spires, total_timesteps, num_features) * 100
-    # Create synthetic locations (replace with real data!)
-    # Shape: (num_spires, 2)
-    locations = np.random.rand(num_spires, 2) * 10 # Example scale
+    data_spires = []
+    locations_spires = []
+    for spire in spires_list:
+        df = pd.read_csv(os.path.join(folder_path_spires, spire))
+        data_spires.append(df.values)
+        coordinates = file.split("_")[2].split("[")[1].split("]")[0].split(",")
+
+        lat = float(coordinates[0])
+        lon = float(coordinates[1])
+        locations_spires.append([lat, lon])
+
+    total_timesteps = df.shape[0] # Assuming all spires have the same number of timesteps
+    
+    #transform the data to a numpy array
+    locations = np.array(locations_spires)
+    raw_data = np.array(data_spires)
 
     # --- Preprocessing ---
-    # IMPORTANT: Scale your data (e.g., StandardScaler per spire or globally)
-    # Fit scaler ONLY on training data
-    # Example: Scaling per spire
-    scalers = [StandardScaler() for _ in range(num_spires)]
-    scaled_data = np.zeros_like(raw_data)
-    # Example: Split data (adjust indices for your needs)
-    train_split = int(total_timesteps * 0.7)
-    val_split = int(total_timesteps * 0.85)
 
-    # Fit scalers on training data only
-    for i in range(num_spires):
-        scaled_data[i, :train_split, :] = scalers[i].fit_transform(raw_data[i, :train_split, :])
-    # Transform val/test data
-    for i in range(num_spires):
-        scaled_data[i, train_split:, :] = scalers[i].transform(raw_data[i, train_split:, :])
+    Scaler = StandardScaler()
+    # Fit scaler on the entire dataset
+    scaled_data = Scaler.fit_transform(raw_data.reshape(-1, num_features)).reshape(num_spires, total_timesteps, num_features)
+
+    #save scaler for later use
+    np.save("scaler.npy", Scaler.scale_)
+    np.save("scaler_mean.npy", Scaler.mean_)
+
+
+
 
     # --- Create Graph ---
     print("Creating graph structure...")
