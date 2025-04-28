@@ -14,13 +14,19 @@ except ImportError:
     GCNConv = None # Or define a dummy class
 
 import numpy as np
-from sklearn.metrics.pairwise import euclidean_distances
+from sklearn.metrics.pairwise import haversine_distances
 from sklearn.preprocessing import StandardScaler
 import argparse
 import math
 import time
 import os # For saving models
 import pandas as pd
+
+generated_data_folder = f"./multispire_generated_data/{time.strftime('%Y-%m-%d_%H-%M-%S')}/"
+if not os.path.exists(generated_data_folder):
+    os.makedirs(generated_data_folder)
+    print(f"Created directory: {generated_data_folder}")
+
 
 # --- 1. Graph Construction ---
 def create_graph_data(locations, threshold=None, k=None):
@@ -39,7 +45,7 @@ def create_graph_data(locations, threshold=None, k=None):
                edge_weight: Tensor shape (num_edges,)
     """
     num_spires = locations.shape[0]
-    dist_mx = euclidean_distances(locations, locations)
+    dist_mx = haversine_distances(locations, locations)
 
     if threshold is not None:
         adj_matrix = np.where(dist_mx <= threshold, 1, 0)
@@ -280,7 +286,7 @@ def run_training(args, device):
     for spire in spires_list:
         df = pd.read_csv(os.path.join(folder_path_spires, spire))
         data_spires.append(df.values)
-        coordinates = file.split("_")[2].split("[")[1].split("]")[0].split(",")
+        coordinates = spire.split("_")[2].split("[")[1].split("]")[0].split(",")
 
         lat = float(coordinates[0])
         lon = float(coordinates[1])
@@ -292,38 +298,39 @@ def run_training(args, device):
     locations = np.array(locations_spires)
     raw_data = np.array(data_spires)
 
-    # --- Preprocessing ---
+    #save spires list
+    np.save(generated_data_folder+"spires_list.npy", np.array(spires_list))
+    #save locations
 
+    # --- Preprocessing ---
     Scaler = StandardScaler()
     # Fit scaler on the entire dataset
     scaled_data = Scaler.fit_transform(raw_data.reshape(-1, num_features)).reshape(num_spires, total_timesteps, num_features)
 
     #save scaler for later use
-    np.save("scaler.npy", Scaler.scale_)
-    np.save("scaler_mean.npy", Scaler.mean_)
-
-
-
+    np.save(generated_data_folder+"scaler.npy", Scaler.scale_)
+    np.save(generated_data_folder+"scaler_mean.npy", Scaler.mean_)
 
     # --- Create Graph ---
     print("Creating graph structure...")
     # Use a distance threshold (adjust value based on your location scale)
-    edge_index, edge_weight = create_graph_data(locations, threshold=args.dist_threshold)
+    edge_index, edge_weight = create_graph_data(locations, threshold=args.dist_threshold, k=args.knn)
     edge_index = edge_index.to(device)
     edge_weight = edge_weight.to(device) # Pass weights if calculated and meaningful
 
-    # --- Datasets and DataLoaders ---
-    print("Creating datasets...")
-    train_data = scaled_data[:, :train_split, :]
-    val_data = scaled_data[:, train_split:val_split, :]
-    # test_data = scaled_data[:, val_split:, :] # Keep test set separate
+    train_dataset = SpireTimeSeriesDataset(scaled_data, args.seq_len, args.pred_len)
 
-    train_dataset = SpireTimeSeriesDataset(train_data, args.seq_len, args.pred_len)
-    val_dataset = SpireTimeSeriesDataset(val_data, args.seq_len, args.pred_len)
+    # train_loader = DataLoader(train_dataset, batch_size=args.batch_size, shuffle=True, drop_last=True)
+
+    #val split
+    val_size = int(0.2 * len(train_dataset))
+    train_size = len(train_dataset) - val_size
+    train_dataset, val_dataset = torch.utils.data.random_split(train_dataset, [train_size, val_size])
 
     train_loader = DataLoader(train_dataset, batch_size=args.batch_size, shuffle=True, drop_last=True)
     val_loader = DataLoader(val_dataset, batch_size=args.batch_size, shuffle=False, drop_last=True)
-    print(f"Train samples: {len(train_dataset)}, Val samples: {len(val_dataset)}")
+
+    print(f"Train size: {len(train_loader)}, Validation size: {len(val_loader)}")
 
     # --- Model, Loss, Optimizer ---
     print("Initializing model...")
@@ -403,10 +410,12 @@ def run_training(args, device):
             patience_counter = 0
             # Save the best model
             if args.save_path:
-                 if not os.path.exists(os.path.dirname(args.save_path)):
-                      os.makedirs(os.path.dirname(args.save_path))
-                 torch.save(model.state_dict(), args.save_path)
-                 print(f"--- Best model saved to {args.save_path} ---")
+                #concatenate save_path with data folder
+                save_path = os.path.join(generated_data_folder, args.save_path)
+                if not os.path.exists(os.path.dirname(save_path)):
+                    os.makedirs(os.path.dirname(save_path))
+                torch.save(model.state_dict(), save_path)
+                print(f"--- Best model saved to {save_path} ---")
         else:
             patience_counter += 1
             if patience_counter >= args.patience:
@@ -424,21 +433,23 @@ def run_training(args, device):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="STGNN Pre-training for Spire Counts")
-    parser.add_argument('--epochs', type=int, default=100, help='Number of training epochs')
+    parser.add_argument('--epochs', type=int, default=200, help='Number of training epochs')
     parser.add_argument('--batch_size', type=int, default=32, help='Batch size')
     parser.add_argument('--lr', type=float, default=0.001, help='Learning rate')
-    parser.add_argument('--seq_len', type=int, default=12, help='Input sequence length (e.g., 12 hours)')
-    parser.add_argument('--pred_len', type=int, default=3, help='Prediction horizon (e.g., 3 hours)')
+    parser.add_argument('--seq_len', type=int, default=24, help='Input sequence length (e.g., 12 hours)')
+    parser.add_argument('--pred_len', type=int, default=1, help='Prediction horizon (e.g., 3 hours)')
     parser.add_argument('--gcn_dim', type=int, default=32, help='Hidden dimension for GCN layers')
     parser.add_argument('--gru_dim', type=int, default=64, help='Hidden dimension for GRU layers')
-    parser.add_argument('--dist_threshold', type=float, default=2.0, help='Distance threshold for graph edges (adjust based on location scale)')
-    # parser.add_argument('--knn', type=int, default=5, help='Number of nearest neighbors for graph edges (use instead of threshold)')
-    parser.add_argument('--dropout', type=float, default=0.1, help='Dropout rate')
+    parser.add_argument('--dist_threshold', type=float, default=None, help='Distance threshold for graph edges (adjust based on location scale)')
+    parser.add_argument('--knn', type=int, default=5, help='Number of nearest neighbors for graph edges (use instead of threshold)')
+    parser.add_argument('--dropout', type=float, default=0.0, help='Dropout rate')
     parser.add_argument('--patience', type=int, default=10, help='Patience for early stopping')
-    parser.add_argument('--save_path', type=str, default='pretrained_stgnn.pth', help='Path to save the best model')
+    parser.add_argument('--save_path', type=str, default='./pretrained_stgnn.pth', help='Path to save the best model')
     parser.add_argument('--gpu', type=int, default=0, help='GPU ID to use, -1 for CPU')
+    parser.add_argument('--seed', type=int, default=42, help='Random seed for reproducibility')
 
     args = parser.parse_args()
+
 
     if args.gpu >= 0 and torch.cuda.is_available():
         device = torch.device(f"cuda:{args.gpu}")
@@ -446,5 +457,20 @@ if __name__ == "__main__":
     else:
         device = torch.device("cpu")
         print("Using CPU")
+
+    # Set random seeds for reproducibility
+    seed = args.seed        
+    np.random.seed(seed)       # Numpy module
+    torch.manual_seed(seed)    # PyTorch CPU operations
+
+    # If you are using CUDA (GPU)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed(seed)         # Current GPU
+        torch.cuda.manual_seed_all(seed) 
+
+    #save all parameters in a yaml
+    import yaml
+    with open(generated_data_folder+"params.yaml", 'w') as file:
+        yaml.dump(vars(args), file)
 
     run_training(args, device)
