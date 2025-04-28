@@ -15,12 +15,13 @@ except ImportError:
 
 import numpy as np
 from sklearn.metrics.pairwise import haversine_distances
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import  MinMaxScaler
 import argparse
 import math
 import time
 import os # For saving models
 import pandas as pd
+import joblib
 
 generated_data_folder = f"./multispire_generated_data/{time.strftime('%Y-%m-%d_%H-%M-%S')}/"
 if not os.path.exists(generated_data_folder):
@@ -303,13 +304,14 @@ def run_training(args, device):
     #save locations
 
     # --- Preprocessing ---
-    Scaler = StandardScaler()
+    #scale the data from 0 to 1
+    Scaler = MinMaxScaler(feature_range=(0, 1))
     # Fit scaler on the entire dataset
     scaled_data = Scaler.fit_transform(raw_data.reshape(-1, num_features)).reshape(num_spires, total_timesteps, num_features)
 
-    #save scaler for later use
-    np.save(generated_data_folder+"scaler.npy", Scaler.scale_)
-    np.save(generated_data_folder+"scaler_mean.npy", Scaler.mean_)
+    #save scaler 
+    joblib.dump(Scaler, generated_data_folder+"minmax_scaler.joblib")
+
 
     # --- Create Graph ---
     print("Creating graph structure...")
