@@ -1,0 +1,14 @@
+batch_size: 32
+dist_threshold: null
+dropout: 0.1
+epochs: 200
+gcn_dim: 32
+gpu: 0
+gru_dim: 64
+knn: 8
+lr: 0.001
+patience: 10
+pred_len: 1
+save_path: ./pretrained_stgnn.pth
+seed: 42
+seq_len: 24

@@ -148,10 +148,13 @@ class STGNN(nn.Module):
         # Spatial Layer
         self.gcn = GCNConv(num_features, gcn_hidden_dim)
 
+
         # Temporal Layer
         # Input to GRU will be the spatially processed features
         self.gru = nn.GRU(gcn_hidden_dim, gru_hidden_dim, batch_first=True) # batch_first = True helps
 
+        
+        self.gru2 = nn.GRU(gru_hidden_dim, gru_hidden_dim, batch_first=True) # batch_first = True helps
         self.dropout = nn.Dropout(p=dropout)
 
         # Output Layer: Predicts pred_len steps for each node's feature
@@ -208,12 +211,16 @@ class STGNN(nn.Module):
         gru_input_sequence = gru_input_sequence.permute(0, 2, 1, 3) # -> (batch, node, seq, hidden)
         gru_input_sequence = gru_input_sequence.reshape(batch_size * self.num_nodes, self.seq_len, self.gcn_hidden_dim)
 
+
         # Apply GRU
         # Initialize hidden state: (D*num_layers, N, Hout) = (1, batch*nodes, gru_hidden)
         # h0 = torch.zeros(1, batch_size * self.num_nodes, self.gru_hidden_dim).to(device)
         # gru_output shape: (batch*nodes, seq_len, gru_hidden)
         # hidden state shape: (1, batch*nodes, gru_hidden)
         gru_output, hidden = self.gru(gru_input_sequence) # Pass h0=h0 if needed
+
+        # Apply second GRU layer if needed
+        gru_output, hidden = self.gru2(gru_output) # Uncomment if using a second GRU layer
 
         # Take the output corresponding to the *last* time step from the GRU sequence output
         # gru_output shape: (batch*nodes, seq_len, gru_hidden) -> select last step
@@ -425,13 +432,6 @@ def run_training(args, device):
                 break
 
     print("Pre-training finished.")
-    # Load the best model state for potential later use
-    if args.save_path and os.path.exists(args.save_path):
-        model.load_state_dict(torch.load(args.save_path))
-        print(f"Loaded best model from {args.save_path}")
-
-    # Remember to potentially use the scalers to inverse_transform predictions if needed
-    # Example: prediction_real_scale = scalers[spire_index].inverse_transform(prediction_scaled)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="STGNN Pre-training for Spire Counts")
@@ -440,11 +440,11 @@ if __name__ == "__main__":
     parser.add_argument('--lr', type=float, default=0.001, help='Learning rate')
     parser.add_argument('--seq_len', type=int, default=24, help='Input sequence length (e.g., 12 hours)')
     parser.add_argument('--pred_len', type=int, default=1, help='Prediction horizon (e.g., 3 hours)')
-    parser.add_argument('--gcn_dim', type=int, default=32, help='Hidden dimension for GCN layers')
+    parser.add_argument('--gcn_dim', type=int, default=64, help='Hidden dimension for GCN layers')
     parser.add_argument('--gru_dim', type=int, default=64, help='Hidden dimension for GRU layers')
     parser.add_argument('--dist_threshold', type=float, default=None, help='Distance threshold for graph edges (adjust based on location scale)')
-    parser.add_argument('--knn', type=int, default=5, help='Number of nearest neighbors for graph edges (use instead of threshold)')
-    parser.add_argument('--dropout', type=float, default=0.0, help='Dropout rate')
+    parser.add_argument('--knn', type=int, default=8, help='Number of nearest neighbors for graph edges (use instead of threshold)')
+    parser.add_argument('--dropout', type=float, default=0.1, help='Dropout rate')
     parser.add_argument('--patience', type=int, default=10, help='Patience for early stopping')
     parser.add_argument('--save_path', type=str, default='./pretrained_stgnn.pth', help='Path to save the best model')
     parser.add_argument('--gpu', type=int, default=0, help='GPU ID to use, -1 for CPU')
