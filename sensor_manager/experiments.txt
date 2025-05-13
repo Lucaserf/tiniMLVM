@@ -38,3 +38,7 @@ experiment attack_2_5:
 total attacks: 33
 detected attacks: 4
 percentage of detected attacks: 12.12%
+experiment attack_0:
+total attacks: 33
+detected attacks: 3
+percentage of detected attacks: 9.09%
